@@ -554,7 +554,8 @@ under the License.
     https://www.eclemma.org/jacoco/trunk/doc/prepare-agent-mojo.html
     -->
     <argLine>-Xms512m -Xmx1024m -Xss256k</argLine>
-
+    <skipTests>false</skipTests>
+    <skipITs>false</skipITs>
     <ianal.phase>verify</ianal.phase>
     <sass.skip>false</sass.skip>
     <remote-resources.skip>true</remote-resources.skip>
@@ -1795,6 +1796,7 @@ under the License.
           <artifactId>maven-surefire-plugin</artifactId>
           <version>3.5.5</version>
           <configuration>
+            <skipTests>${skipTests}</skipTests>
             <redirectTestOutputToFile>true</redirectTestOutputToFile>
             <encoding>utf-8</encoding>
             <runOrder>alphabetical</runOrder>
@@ -1805,6 +1807,7 @@ under the License.
           <artifactId>maven-failsafe-plugin</artifactId>
           <version>3.5.5</version>
           <configuration>
+            <skipITs>${skipITs}</skipITs>
             <redirectTestOutputToFile>true</redirectTestOutputToFile>
             <runOrder>alphabetical</runOrder>
           </configuration>
