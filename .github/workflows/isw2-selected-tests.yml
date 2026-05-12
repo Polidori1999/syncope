@@ -1,0 +1,48 @@
+name: "ISW2 Selected Tests"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  selected-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Java JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: 25
+          cache: 'maven'
+
+      - name: Setup Maven
+        uses: stCarolas/setup-maven@v5.1
+        with:
+          maven-version: 3.9.6
+
+      - name: Test ContentLoaderHandler
+        run: >
+          mvn -pl core/persistence-neo4j -am
+          -DskipTests=false
+          -Dmaven.build.cache.skipCache=true
+          -Dmodernizer.skip=true
+          -Dianal.phase=none
+          -Drat.skip=true
+          -Dcheckstyle.skip=true
+          test
+
+      - name: Test DefaultJobManager
+        run: >
+          mvn -pl core/provisioning-java -am
+          -DskipTests=false
+          -Dmaven.build.cache.skipCache=true
+          -Dmodernizer.skip=true
+          -Dianal.phase=none
+          -Drat.skip=true
+          -Dcheckstyle.skip=true
+          test
