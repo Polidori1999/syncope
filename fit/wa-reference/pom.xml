@@ -186,7 +186,7 @@ under the License.
           </images>
         </configuration>
         <executions>
-          <execution>
+         <!-- <execution>
             <id>start-docker-images</id>
             <phase>pre-integration-test</phase>
             <goals>
@@ -195,7 +195,7 @@ under the License.
             <configuration>
               <skip>${skipTests}</skip>              
             </configuration>
-          </execution>
+          </execution>-
           <execution>
             <id>stop-docker-images</id>
             <phase>post-integration-test</phase>
@@ -206,7 +206,7 @@ under the License.
             <configuration>
               <skip>${skipTests}</skip>              
             </configuration>
-          </execution>
+          </execution>-->
         </executions>
       </plugin>
 
@@ -301,7 +301,7 @@ under the License.
           </deployables>
         </configuration>
         <executions>
-          <execution>
+          <!--<execution>
             <id>start-container</id>
             <phase>pre-integration-test</phase>
             <goals>
@@ -310,7 +310,7 @@ under the License.
             <configuration>
               <skip>${skipTests}</skip>
             </configuration>
-          </execution>
+          </execution>-
           <execution>
             <id>stop-container</id>
             <phase>post-integration-test</phase>
@@ -320,7 +320,7 @@ under the License.
             <configuration>
               <skip>${skipTests}</skip>
             </configuration>
-          </execution>
+          </execution>-->
         </executions>
       </plugin>
       
