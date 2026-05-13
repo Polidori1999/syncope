@@ -1,4 +1,4 @@
-name: "ISW2 Selected Tests + SonarQube"
+name: "ISW2 Selected Tests + SonarCloud"
 
 on:
   push:
@@ -24,7 +24,7 @@ jobs:
           java-version: 25
           cache: 'maven'
 
-      - name: Cache SonarQube packages
+      - name: Cache SonarCloud packages
         uses: actions/cache@v4
         with:
           path: ~/.sonar/cache
@@ -58,10 +58,19 @@ jobs:
           -Dcheckstyle.skip=true
           test
 
-      - name: Build and analyze with SonarQube
+      - name: Analyze with SonarCloud
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         run: >
-          mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+          mvn -B -e
+          -DskipTests=true
+          -Dmaven.build.cache.skipCache=true
+          -Dmodernizer.skip=true
+          -Dianal.phase=none
+          -Drat.skip=true
+          -Dcheckstyle.skip=true
+          org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
           -Dsonar.projectKey=polidori1999_provasmell
+          -Dsonar.organization=polidori1999
+          -Dsonar.host.url=https://sonarcloud.io
           -Dsonar.token=${{ secrets.SONAR_TOKEN }}
