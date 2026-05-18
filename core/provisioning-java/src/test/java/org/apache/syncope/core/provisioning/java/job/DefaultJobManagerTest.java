@@ -14,12 +14,14 @@ import org.apache.syncope.core.persistence.api.dao.ReportDAO;
 import org.apache.syncope.core.persistence.api.dao.TaskDAO;
 import org.apache.syncope.core.persistence.api.entity.Implementation;
 import org.apache.syncope.core.persistence.api.entity.task.SchedTask;
+import org.apache.syncope.core.persistence.api.entity.task.Task;
 import org.apache.syncope.core.persistence.api.entity.task.TaskUtils;
 import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
 import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
 import org.apache.syncope.core.provisioning.api.job.JobManager;
 import org.apache.syncope.core.spring.security.SecurityProperties;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -168,6 +170,182 @@ class DefaultJobManagerTest {
         assertEquals("delegate-key", context.getData().get(JobManager.DELEGATE_IMPLEMENTATION));
         assertEquals("sampleValue", context.getData().get("sampleKey"));
         verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Test
+    void executeShouldNotScheduleInactiveTask() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(false);
+        when(task.getKey()).thenReturn("inacttive-task-key");
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+
+        OffsetDateTime startAt = null;
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+
+    }
+
+    @Test
+    void executeShouldRejectNullTask() {
+        SchedTask task = null;
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+
+    }
+    /*Il metodo deve rifiutare il task perché non è possibile determinare il job delegate.
+    Non deve schedulare alcun job.*/
+    @Test
+    void executeShouldRejectTaskWithoutJobDelegate(){
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+
+
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+    @Test
+    void executeWithPastStartAtCurrentlyDelegatesToScheduler(){
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().minusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+
+        verify(taskJob).setContext(any());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che startAt nel passato debba essere rifiutato")
+    @Test
+    void executeShouldRejectPastStartAtAccordingToInitialOracle() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().minusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+    @Test
+    void executeShouldRejectNullExecutor() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = null;
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
     }
 
 }
