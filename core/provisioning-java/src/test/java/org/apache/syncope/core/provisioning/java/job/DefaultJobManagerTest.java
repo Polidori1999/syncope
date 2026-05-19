@@ -1,6 +1,7 @@
 package org.apache.syncope.core.provisioning.java.job;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
+import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -20,10 +21,13 @@ import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
 import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
 import org.apache.syncope.core.provisioning.api.job.JobManager;
 import org.apache.syncope.core.spring.security.SecurityProperties;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
+import static org.junit.Assert.*;
+
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -35,8 +39,21 @@ import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Map;
 
-@ExtendWith(MockitoExtension.class)
-class DefaultJobManagerTest {
+@RunWith(MockitoJUnitRunner.class)
+public class DefaultJobManagerTest {
+
+    @FunctionalInterface
+    private interface ThrowingAction {
+        void run() throws Exception;
+    }
+
+    private static void assertDoesNotThrow(final ThrowingAction action) {
+        try {
+            action.run();
+        } catch (Exception e) {
+            fail("Unexpected exception: " + e.getClass().getName() + " - " + e.getMessage());
+        }
+    }
 
     @Mock
     private DomainHolder<?> domainHolder;
@@ -72,8 +89,8 @@ class DefaultJobManagerTest {
     @Mock
     private ConfigurableListableBeanFactory beanFactory;
 
-    @BeforeEach
-    void setup(){
+    @Before
+    public void setup(){
         jobManager = new DefaultJobManager(domainHolder, scheduler, jobStatusDAO, taskDAO, reportDAO, implementationDAO,
                 taskUtilsFactory, confParamOps, securityProperties, ctx);
 
@@ -81,7 +98,7 @@ class DefaultJobManagerTest {
 
 
     @Test
-    void executeShouldScheduleActiveTaskInFuture(){
+    public void executeShouldScheduleActiveTaskInFuture(){
         //T2
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
@@ -126,7 +143,7 @@ class DefaultJobManagerTest {
     }
 
     @Test
-    void executeShouldScheduleActiveTaskNowWithDryRunAndJobData() {
+    public void executeShouldScheduleActiveTaskNowWithDryRunAndJobData() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -174,7 +191,7 @@ class DefaultJobManagerTest {
     }
 
     @Test
-    void executeShouldNotScheduleInactiveTask() {
+    public void executeShouldNotScheduleInactiveTask() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(false);
         when(task.getKey()).thenReturn("inacttive-task-key");
@@ -203,7 +220,7 @@ class DefaultJobManagerTest {
     }
 
     @Test
-    void executeShouldRejectNullTask() {
+    public void executeShouldRejectNullTask() {
         SchedTask task = null;
 
         OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
@@ -225,7 +242,7 @@ class DefaultJobManagerTest {
     /*Il metodo deve rifiutare il task perché non è possibile determinare il job delegate.
     Non deve schedulare alcun job.*/
     @Test
-    void executeShouldRejectTaskWithoutJobDelegate(){
+    public void executeShouldRejectTaskWithoutJobDelegate(){
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
 
@@ -252,7 +269,7 @@ class DefaultJobManagerTest {
     }
 
     @Test
-    void executeWithPastStartAtCurrentlyDelegatesToScheduler(){
+    public void executeWithPastStartAtCurrentlyDelegatesToScheduler(){
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -288,9 +305,9 @@ class DefaultJobManagerTest {
         verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
     }
 
-    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che startAt nel passato debba essere rifiutato")
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che startAt nel passato debba essere rifiutato")
     @Test
-    void executeShouldRejectPastStartAtAccordingToInitialOracle() {
+    public void executeShouldRejectPastStartAtAccordingToInitialOracle() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -319,9 +336,9 @@ class DefaultJobManagerTest {
         verifyNoInteractions(beanFactory);
     }
 
-    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor null debba essere rifiutato")
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor null debba essere rifiutato")
     @Test
-    void executeShouldRejectNullExecutorAccordingToInitialOracle() {
+    public void executeShouldRejectNullExecutorAccordingToInitialOracle() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -351,7 +368,7 @@ class DefaultJobManagerTest {
     }
 
     @Test
-    void executeWithNullExecutorCurrentlyDelegatesToScheduler() {
+    public void executeWithNullExecutorCurrentlyDelegatesToScheduler() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -393,9 +410,9 @@ class DefaultJobManagerTest {
         verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
     }
 
-    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor vuoto debba essere rifiutato")
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor vuoto debba essere rifiutato")
     @Test
-    void executeShouldRejectEmptyExecutorAccordingToInitialOracle() {
+    public void executeShouldRejectEmptyExecutorAccordingToInitialOracle() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -425,7 +442,7 @@ class DefaultJobManagerTest {
     }
 
     @Test
-    void executeWithEmptyExecutorCurrentlyDelegatesToScheduler() {
+    public void executeWithEmptyExecutorCurrentlyDelegatesToScheduler() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -467,9 +484,9 @@ class DefaultJobManagerTest {
         verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
     }
 
-    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor blank debba essere rifiutato")
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor blank debba essere rifiutato")
     @Test
-    void executeShouldRejectBlankExecutorAccordingToInitialOracle() {
+    public void executeShouldRejectBlankExecutorAccordingToInitialOracle() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -498,7 +515,7 @@ class DefaultJobManagerTest {
         verifyNoInteractions(beanFactory);
     }
     @Test
-    void executeWithBlankExecutorCurrentlyDelegatesToScheduler() {
+    public void executeWithBlankExecutorCurrentlyDelegatesToScheduler() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -540,9 +557,9 @@ class DefaultJobManagerTest {
         verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
     }
 
-    @Disabled("Oracolo iniziale non soddisfatto: jobData null causa NullPointerException invece di essere rifiutato o gestito esplicitamente")
+    @Ignore("Oracolo iniziale non soddisfatto: jobData null causa NullPointerException invece di essere rifiutato o gestito esplicitamente")
     @Test
-    void executeShouldHandleNullJobData() {
+    public void executeShouldHandleNullJobData() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -578,7 +595,7 @@ class DefaultJobManagerTest {
     }
 
     @Test
-    void executeWithNullJobDataCurrentlyThrowsNullPointerException() {
+    public void executeWithNullJobDataCurrentlyThrowsNullPointerException() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -609,7 +626,7 @@ class DefaultJobManagerTest {
 
 
     @Test
-    void executeShouldRegisterActiveTaskWhenStartAtIsNull() {
+    public void executeShouldRegisterActiveTaskWhenStartAtIsNull() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
