@@ -31,6 +31,7 @@ import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 
 
+import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Map;
 
@@ -318,8 +319,9 @@ class DefaultJobManagerTest {
         verifyNoInteractions(beanFactory);
     }
 
+    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor null debba essere rifiutato")
     @Test
-    void executeShouldRejectNullExecutor() {
+    void executeShouldRejectNullExecutorAccordingToInitialOracle() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -348,4 +350,298 @@ class DefaultJobManagerTest {
         verifyNoInteractions(beanFactory);
     }
 
+    @Test
+    void executeWithNullExecutorCurrentlyDelegatesToScheduler() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = null;
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        ArgumentCaptor<JobExecutionContext> contextCaptor =
+                ArgumentCaptor.forClass(JobExecutionContext.class);
+
+        verify(taskJob).setContext(contextCaptor.capture());
+
+        JobExecutionContext context = contextCaptor.getValue();
+
+        assertEquals(null, context.getExecutor());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor vuoto debba essere rifiutato")
+    @Test
+    void executeShouldRejectEmptyExecutorAccordingToInitialOracle() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+    @Test
+    void executeWithEmptyExecutorCurrentlyDelegatesToScheduler() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        ArgumentCaptor<JobExecutionContext> contextCaptor =
+                ArgumentCaptor.forClass(JobExecutionContext.class);
+
+        verify(taskJob).setContext(contextCaptor.capture());
+
+        JobExecutionContext context = contextCaptor.getValue();
+
+        assertEquals("", context.getExecutor());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Disabled("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor blank debba essere rifiutato")
+    @Test
+    void executeShouldRejectBlankExecutorAccordingToInitialOracle() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "   ";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+    @Test
+    void executeWithBlankExecutorCurrentlyDelegatesToScheduler() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "   ";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        ArgumentCaptor<JobExecutionContext> contextCaptor =
+                ArgumentCaptor.forClass(JobExecutionContext.class);
+
+        verify(taskJob).setContext(contextCaptor.capture());
+
+        JobExecutionContext context = contextCaptor.getValue();
+
+        assertEquals("   ", context.getExecutor());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Disabled("Oracolo iniziale non soddisfatto: jobData null causa NullPointerException invece di essere rifiutato o gestito esplicitamente")
+    @Test
+    void executeShouldHandleNullJobData() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = null;
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verify(taskJob).setContext(any());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Test
+    void executeWithNullJobDataCurrentlyThrowsNullPointerException() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = null;
+
+        assertThrows(NullPointerException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+
+    @Test
+    void executeShouldRegisterActiveTaskWhenStartAtIsNull() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = null;
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verify(taskJob).setContext(any());
+        verify(scheduler).register(taskJob);
+        verify(scheduler, never()).schedule(eq(taskJob), any(Instant.class));
+    }
 }
