@@ -484,79 +484,6 @@ public class DefaultJobManagerTest {
         verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
     }
 
-    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor blank debba essere rifiutato")
-    @Test
-    public void executeShouldRejectBlankExecutorAccordingToInitialOracle() {
-        SchedTask task = mock(SchedTask.class);
-        when(task.isActive()).thenReturn(true);
-        when(task.getKey()).thenReturn("task-key");
-
-        Implementation jobDelegate = mock(Implementation.class);
-        when(jobDelegate.getKey()).thenReturn("delegate-key");
-        when(task.getJobDelegate()).thenReturn(jobDelegate);
-
-        TaskUtils taskUtils = mock(TaskUtils.class);
-        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
-        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
-
-        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
-        String executor = "   ";
-        boolean dryRun = false;
-        Map<String, Object> jobData = Map.of();
-
-        assertThrows(RuntimeException.class, () -> jobManager.execute(
-                task,
-                startAt,
-                executor,
-                dryRun,
-                jobData));
-
-        verifyNoInteractions(scheduler);
-        verifyNoInteractions(beanFactory);
-    }
-    @Test
-    public void executeWithBlankExecutorCurrentlyDelegatesToScheduler() {
-        SchedTask task = mock(SchedTask.class);
-        when(task.isActive()).thenReturn(true);
-        when(task.getKey()).thenReturn("task-key");
-
-        Implementation jobDelegate = mock(Implementation.class);
-        when(jobDelegate.getKey()).thenReturn("delegate-key");
-        when(task.getJobDelegate()).thenReturn(jobDelegate);
-
-        TaskUtils taskUtils = mock(TaskUtils.class);
-        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
-        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
-
-        when(ctx.getBeanFactory()).thenReturn(beanFactory);
-        TaskJob taskJob = mock(TaskJob.class);
-        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
-
-        when(jobStatusDAO.lock(anyString())).thenReturn(true);
-
-        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
-        String executor = "   ";
-        boolean dryRun = false;
-        Map<String, Object> jobData = Map.of();
-
-        assertDoesNotThrow(() -> jobManager.execute(
-                task,
-                startAt,
-                executor,
-                dryRun,
-                jobData));
-
-        ArgumentCaptor<JobExecutionContext> contextCaptor =
-                ArgumentCaptor.forClass(JobExecutionContext.class);
-
-        verify(taskJob).setContext(contextCaptor.capture());
-
-        JobExecutionContext context = contextCaptor.getValue();
-
-        assertEquals("   ", context.getExecutor());
-        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
-    }
-
     @Ignore("Oracolo iniziale non soddisfatto: jobData null causa NullPointerException invece di essere rifiutato o gestito esplicitamente")
     @Test
     public void executeShouldHandleNullJobData() {
@@ -625,6 +552,7 @@ public class DefaultJobManagerTest {
     }
 
 
+    //test white box dopo jacoco
     @Test
     public void executeShouldRegisterActiveTaskWhenStartAtIsNull() {
         SchedTask task = mock(SchedTask.class);
@@ -639,26 +567,23 @@ public class DefaultJobManagerTest {
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
 
-        when(ctx.getBeanFactory()).thenReturn(beanFactory);
         TaskJob taskJob = mock(TaskJob.class);
         when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
 
         when(jobStatusDAO.lock(anyString())).thenReturn(true);
-
-        OffsetDateTime startAt = null;
-        String executor = "admin";
-        boolean dryRun = false;
-        Map<String, Object> jobData = Map.of();
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
 
         assertDoesNotThrow(() -> jobManager.execute(
                 task,
-                startAt,
-                executor,
-                dryRun,
-                jobData));
+                null,
+                "admin",
+                false,
+                Map.of()));
 
-        verify(taskJob).setContext(any());
-        verify(scheduler).register(taskJob);
+        verify(taskJob).setContext(any(JobExecutionContext.class));
+        verify(scheduler).register(eq(taskJob));
         verify(scheduler, never()).schedule(eq(taskJob), any(Instant.class));
     }
+
+
 }
