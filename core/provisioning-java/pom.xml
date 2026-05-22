@@ -74,6 +74,13 @@ under the License.
     </dependency>
 
     <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-maven</artifactId>
+      <version>1.24.0</version>
+      <type>maven-plugin</type>
+    </dependency>
+
+    <dependency>
       <groupId>tools.jackson.dataformat</groupId>
       <artifactId>jackson-dataformat-csv</artifactId>
     </dependency>
@@ -147,6 +154,13 @@ under the License.
       <artifactId>junit</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-junit5-plugin</artifactId>
+      <version>1.2.3</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -164,6 +178,27 @@ under the License.
             </goals>
           </execution>
         </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.24.0</version>
+        <configuration>
+          <targetClasses>
+            <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManager*</param>
+          </targetClasses>
+          <targetTests>
+            <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManagerTest</param>
+            <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManagerLoadIT</param>
+          </targetTests>
+          <jvmArgs>
+            <param>-Xms512m</param>
+            <param>-Xmx2048m</param>
+            <param>-Xss1m</param>
+          </jvmArgs>
+          <verbose>true</verbose>
+        </configuration>
       </plugin>
 
       <plugin>

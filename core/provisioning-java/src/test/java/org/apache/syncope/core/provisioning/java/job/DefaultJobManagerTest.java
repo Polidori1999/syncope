@@ -585,5 +585,25 @@ public class DefaultJobManagerTest {
         verify(scheduler, never()).schedule(eq(taskJob), any(Instant.class));
     }
 
+    /** TEST DOPO PIT
+     *il primo per rimuovere un no coverage
+     * il secondo per rimuovere un survived
+     */
+    @Test
+    public void getOrderShouldReturnExpectedOrder() {
+        assertEquals(500, jobManager.getOrder());
+    }
 
+    @Test
+    public void isRunningShouldUnlockWhenLockIsAcquired() {
+        String jobName = "test-job";
+
+        when(jobStatusDAO.lock(jobName)).thenReturn(true);
+
+        boolean running = jobManager.isRunning(jobName);
+
+        assertFalse(running);
+        verify(jobStatusDAO).lock(jobName);
+        verify(jobStatusDAO).unlock(jobName);
+    }
 }
