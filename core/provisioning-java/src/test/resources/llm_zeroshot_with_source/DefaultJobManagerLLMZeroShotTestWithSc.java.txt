@@ -1,0 +1,370 @@
+/*
+ * Short tests for DefaultJobManager covering scheduling, registration, unregistering and lifecycle methods.
+ * These tests use Mockito to mock dependencies and verify interactions with the scheduler and DAOs.
+ *
+ * Note: The source class under test is provided in the uploaded "Testo incollato.txt".
+ * Example lines from the source:
+ * "protected void registerJob(...)" and "public boolean isRunning(final String jobName) { ... }".
+ *
+ */
+
+package org.apache.syncope.core.provisioning.java.job;
+
+import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+
+import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.syncope.common.lib.SyncopeConstants;
+import org.apache.syncope.common.lib.types.IdRepoImplementationType;
+import org.apache.syncope.common.lib.types.TaskType;
+import org.apache.syncope.core.persistence.api.DomainHolder;
+import org.apache.syncope.core.persistence.api.dao.ImplementationDAO;
+import org.apache.syncope.core.persistence.api.dao.JobStatusDAO;
+import org.apache.syncope.core.persistence.api.dao.ReportDAO;
+import org.apache.syncope.core.persistence.api.dao.TaskDAO;
+import org.apache.syncope.core.persistence.api.entity.Implementation;
+import org.apache.syncope.core.persistence.api.entity.Report;
+import org.apache.syncope.core.persistence.api.entity.task.PullTask;
+import org.apache.syncope.core.persistence.api.entity.task.PushTask;
+import org.apache.syncope.core.persistence.api.entity.task.SchedTask;
+import org.apache.syncope.core.persistence.api.entity.task.Task;
+import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
+import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
+import org.apache.syncope.core.provisioning.api.job.JobManager;
+import org.apache.syncope.core.provisioning.api.job.SchedTaskJobDelegate;
+import org.apache.syncope.core.provisioning.java.job.notification.NotificationJob;
+import org.apache.syncope.core.provisioning.java.job.report.ReportJob;
+import org.apache.syncope.core.provisioning.java.pushpull.PullJobDelegate;
+import org.apache.syncope.core.provisioning.java.pushpull.PushJobDelegate;
+import org.apache.syncope.core.spring.security.AuthContextUtils;
+import org.apache.syncope.core.spring.security.SecurityProperties;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.springframework.beans.factory.config.AutowireCapableBeanFactory;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.scheduling.support.CronTrigger;
+import org.mockito.junit.MockitoJUnitRunner;
+
+@RunWith(MockitoJUnitRunner.class)
+public class DefaultJobManagerLLMZeroShotTestWithSc {
+
+    @Mock
+    private DomainHolder<?> domainHolder;
+
+    @Mock
+    private SyncopeTaskScheduler scheduler;
+
+    @Mock
+    private JobStatusDAO jobStatusDAO;
+
+    @Mock
+    private TaskDAO taskDAO;
+
+    @Mock
+    private ReportDAO reportDAO;
+
+    @Mock
+    private ImplementationDAO implementationDAO;
+
+    @Mock
+    private TaskUtilsFactory taskUtilsFactory;
+
+    @Mock
+    private org.apache.syncope.common.keymaster.client.api.ConfParamOps confParamOps;
+
+    @Mock
+    private SecurityProperties securityProperties;
+
+    @Mock
+    private ConfigurableApplicationContext ctx;
+
+    @Mock
+    private AutowireCapableBeanFactory beanFactory;
+
+    private DefaultJobManager jobManager;
+
+    @Before
+    public void setUp() {
+        MockitoAnnotations.initMocks(this);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        // Default behavior: createBean returns a mock Job instance for any requested class
+        when(beanFactory.createBean(any(Class.class))).thenAnswer(invocation -> {
+            Class<?> cls = invocation.getArgument(0);
+            // create a Mockito mock for the Job type
+            Object jobMock = mock(Job.class);
+            return jobMock;
+        });
+
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+
+        jobManager = new DefaultJobManager(
+                domainHolder,
+                scheduler,
+                jobStatusDAO,
+                taskDAO,
+                reportDAO,
+                implementationDAO,
+                taskUtilsFactory,
+                confParamOps,
+                securityProperties,
+                ctx);
+    }
+
+    /**
+     * Test isRunning behavior:
+     * - when jobStatusDAO.lock returns true, isRunning should return false (not running) and unlock should be called.
+     * - when jobStatusDAO.lock returns false, isRunning should return true (running) and unlock should not be called.
+     */
+    @Test
+    public void testIsRunningLockingBehavior() {
+        String jobName = "jobA";
+
+        // Case 1: lock returns true -> not running
+        when(jobStatusDAO.lock(jobName)).thenReturn(true);
+        boolean running = jobManager.isRunning(jobName);
+        assertFalse("Expected not running when lock returns true", running);
+        verify(jobStatusDAO).unlock(jobName);
+
+        // Case 2: lock returns false -> running
+        reset(jobStatusDAO);
+        when(jobStatusDAO.lock(jobName)).thenReturn(false);
+        running = jobManager.isRunning(jobName);
+        assertTrue("Expected running when lock returns false", running);
+        verify(jobStatusDAO, never()).unlock(jobName);
+    }
+
+    /**
+     * Test registerJob schedules a job via scheduler.register when no cronExpression and no startAt are provided.
+     */
+    @Test
+    public void testRegisterJobSchedulesRegister() {
+        // Prepare context
+        JobExecutionContext context = new JobExecutionContext("domain", "jobName", "executor", false);
+
+        // Ensure isRunning returns false (so registerJob proceeds)
+        when(jobStatusDAO.lock(context.getJobName())).thenReturn(true);
+
+        // Call protected method via reflection
+        jobManager.registerJob(context, TaskJob.class, null, null);
+
+        // verify scheduler.register called with a Job instance
+        verify(scheduler).register(any(Job.class));
+    }
+
+    /**
+     * Test registerJob schedules with CronTrigger when cronExpression provided and not running.
+     */
+    @Test
+    public void testRegisterJobSchedulesCronTrigger() {
+        JobExecutionContext context = new JobExecutionContext("domain", "jobCron", "executor", false);
+        when(jobStatusDAO.lock(context.getJobName())).thenReturn(true);
+
+        String cron = "0 0 12 * * ?";
+        jobManager.registerJob(context, TaskJob.class, cron, null);
+
+        // verify scheduler.schedule called with CronTrigger
+        ArgumentCaptor<Object> captor = ArgumentCaptor.forClass(Object.class);
+        verify(scheduler).schedule(any(Job.class), any(CronTrigger.class));
+    }
+
+    /**
+     * Test register for SchedTask:
+     * - active PullTask with no explicit delegate should resolve PullJobDelegate implementation and schedule.
+     * - inactive task should be skipped.
+     * - missing delegate should throw IllegalArgumentException.
+     */
+    @Test
+    public void testRegisterSchedTaskVariousPaths() {
+        // Prepare a PullTask mock (SchedTask)
+        PullTask pullTask = mock(PullTask.class);
+        when(pullTask.isActive()).thenReturn(true);
+        when(pullTask.getKey()).thenReturn("pullKey");
+        when(pullTask.getName()).thenReturn("pullName");
+        when(pullTask.getCronExpression()).thenReturn("0 0 1 * * ?");
+        when(taskUtilsFactory.getInstance(pullTask)).thenReturn(new org.apache.syncope.core.persistence.api.entity.task.TaskUtils() {
+            @Override
+            public TaskType getType() {
+                return TaskType.PULL;
+            }
+        });
+
+        // Provide an Implementation that matches PullJobDelegate body
+        Implementation impl = mock(Implementation.class);
+        when(impl.getBody()).thenReturn(PullJobDelegate.class.getName());
+        when(impl.getKey()).thenReturn("implKey");
+        when(implementationDAO.findByType(IdRepoImplementationType.TASKJOB_DELEGATE)).thenReturn(List.of(impl));
+
+        // jobDelegate is null on task, so the code should pick the implementation above
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        // Call protected register via public execute wrapper
+        jobManager.execute(pullTask, OffsetDateTime.now(), "executor", false, Map.of());
+
+        // verify scheduler.register or schedule invoked (cronExpression null in execute -> startAt provided)
+        // In execute we pass startAt, so register() will call register with startAt not null; ensure schedule called
+        verify(scheduler, atLeastOnce()).schedule(any(Job.class), any());
+    }
+
+    @Test
+    public void testRegisterInactiveTaskSkippedAndMissingDelegateThrows() {
+        // Inactive task should be skipped
+        SchedTask inactive = mock(SchedTask.class);
+        when(inactive.isActive()).thenReturn(false);
+        when(taskUtilsFactory.getInstance(inactive)).thenReturn(new org.apache.syncope.core.persistence.api.entity.task.TaskUtils() {
+            @Override
+            public TaskType getType() {
+                return TaskType.SCHEDULED;
+            }
+        });
+        // Should not throw
+        jobManager.register(AuthContextUtils.getDomain(), inactive, null, null, "exec", false, Map.of());
+        // No interactions with scheduler
+        verifyNoInteractions(scheduler);
+
+        // Active task but no delegate and no matching implementation -> expect IllegalArgumentException
+        SchedTask activeNoDelegate = mock(SchedTask.class);
+        when(activeNoDelegate.isActive()).thenReturn(true);
+        when(activeNoDelegate.getKey()).thenReturn("k1");
+        when(activeNoDelegate.getName()).thenReturn("n1");
+        when(taskUtilsFactory.getInstance(activeNoDelegate)).thenReturn(new org.apache.syncope.core.persistence.api.entity.task.TaskUtils() {
+            @Override
+            public TaskType getType() {
+                return TaskType.SCHEDULED;
+            }
+        });
+        when(implementationDAO.findByType(IdRepoImplementationType.TASKJOB_DELEGATE)).thenReturn(List.of());
+        try {
+            jobManager.register(AuthContextUtils.getDomain(), activeNoDelegate, null, null, "exec", false, Map.of());
+            fail("Expected IllegalArgumentException when no delegate implementation is available");
+        } catch (IllegalArgumentException e) {
+            // expected
+        }
+    }
+
+    /**
+     * Test register for Report: active report schedules a ReportJob; inactive is skipped.
+     */
+    @Test
+    public void testRegisterReportPaths() {
+        Report report = mock(Report.class);
+        when(report.isActive()).thenReturn(true);
+        when(report.getKey()).thenReturn("rKey");
+        when(report.getName()).thenReturn("rName");
+        when(report.getCronExpression()).thenReturn("0 0 2 * * ?");
+        Implementation repImpl = mock(Implementation.class);
+        when(repImpl.getKey()).thenReturn("repImpl");
+        when(report.getJobDelegate()).thenReturn(repImpl);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        jobManager.execute(report, OffsetDateTime.now(), "exec", false);
+
+        // verify scheduler.schedule/register invoked for ReportJob
+        verify(scheduler, atLeastOnce()).schedule(any(Job.class), any());
+    }
+
+    /**
+     * Test unregisterJob calls scheduler.stop and scheduler.delete.
+     */
+    @Test
+    public void testUnregisterJob() {
+        String jobName = "someJob";
+        jobManager.unregisterJob(jobName);
+        verify(scheduler).stop(anyString(), eq(jobName));
+        verify(scheduler).delete(anyString(), eq(jobName));
+    }
+
+    /**
+     * Test unregister wrappers for Task and Report call unregisterJob with proper job names.
+     */
+    @Test
+    public void testUnregisterWrappers() {
+        Task<?> task = mock(Task.class);
+        when(task.getKey()).thenReturn("tk");
+        // JobNamer.getJobName uses task; we cannot easily predict its format, but we can verify scheduler interactions indirectly
+        // Provide a simple SchedTask to unregister
+        SchedTask st = mock(SchedTask.class);
+        when(st.getKey()).thenReturn("tsk");
+        when(st.getName()).thenReturn("tname");
+        jobManager.unregister(st);
+        // Since unregisterJob uses AuthContextUtils.getDomain() inside, verify scheduler stop/delete called
+        verify(scheduler).stop(anyString(), anyString());
+        verify(scheduler).delete(anyString(), anyString());
+
+        Report report = mock(Report.class);
+        when(report.getKey()).thenReturn("rk");
+        jobManager.unregister(report);
+        verify(scheduler, atLeast(2)).stop(anyString(), anyString());
+        verify(scheduler, atLeast(2)).delete(anyString(), anyString());
+    }
+
+    /**
+     * Test getOrder returns expected value.
+     */
+    @Test
+    public void testGetOrder() {
+        assertEquals(500, jobManager.getOrder());
+    }
+
+    /**
+     * Test load and unload with empty DAOs do not throw and interact with scheduler as expected.
+     */
+    @Test
+    public void testLoadAndUnloadNoItems() {
+        // No tasks or reports
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+        // Call load for a non-master domain to avoid NotificationJob scheduling
+        jobManager.load("someDomain");
+        // No exceptions and no scheduling for notification/system reporter
+        verify(beanFactory, never()).createBean(NotificationJob.class);
+        verify(beanFactory, never()).createBean(SystemLoadReporterJob.class);
+
+        // Call unload - should attempt to stop/delete nothing but must not throw
+        jobManager.unload("someDomain");
+    }
+
+    /**
+     * Test load for MASTER_DOMAIN triggers notification and system reporter scheduling when confParamOps returns values.
+     */
+    @Test
+    public void testLoadMasterDomainSchedulesNotificationAndSystemReporter() {
+        // Prepare empty tasks and reports
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+        // confParamOps returns null -> should use NotificationJob.DEFAULT_CRON_EXP
+        when(confParamOps.get(eq(SyncopeConstants.MASTER_DOMAIN), eq("notificationjob.cronExpression"), any(), eq(String.class)))
+                .thenReturn(null);
+
+        // Ensure lock returns true so registerJob proceeds
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        // Call load for MASTER_DOMAIN
+        jobManager.load(SyncopeConstants.MASTER_DOMAIN);
+
+        // NotificationJob and SystemLoadReporterJob should be scheduled via beanFactory.createBean calls
+        verify(beanFactory, atLeastOnce()).createBean(NotificationJob.class);
+        verify(beanFactory, atLeastOnce()).createBean(SystemLoadReporterJob.class);
+    }
+}

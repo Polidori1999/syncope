@@ -180,6 +180,8 @@ under the License.
         </executions>
       </plugin>
 
+
+      <!--  PITEST -->
       <plugin>
         <groupId>org.pitest</groupId>
         <artifactId>pitest-maven</artifactId>
@@ -188,9 +190,15 @@ under the License.
           <targetClasses>
             <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManager*</param>
           </targetClasses>
-          <targetTests>
+          <!--<targetTests>
             <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManagerTest</param>
             <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManagerLoadIT</param>
+          </targetTests>-->
+          <!--<targetTests>
+            <param>org.apache.syncope.core.provisioning.java.job.randoop.DefaultJobManagerRandoopTest*</param>
+          </targetTests>-->
+          <targetTests>
+            <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManagerLLMGuidedTreeTest</param>
           </targetTests>
           <jvmArgs>
             <param>-Xms512m</param>
