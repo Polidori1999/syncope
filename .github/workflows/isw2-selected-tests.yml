@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - master
+      - main
+  pull_request:
+    branches:
+      - master
+      - main
 
 jobs:
   selected-tests:
@@ -36,7 +41,7 @@ jobs:
           -Dcheckstyle.skip=true
           test
 
-      - name: Test DefaultJobManager
+      - name: Test DefaultJobManager unit tests
         run: >
           mvn -B -e -pl core/provisioning-java -am
           -DskipTests=false
@@ -46,3 +51,15 @@ jobs:
           -Drat.skip=true
           -Dcheckstyle.skip=true
           test
+
+      - name: Test DefaultJobManager integration tests
+        run: >
+          mvn -B -e -pl core/provisioning-java -am
+          -DskipTests=false
+          -DskipITs=false
+          -Dmaven.build.cache.skipCache=true
+          -Dmodernizer.skip=true
+          -Dianal.phase=none
+          -Drat.skip=true
+          -Dcheckstyle.skip=true
+          verify
