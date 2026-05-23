@@ -116,8 +116,11 @@ under the License.
       <artifactId>java-uuid-generator</artifactId>
     </dependency>
 
-
-
+    <dependency>
+      <groupId>org.apache.syncope.core</groupId>
+      <artifactId>syncope-core-provisioning-api</artifactId>
+      <version>${project.version}</version>
+    </dependency>
     <dependency>
       <groupId>org.apache.syncope.common.idm</groupId>
       <artifactId>syncope-common-idm-rest-api</artifactId>
@@ -135,7 +138,7 @@ under the License.
     </dependency>
 
 
-    
+
     <!-- TEST -->
     <dependency>
       <groupId>com.github.ben-manes.caffeine</groupId>
