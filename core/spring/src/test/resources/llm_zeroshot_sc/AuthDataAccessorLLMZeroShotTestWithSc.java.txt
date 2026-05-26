@@ -1,0 +1,440 @@
+package org.apache.syncope.core.spring.security;
+
+import static org.junit.Assert.*;
+import static org.mockito.Mockito.*;
+
+import java.time.OffsetDateTime;
+import java.util.*;
+
+import javax.security.auth.login.AccountNotFoundException;
+
+import org.apache.syncope.common.lib.SyncopeConstants;
+import org.apache.syncope.common.lib.types.IdRepoEntitlement;
+import org.apache.syncope.core.persistence.api.EncryptorManager;
+import org.apache.syncope.core.persistence.api.dao.AccessTokenDAO;
+import org.apache.syncope.core.persistence.api.dao.AnySearchDAO;
+import org.apache.syncope.core.persistence.api.dao.DelegationDAO;
+import org.apache.syncope.core.persistence.api.dao.ExternalResourceDAO;
+import org.apache.syncope.core.persistence.api.dao.GroupDAO;
+import org.apache.syncope.core.persistence.api.dao.RealmSearchDAO;
+import org.apache.syncope.core.persistence.api.dao.RoleDAO;
+import org.apache.syncope.core.persistence.api.dao.UserDAO;
+import org.apache.syncope.core.provisioning.api.AuditManager;
+import org.apache.syncope.core.provisioning.api.ConnectorManager;
+import org.apache.syncope.core.provisioning.api.MappingManager;
+import org.identityconnectors.framework.common.objects.Uid;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.ArgumentCaptor;
+import org.mockito.Captor;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.web.authentication.session.SessionAuthenticationException;
+
+@RunWith(MockitoJUnitRunner.class)
+public class AuthDataAccessorLLMZeroShotTestWithSc {
+
+    @Mock
+    private SecurityProperties securityProperties;
+
+    @Mock
+    private EncryptorManager encryptorManager;
+
+    @Mock
+    private RealmSearchDAO realmSearchDAO;
+
+    @Mock
+    private UserDAO userDAO;
+
+    @Mock
+    private GroupDAO groupDAO;
+
+    @Mock
+    private AnySearchDAO anySearchDAO;
+
+    @Mock
+    private AccessTokenDAO accessTokenDAO;
+
+    @Mock
+    private org.apache.syncope.common.keymaster.client.api.ConfParamOps confParamOps;
+
+    @Mock
+    private RoleDAO roleDAO;
+
+    @Mock
+    private DelegationDAO delegationDAO;
+
+    @Mock
+    private ExternalResourceDAO resourceDAO;
+
+    @Mock
+    private ConnectorManager connectorManager;
+
+    @Mock
+    private AuditManager auditManager;
+
+    @Mock
+    private MappingManager mappingManager;
+
+    @Mock
+    private List<JWTSSOProvider> jwtSSOProviders;
+
+    @InjectMocks
+    private AuthDataAccessor authDataAccessor;
+
+    @Captor
+    private ArgumentCaptor<String> stringCaptor;
+
+    @Before
+    public void setUp() {
+        // Default behavior for security properties used in multiple tests
+        when(securityProperties.getAnonymousUser()).thenReturn("anonymous");
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+    }
+
+    // Test getJWTSSOProvider throws when issuer is null
+    @Test(expected = AuthenticationCredentialsNotFoundException.class)
+    public void testGetJWTSSOProviderNullIssuer() {
+        // Short comment: ensure null issuer is rejected
+        authDataAccessor.getJWTSSOProvider(null);
+    }
+
+    // Test getJWTSSOProvider throws when no provider found
+    @Test(expected = AuthenticationCredentialsNotFoundException.class)
+    public void testGetJWTSSOProviderNotFound() {
+        // Short comment: ensure missing issuer provider triggers exception
+        when(jwtSSOProviders.stream()).thenReturn(Collections.<JWTSSOProvider>emptyList().stream());
+        authDataAccessor.getJWTSSOProvider("nonexistent-issuer");
+    }
+
+    // Test getDelegationKey returns null when no delegatedBy in details
+    @Test
+    public void testGetDelegationKeyNoDelegatedBy() {
+        // Short comment: when details has no delegatedBy, result must be null
+        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+        when(details.getDelegatedBy()).thenReturn(null);
+        String result = authDataAccessor.getDelegationKey(details, "delegatedKey");
+        assertNull(result);
+    }
+
+    // Test getDelegationKey throws when delegating user not found
+    @Test(expected = SessionAuthenticationException.class)
+    public void testGetDelegationKeyDelegatingUserNotFound() {
+        // Short comment: missing delegating user should raise SessionAuthenticationException
+        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+        when(details.getDelegatedBy()).thenReturn("not-a-uuid-and-not-existing");
+        when(userDAO.findKey("not-a-uuid-and-not-existing")).thenReturn(Optional.empty());
+        authDataAccessor.getDelegationKey(details, "delegatedKey");
+    }
+
+    // Test getDelegationKey throws when delegation not found
+    @Test(expected = SessionAuthenticationException.class)
+    public void testGetDelegationKeyDelegationNotFound() {
+        // Short comment: if delegationDAO returns empty, a SessionAuthenticationException is thrown
+        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+        String delegatingKey = UUID.randomUUID().toString();
+        when(details.getDelegatedBy()).thenReturn(delegatingKey);
+        when(userDAO.findKey(anyString())).thenReturn(Optional.of(delegatingKey));
+        when(delegationDAO.findValidFor(eq(delegatingKey), eq("delegatedKey"), any())).thenReturn(Optional.empty());
+        authDataAccessor.getDelegationKey(details, "delegatedKey");
+    }
+
+    // Test authenticate (username/password) returns null when no user found
+    @Test
+    public void testAuthenticateNoUserFound() {
+        // Short comment: authenticate should return null user when no matching user exists
+        Authentication authentication = mock(Authentication.class);
+        when(authentication.getName()).thenReturn("unknown");
+        when(confParamOps.get(eq("domain"), eq("authentication.attributes"), any(), eq(String[].class)))
+                .thenReturn(new String[] { "username" });
+        when(userDAO.findByUsername("unknown")).thenReturn(Optional.empty());
+
+        AuthDataAccessor.UsernamePasswordAuthResult result =
+                authDataAccessor.authenticate("domain", authentication);
+
+        assertNull(result.user);
+        assertNull(result.authenticated);
+        assertNull(result.delegationKey);
+    }
+
+    // Test authenticate throws DisabledException when user suspended
+    @Test(expected = DisabledException.class)
+    public void testAuthenticateUserSuspended() {
+        // Short comment: suspended users must not authenticate
+        Authentication authentication = mock(Authentication.class);
+        when(authentication.getName()).thenReturn("suspendedUser");
+        when(confParamOps.get(eq("domain"), eq("authentication.attributes"), any(), eq(String[].class)))
+                .thenReturn(new String[] { "username" });
+        User user = mock(User.class);
+        when(userDAO.findByUsername("suspendedUser")).thenReturn(Optional.of(user));
+        when(user.isSuspended()).thenReturn(Boolean.TRUE);
+        authDataAccessor.authenticate("domain", authentication);
+    }
+
+    // Test authenticate increments failed logins on bad password and saves user
+    @Test
+    public void testAuthenticateBadPasswordIncrementsFailedLogins() {
+        // Short comment: failed authentication should increment failedLogins and persist user
+        Authentication authentication = mock(Authentication.class);
+        when(authentication.getName()).thenReturn("user1");
+        when(authentication.getCredentials()).thenReturn("badpass");
+        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+        when(authentication.getDetails()).thenReturn(details);
+
+        when(confParamOps.get(eq("domain"), eq("authentication.attributes"), any(), eq(String[].class)))
+                .thenReturn(new String[] { "username" });
+        when(confParamOps.get(eq("domain"), eq("authentication.statuses"), any(), eq(String[].class)))
+                .thenReturn(new String[] {});
+        User user = mock(User.class);
+        when(userDAO.findByUsername("user1")).thenReturn(Optional.of(user));
+        when(user.isSuspended()).thenReturn(Boolean.FALSE);
+        when(user.getStatus()).thenReturn(null);
+        when(user.getFailedLogins()).thenReturn(0);
+        when(encryptorManager.getInstance()).thenReturn(mock(EncryptorManager.Encryptor.class));
+        when(encryptorManager.getInstance().verify(anyString(), anyString(), anyString())).thenReturn(false);
+        when(userDAO.save(user)).thenReturn(user);
+
+        AuthDataAccessor.UsernamePasswordAuthResult result =
+                authDataAccessor.authenticate("domain", authentication);
+
+        assertNotNull(result.user);
+        assertFalse(result.authenticated);
+    }
+
+    // Test authenticate successful resets failed logins and sets last login date when configured
+    @Test
+    public void testAuthenticateSuccessResetsFailedLoginsAndSetsLastLogin() {
+        // Short comment: successful authentication resets failed logins and updates last login date
+        Authentication authentication = mock(Authentication.class);
+        when(authentication.getName()).thenReturn("user2");
+        when(authentication.getCredentials()).thenReturn("goodpass");
+        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+        when(authentication.getDetails()).thenReturn(details);
+        when(details.getDelegatedBy()).thenReturn(null);
+
+        when(confParamOps.get(eq("domain"), eq("authentication.attributes"), any(), eq(String[].class)))
+                .thenReturn(new String[] { "username" });
+        when(confParamOps.get(eq("domain"), eq("authentication.statuses"), any(), eq(String[].class)))
+                .thenReturn(new String[] {});
+        when(confParamOps.get(eq("domain"), eq("log.lastlogindate"), eq(true), eq(Boolean.class)))
+                .thenReturn(true);
+
+        User user = mock(User.class);
+        when(userDAO.findByUsername("user2")).thenReturn(Optional.of(user));
+        when(user.isSuspended()).thenReturn(Boolean.FALSE);
+        when(user.getStatus()).thenReturn(null);
+        when(user.getFailedLogins()).thenReturn(2);
+        when(user.getKey()).thenReturn("user2Key");
+
+        EncryptorManager.Encryptor encryptor = mock(EncryptorManager.Encryptor.class);
+        when(encryptorManager.getInstance()).thenReturn(encryptor);
+        when(encryptor.verify("goodpass", user.getCipherAlgorithm(), user.getPassword())).thenReturn(true);
+
+        when(userDAO.save(user)).thenReturn(user);
+
+        AuthDataAccessor.UsernamePasswordAuthResult result =
+                authDataAccessor.authenticate("domain", authentication);
+
+        assertNotNull(result.user);
+        assertTrue(result.authenticated);
+        // delegationKey should be null because details.getDelegatedBy() returns null
+        assertNull(result.delegationKey);
+    }
+
+    // Test usernamePasswordAuthentication uses passthrough resources when internal verify fails
+    @Test
+    public void testUsernamePasswordAuthenticationWithPassthrough() throws Exception {
+        // Short comment: if internal verify fails, passthrough resources are tried
+        User user = mock(User.class);
+        when(user.getUsername()).thenReturn("passthroughUser");
+        when(user.getCipherAlgorithm()).thenReturn("alg");
+        when(user.getPassword()).thenReturn("pw");
+
+        EncryptorManager.Encryptor encryptor = mock(EncryptorManager.Encryptor.class);
+        when(encryptorManager.getInstance()).thenReturn(encryptor);
+        when(encryptor.verify(anyString(), anyString(), anyString())).thenReturn(false);
+
+        // create a fake ExternalResource and Provision
+        ExternalResource resource = mock(ExternalResource.class);
+        when(resource.getKey()).thenReturn("res1");
+        Provision provision = mock(Provision.class);
+        when(resource.getProvisionByAnyType("USER")).thenReturn(Optional.of(provision));
+        when(mappingManager.getConnObjectKeyValue(eq(user), eq(resource), eq(provision))).thenReturn(Optional.of("connKey"));
+
+        // connector authenticate returns a non-null Uid
+        org.identityconnectors.framework.api.ConnectorFacade connector = mock(org.identityconnectors.framework.api.ConnectorFacade.class);
+        when(connectorManager.getConnector(resource)).thenReturn(connector);
+        when(connector.authenticate("connKey", "secret", null)).thenReturn(new Uid("uid"));
+
+        // getPassthroughResources should return the resource
+        when(userDAO.findAllResources(user)).thenReturn(Set.of(resource));
+        when(resourceDAO.findByPolicy(any())).thenReturn(Set.of(resource));
+        when(realmSearchDAO.findAncestors(any())).thenReturn(List.of());
+
+        boolean authenticated = authDataAccessor.usernamePasswordAuthentication(user, "secret");
+        assertTrue(authenticated);
+    }
+
+    // Test getPassthroughResources returns resources from both user and realm policies
+    @Test
+    public void testGetPassthroughResourcesCombinesUserAndRealm() {
+        // Short comment: resources from user and realm account policies are combined/intersected correctly
+        User user = mock(User.class);
+        Object accountPolicy = new Object();
+
+        ExternalResource r1 = mock(ExternalResource.class);
+        ExternalResource r2 = mock(ExternalResource.class);
+
+        when(userDAO.findAllResources(user)).thenReturn(Set.of(r1));
+        when(r1.getAccountPolicy()).thenReturn(accountPolicy);
+        when(resourceDAO.findByPolicy(accountPolicy)).thenReturn(Set.of(r1, r2));
+
+        Realm realm = mock(Realm.class);
+        when(realm.getAccountPolicy()).thenReturn(accountPolicy);
+        when(user.getRealm()).thenReturn(realm);
+        when(realmSearchDAO.findAncestors(realm)).thenReturn(List.of(realm));
+
+        Set<ExternalResource> result = authDataAccessor.getPassthroughResources(user);
+        assertNotNull(result);
+        assertTrue(result.contains(r1));
+        assertTrue(result.contains(r2));
+    }
+
+    // Test buildAuthorities creates SyncopeGrantedAuthority entries
+    @Test
+    public void testBuildAuthorities() {
+        // Short comment: buildAuthorities should convert entitlement->realms map into authorities
+        Map<String, Set<String>> entForRealms = new HashMap<>();
+        entForRealms.put("ENT_A", Set.of("/realm"));
+        Set<SyncopeGrantedAuthority> authorities = authDataAccessor.buildAuthorities(entForRealms);
+        assertNotNull(authorities);
+        assertFalse(authorities.isEmpty());
+        boolean found = authorities.stream().anyMatch(a -> "ENT_A".equals(a.getAuthority()));
+        assertTrue(found);
+    }
+
+    // Test getAuthorities returns anonymous authorities for anonymous user
+    @Test
+    public void testGetAuthoritiesAnonymous() {
+        // Short comment: anonymous username yields ANONYMOUS_AUTHORITIES
+        Set<SyncopeGrantedAuthority> authorities = authDataAccessor.getAuthorities("anonymous", null);
+        assertNotNull(authorities);
+        assertTrue(authorities.stream().anyMatch(a -> a.getAuthority().contains(IdRepoEntitlement.ANONYMOUS)));
+    }
+
+    // Test getAuthorities returns admin authorities for admin user
+    @Test
+    public void testGetAuthoritiesAdmin() {
+        // Short comment: admin username yields admin authorities set
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+        Set<SyncopeGrantedAuthority> authorities = authDataAccessor.getAuthorities("admin", null);
+        assertNotNull(authorities);
+    }
+
+    // Test removeExpired delegates to accessTokenDAO
+    @Test
+    public void testRemoveExpired() {
+        // Short comment: removeExpired should call deleteById on accessTokenDAO
+        authDataAccessor.removeExpired("tokenKey");
+        verify(accessTokenDAO).deleteById("tokenKey");
+    }
+
+    // Test audit delegates to auditManager with delegationKey appended when present
+    @Test
+    public void testAuditWithDelegationKey() {
+        // Short comment: audit should call auditManager.audit with username and delegation info
+        authDataAccessor.audit("domain", "user", "delegKey", org.apache.syncope.common.lib.types.OpEvent.Outcome.SUCCESS, "out", "in1");
+        verify(auditManager).audit(eq("domain"), stringCaptor.capture(), any(), any(), any(), any(), any(), any(), eq("out"), eq((Object) new Object[] { "in1" }));
+        String auditedUser = stringCaptor.getValue();
+        assertTrue(auditedUser.contains("user"));
+        assertTrue(auditedUser.contains("delegation"));
+    }
+
+    // Test authenticate(JWT) throws when admin subject but token not found
+    @Test(expected = AuthenticationCredentialsNotFoundException.class)
+    public void testAuthenticateJWTAdminMissingToken() {
+        // Short comment: admin JWT without matching access token should fail
+        JWTAuthentication jwtAuth = mock(JWTAuthentication.class);
+        JWTClaims claims = mock(JWTClaims.class);
+        when(jwtAuth.getClaims()).thenReturn(claims);
+        when(claims.getSubject()).thenReturn("admin");
+        when(claims.getJWTID()).thenReturn("jwtid");
+        when(accessTokenDAO.findById("jwtid")).thenReturn(Optional.empty());
+        authDataAccessor.authenticate(jwtAuth);
+    }
+
+    // Test authenticate(JWT) resolves provider and throws when resolved claims missing
+    @Test(expected = AuthenticationCredentialsNotFoundException.class)
+    public void testAuthenticateJWTProviderResolveMissing() {
+        // Short comment: JWT with issuer not resolvable should raise AuthenticationCredentialsNotFoundException
+        JWTAuthentication jwtAuth = mock(JWTAuthentication.class);
+        JWTClaims claims = mock(JWTClaims.class);
+        when(jwtAuth.getClaims()).thenReturn(claims);
+        when(claims.getSubject()).thenReturn("someUser");
+        when(claims.getIssuer()).thenReturn("issuer1");
+        when(claims.getJWTID()).thenReturn("jwtid2");
+
+        JWTSSOProvider provider = mock(JWTSSOProvider.class);
+        when(jwtSSOProviders.stream()).thenReturn(List.of(provider).stream());
+        when(provider.getIssuer()).thenReturn("issuer1");
+        when(provider.resolve(claims)).thenReturn(Optional.empty());
+
+        authDataAccessor = new AuthDataAccessor(securityProperties, encryptorManager, realmSearchDAO, userDAO,
+                groupDAO, anySearchDAO, accessTokenDAO, confParamOps, roleDAO, delegationDAO, resourceDAO,
+                connectorManager, auditManager, mappingManager, List.of(provider));
+
+        authDataAccessor.authenticate(jwtAuth);
+    }
+
+    // Test authenticate(JWT) successful path with resolved claims and mustChangePassword resets authorities
+    @Test
+    public void testAuthenticateJWTResolvedMustChangePassword() {
+        // Short comment: when resolved user must change password, authorities are reset to MUST_CHANGE_PASSWORD_AUTHORITIES
+        JWTAuthentication jwtAuth = mock(JWTAuthentication.class);
+        JWTClaims claims = mock(JWTClaims.class);
+        when(jwtAuth.getClaims()).thenReturn(claims);
+        when(claims.getSubject()).thenReturn("someUser");
+        when(claims.getIssuer()).thenReturn("issuer2");
+        when(claims.getJWTID()).thenReturn("jwtid3");
+
+        User user = mock(User.class);
+        when(user.isSuspended()).thenReturn(Boolean.FALSE);
+        when(user.isMustChangePassword()).thenReturn(Boolean.TRUE);
+        when(user.getStatus()).thenReturn("ACTIVE");
+        when(user.getKey()).thenReturn("uKey");
+        when(user.getUsername()).thenReturn("someUser");
+
+        JWTSSOProvider provider = mock(JWTSSOProvider.class);
+        JWTSSOProvider.ResolvedClaims resolved = mock(JWTSSOProvider.ResolvedClaims.class);
+        when(resolved.user()).thenReturn(user);
+        when(resolved.authorities()).thenReturn(Set.of(new SyncopeGrantedAuthority("X")));
+        when(provider.getIssuer()).thenReturn("issuer2");
+        when(provider.resolve(claims)).thenReturn(Optional.of(resolved));
+
+        when(jwtSSOProviders.stream()).thenReturn(List.of(provider).stream());
+
+        authDataAccessor = new AuthDataAccessor(securityProperties, encryptorManager, realmSearchDAO, userDAO,
+                groupDAO, anySearchDAO, accessTokenDAO, confParamOps, roleDAO, delegationDAO, resourceDAO,
+                connectorManager, auditManager, mappingManager, List.of(provider));
+
+        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+        when(details.getDomain()).thenReturn("domain");
+        when(jwtAuth.getDetails()).thenReturn(details);
+
+        when(confParamOps.get("domain", "authentication.statuses", new String[] {}, String[].class))
+                .thenReturn(new String[] { "ACTIVE" });
+
+        AuthDataAccessor.JWTAuthResult result = authDataAccessor.authenticate(jwtAuth);
+        assertEquals("someUser", result.username);
+        assertNotNull(result.authorities);
+        // must change password authorities should be returned
+        assertTrue(result.authorities.stream().anyMatch(a -> a.getAuthority().contains(IdRepoEntitlement.MUST_CHANGE_PASSWORD)));
+    }
+}
