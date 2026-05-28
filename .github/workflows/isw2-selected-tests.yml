@@ -75,5 +75,5 @@ jobs:
           -Drat.skip=true
           -Dcheckstyle.skip=true
           -Dsurefire.failIfNoSpecifiedTests=false
-          -Dtest=AuthDataAccessorTest,AuthDataAccessorLLMguidedTreTest
+          -Dtest=AuthDataAccessorTest,AuthDataAccessorLLMguidedTreeTest
           test
