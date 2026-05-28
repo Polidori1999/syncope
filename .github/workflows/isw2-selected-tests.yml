@@ -74,5 +74,6 @@ jobs:
           -Dianal.phase=none
           -Drat.skip=true
           -Dcheckstyle.skip=true
-          -Dtest=org.apache.syncope.core.spring.security.AuthDataAccessorTest,org.apache.syncope.core.spring.security.AuthDataAccessorLLMguidedTreTest
+          -Dsurefire.failIfNoSpecifiedTests=false
+          -Dtest=AuthDataAccessorTest,AuthDataAccessorLLMguidedTreTest
           test
