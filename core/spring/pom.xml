@@ -35,6 +35,7 @@ under the License.
   
   <properties>
     <rootpom.basedir>${basedir}/../..</rootpom.basedir>
+    <evosuiteVersion>1.0.6</evosuiteVersion>
   </properties>
 
   <dependencies>    
@@ -137,6 +138,14 @@ under the License.
       <version>${project.version}</version>
     </dependency>
 
+    <!--Evosuite  -->
+    <dependency>
+      <groupId>org.evosuite</groupId>
+      <artifactId>evosuite-standalone-runtime</artifactId>
+      <version>${evosuiteVersion}</version>
+      <scope>test</scope>
+    </dependency>
+
 
 
     <!-- TEST -->
@@ -198,6 +207,14 @@ under the License.
           <verbose>true</verbose>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.evosuite.plugins</groupId>
+        <artifactId>evosuite-maven-plugin</artifactId>
+        <version>1.0.6</version>
+      </plugin>
+
+
 
     </plugins>
 
