@@ -63,3 +63,16 @@ jobs:
           -Drat.skip=true
           -Dcheckstyle.skip=true
           verify
+          
+
+      - name: Test AuthDataAccessor unit tests
+        run: >
+          mvn -B -e -pl core/spring -am
+          -DskipTests=false
+          -Dmaven.build.cache.skipCache=true
+          -Dmodernizer.skip=true
+          -Dianal.phase=none
+          -Drat.skip=true
+          -Dcheckstyle.skip=true
+          -Dtest=org.apache.syncope.core.spring.security.AuthDataAccessorTest,org.apache.syncope.core.spring.security.AuthDataAccessorLLMguidedTreTest
+          test
