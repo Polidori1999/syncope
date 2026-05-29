@@ -1,6 +1,5 @@
 package org.apache.syncope.core.provisioning.java.job;
 
-import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
@@ -15,7 +14,7 @@ import org.apache.syncope.core.persistence.api.dao.ReportDAO;
 import org.apache.syncope.core.persistence.api.dao.TaskDAO;
 import org.apache.syncope.core.persistence.api.entity.Implementation;
 import org.apache.syncope.core.persistence.api.entity.task.SchedTask;
-import org.apache.syncope.core.persistence.api.entity.task.Task;
+
 import org.apache.syncope.core.persistence.api.entity.task.TaskUtils;
 import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
 import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
@@ -26,11 +25,11 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
-import static org.junit.Assert.*;
+
 
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
+
 import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.context.ConfigurableApplicationContext;
 
@@ -139,7 +138,7 @@ public class DefaultJobManagerTest {
                 jobData));
 
         verify(taskJob).setContext(any());
-        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+        verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
     @Test
@@ -187,7 +186,7 @@ public class DefaultJobManagerTest {
         assertEquals("task-key", context.getData().get(JobManager.TASK_KEY));
         assertEquals("delegate-key", context.getData().get(JobManager.DELEGATE_IMPLEMENTATION));
         assertEquals("sampleValue", context.getData().get("sampleKey"));
-        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+        verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
     @Test
@@ -302,7 +301,7 @@ public class DefaultJobManagerTest {
 
 
         verify(taskJob).setContext(any());
-        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+        verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che startAt nel passato debba essere rifiutato")
@@ -407,7 +406,7 @@ public class DefaultJobManagerTest {
         JobExecutionContext context = contextCaptor.getValue();
 
         assertEquals(null, context.getExecutor());
-        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+        verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor vuoto debba essere rifiutato")
@@ -481,7 +480,7 @@ public class DefaultJobManagerTest {
         JobExecutionContext context = contextCaptor.getValue();
 
         assertEquals("", context.getExecutor());
-        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+        verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
     @Ignore("Oracolo iniziale non soddisfatto: jobData null causa NullPointerException invece di essere rifiutato o gestito esplicitamente")
@@ -518,7 +517,7 @@ public class DefaultJobManagerTest {
                 jobData));
 
         verify(taskJob).setContext(any());
-        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+        verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
     @Test
@@ -581,8 +580,8 @@ public class DefaultJobManagerTest {
                 Map.of()));
 
         verify(taskJob).setContext(any(JobExecutionContext.class));
-        verify(scheduler).register(eq(taskJob));
-        verify(scheduler, never()).schedule(eq(taskJob), any(Instant.class));
+        verify(scheduler).register(taskJob);
+        verify(scheduler, never()).schedule(any(TaskJob.class), any(Instant.class));
     }
 
     /** TEST DOPO PIT
