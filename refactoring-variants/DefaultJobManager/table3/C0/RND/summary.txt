@@ -1,0 +1,17 @@
+DefaultJobManager - C0 - RND baseline
+
+Test suite:
+org.apache.syncope.core.provisioning.java.job.randoop.DefaultJobManagerRandoopTest0
+
+JaCoCo:
+Line Coverage: 0/169 = 0%
+Instruction Coverage: 0/700 = 0%
+Branch Coverage: 0/40 = 0%
+Method Coverage: 0/23 = 0%
+
+PIT:
+Line Coverage for mutated classes: 0/170 = 0%
+Generated mutations: 54
+Killed mutations: 0
+Mutation Score: 0%
+No coverage mutations: 54

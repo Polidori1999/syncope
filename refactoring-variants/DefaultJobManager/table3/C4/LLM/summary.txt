@@ -1,0 +1,36 @@
+DefaultJobManager - C4 - LLM
+
+Generation:
+New LLM Guided Tree-of-Thought test suite generated for C4.
+Final test class:
+DefaultJobManagerC4LLMGuidedTreeTest
+
+Execution:
+Tests run: 11
+Failures: 0
+Errors: 0
+Skipped: 0
+BUILD SUCCESS
+
+JaCoCo:
+Line Coverage: 58/186 = 31.18%
+Instruction Coverage: 221/752 = 29.39%
+Branch Coverage: 17/50 = 34.00%
+Method Coverage: 12/29 = 41.38%
+
+PIT:
+Line Coverage for mutated classes: 58/187 = 31%
+Generated mutations: 68
+Killed mutations: 24
+Mutation Score: 35%
+No coverage mutations: 40
+Test strength: 86%
+
+Delta against C0 LLM:
+C0 Line Coverage: 35.50%
+C4 Line Coverage: 31.18%
+Delta Coverage: -4.32%
+
+C0 Mutation Score: 43%
+C4 Mutation Score: 35%
+Delta Mutation Score: -8%

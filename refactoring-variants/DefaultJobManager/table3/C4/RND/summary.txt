@@ -1,0 +1,31 @@
+DefaultJobManager - C4 - RND
+
+Generation:
+Randoop generated 7 regression tests.
+Generated files:
+- RegressionTest.java
+- RegressionTest0.java
+
+Execution:
+Tests run: 7
+Failures: 0
+Errors: 0
+Skipped: 0
+BUILD SUCCESS
+
+JaCoCo:
+Line Coverage: 0/186 = 0%
+Instruction Coverage: 0/752 = 0%
+Branch Coverage: 0/50 = 0%
+Method Coverage: 0/29 = 0%
+
+PIT:
+Line Coverage for mutated classes: 0/187 = 0%
+Generated mutations: 68
+Killed mutations: 0
+Mutation Score: 0%
+No coverage mutations: 68
+
+Delta against C0 RND:
+Delta Coverage: 0%
+Delta Mutation Score: 0%
