@@ -7,7 +7,7 @@ import static org.mockito.Mockito.*;
 import java.time.OffsetDateTime;
 import java.util.*;
 
-import javax.security.auth.login.AccountNotFoundException;
+
 
 import org.apache.syncope.common.lib.types.IdRepoEntitlement;
 import org.apache.syncope.common.lib.types.OpEvent;
@@ -24,9 +24,7 @@ import org.apache.syncope.core.provisioning.api.AuditManager;
 import org.apache.syncope.core.provisioning.api.ConnectorManager;
 import org.apache.syncope.core.provisioning.api.MappingManager;
 import org.apache.syncope.common.keymaster.client.api.ConfParamOps;
-import org.apache.syncope.core.persistence.api.entity.Delegation;
-import org.apache.syncope.core.persistence.api.entity.Realm;
-import org.apache.syncope.core.persistence.api.entity.user.User;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -35,7 +33,7 @@ import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.security.authentication.AuthenticationCredentialsNotFoundException;
 import org.springframework.security.web.authentication.session.SessionAuthenticationException;
-import org.springframework.security.core.Authentication;
+
 
 /**
  * AuthDataAccessorLLMGuidedTreeTest
