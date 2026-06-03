@@ -64,7 +64,7 @@ jobs:
           -Dfailsafe.failIfNoSpecifiedTests=false
           
 
-      - name: Test AuthDataAccessor unit tests
+      - name: Test AuthDataAccessor
         run: >
           mvn -B -e -pl core/spring -am
           -DskipTests=false
@@ -74,5 +74,4 @@ jobs:
           -Drat.skip=true
           -Dcheckstyle.skip=true
           -Dsurefire.failIfNoSpecifiedTests=false
-          -Dtest=AuthDataAccessorTest,AuthDataAccessorLLMguidedTreeTest
-          test
+          -Dtest=AuthDataAccessorBBTest,AuthDataAccessorLLMGuidedTreeTest,AuthDataAccessorPitTest,AuthDataAccessorWhiteBoxTest,AuthDataAccessorRandoopTest
