@@ -1,0 +1,17 @@
+AuthDataAccessor - Table 3 - C0 baseline
+
+C0 RND:
+- JaCoCo line coverage: 33 / 219 = 15.07%
+- PIT mutation score: 4 / 102 = 4%
+- Test smells: 1386
+
+C0 LLM:
+- JaCoCo line coverage: 63 / 219 = 28.77%
+- PIT mutation score: 17 / 102 = 17%
+- Test smells: 0
+
+C0 ES:
+- N/A
+
+Additional note:
+- Production class AuthDataAccessor on C0 has 10 smells.

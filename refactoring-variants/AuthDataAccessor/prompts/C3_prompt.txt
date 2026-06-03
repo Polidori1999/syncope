@@ -1,0 +1,37 @@
+You are an expert Java developer.
+
+I want to improve the maintainability of the following C0 Java class:
+
+org.apache.syncope.core.spring.security.AuthDataAccessor
+
+Create a refactored version C3 of this class.
+
+The goal is to improve readability, modularity, and maintainability without changing the observable behavior of the class.
+
+Strict requirements:
+- Keep the same package declaration.
+- Keep the same class name: AuthDataAccessor.
+- Keep the same public API.
+- Do not change the behavior of existing methods.
+- Do not change dependencies or introduce new external libraries.
+- Do not modify unrelated logic.
+- The resulting file must replace the original file at:
+  core/spring/src/main/java/org/apache/syncope/core/spring/security/AuthDataAccessor.java
+- The class must compile inside the Apache Syncope core/spring Maven module.
+- Preserve compatibility with the rest of the Apache Syncope project.
+
+Additional validation context:
+The refactored C3 class must pass the following available regression tests:
+- AuthDataAccessorBBTest.java
+- AuthDataAccessorWhiteBoxTest.java
+
+These tests currently pass on C0 and must continue to pass on C3.
+
+Refactoring objective:
+- Reduce code smells and improve maintainability.
+- Extract duplicated or complex logic only when this does not alter behavior.
+- Improve local readability where possible.
+- Keep the refactoring conservative.
+
+Important:
+C3 must be a drop-in replacement for C0. Do not return explanations. Return only the complete Java source code of AuthDataAccessor.java.

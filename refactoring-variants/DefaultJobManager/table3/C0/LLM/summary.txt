@@ -1,0 +1,18 @@
+DefaultJobManager - C0 - LLM baseline
+
+Test suite:
+org.apache.syncope.core.provisioning.java.job.DefaultJobManagerLLMGuidedTreeTest
+
+JaCoCo:
+Line Coverage: 60/169 = 35.50%
+Instruction Coverage: 235/700 = 33.57%
+Branch Coverage: 20/40 = 50.00%
+Method Coverage: 10/23 = 43.48%
+
+PIT:
+Line Coverage for mutated classes: 60/170 = 35%
+Generated mutations: 54
+Killed mutations: 23
+Mutation Score: 43%
+No coverage mutations: 28
+Test strength: 88%

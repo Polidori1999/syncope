@@ -1,0 +1,1618 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/usr/share/maven/lib/guava.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[[1;34mINFO[m] Cache disabled by command line flag, project will be built fully and not cached
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.syncope.core:syncope-core-spring:jar:5.0.0-SNAPSHOT
+[[1;33mWARNING[m] 'dependencies.dependency.version' for org.testng:testng:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 180, column 16
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope                                                     [pom]
+[[1;34mINFO[m] Apache Syncope Common                                              [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo                                       [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib                                   [jar]
+[[1;34mINFO[m] Apache Syncope Common Keymaster                                    [pom]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API                         [jar]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API                              [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM                                          [pom]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib                                      [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API                                 [jar]
+[[1;34mINFO[m] Apache Syncope Common AM                                           [pom]
+[[1;34mINFO[m] Apache Syncope Common AM Lib                                       [jar]
+[[1;34mINFO[m] Apache Syncope Common AM REST API                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core                                                [pom]
+[[1;34mINFO[m] Apache Syncope Core Persistence API                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API                               [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow API                                   [jar]
+[[1;34mINFO[m] Apache Syncope Core Spring                                         [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common                             [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java                              [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36morg.apache.syncope:syncope[0;1m >---------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope 5.0.0-SNAPSHOT                            [1/22][m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope:syncope
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[[1;34mINFO[m] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from . to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from . to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------< [0;36morg.apache.syncope:syncope-common[0;1m >------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common 5.0.0-SNAPSHOT                     [2/22][m
+[[1;34mINFO[m]   from common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope:syncope-common
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36morg.apache.syncope.common:syncope-common-idrepo[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo 5.0.0-SNAPSHOT              [3/22][m
+[[1;34mINFO[m]   from common/idrepo/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-idrepo
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-lib[0;1m >-----[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo Lib 5.0.0-SNAPSHOT          [4/22][m
+[[1;34mINFO[m]   from common/idrepo/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/lib/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/lib/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/lib/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-common-idrepo-lib-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common:syncope-common-keymaster[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster 5.0.0-SNAPSHOT           [5/22][m
+[[1;34mINFO[m]   from common/keymaster/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-keymaster
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/keymaster/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.keymaster:syncope-common-keymaster-client-api[0;1m >--[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster Client API 5.0.0-SNAPSHOT [6/22][m
+[[1;34mINFO[m]   from common/keymaster/client-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.keymaster:syncope-common-keymaster-client-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/keymaster/client-api/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Copying 3 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/keymaster/client-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-common-keymaster-client-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo REST API 5.0.0-SNAPSHOT     [7/22][m
+[[1;34mINFO[m]   from common/idrepo/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/rest-api/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/rest-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/rest-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/rest-api/target/syncope-common-idrepo-rest-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjavadoc:3.12.0:jar[m [1m(attach-javadocs)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/rest-api/target/syncope-common-idrepo-rest-api-5.0.0-SNAPSHOT-javadoc.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-common-idrepo-rest-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] Checking legal files in: syncope-common-idrepo-rest-api-5.0.0-SNAPSHOT-javadoc.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-idm[0;1m >------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM 5.0.0-SNAPSHOT                 [8/22][m
+[[1;34mINFO[m]   from common/idm/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-idm
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/idm/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.common.idm:syncope-common-idm-lib[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM Lib 5.0.0-SNAPSHOT             [9/22][m
+[[1;34mINFO[m]   from common/idm/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idm:syncope-common-idm-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/idm/lib/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/lib/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/lib/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-common-idm-lib-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idm:syncope-common-idm-rest-api[0;1m >------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM REST API 5.0.0-SNAPSHOT       [10/22][m
+[[1;34mINFO[m]   from common/idm/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idm:syncope-common-idm-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/idm/rest-api/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/rest-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/rest-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/rest-api/target/syncope-common-idm-rest-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjavadoc:3.12.0:jar[m [1m(attach-javadocs)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/rest-api/target/syncope-common-idm-rest-api-5.0.0-SNAPSHOT-javadoc.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-common-idm-rest-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] Checking legal files in: syncope-common-idm-rest-api-5.0.0-SNAPSHOT-javadoc.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-am[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM 5.0.0-SNAPSHOT                 [11/22][m
+[[1;34mINFO[m]   from common/am/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-am
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/am/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common.am:syncope-common-am-lib[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM Lib 5.0.0-SNAPSHOT             [12/22][m
+[[1;34mINFO[m]   from common/am/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.am:syncope-common-am-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/am/lib/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/am/lib/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/am/lib/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-common-am-lib-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.common.am:syncope-common-am-rest-api[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM REST API 5.0.0-SNAPSHOT        [13/22][m
+[[1;34mINFO[m]   from common/am/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.am:syncope-common-am-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/common/am/rest-api/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/am/rest-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/am/rest-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/leonardo/uni/isw2/SyncopeNoTest/common/am/rest-api/target/syncope-common-am-rest-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjavadoc:3.12.0:jar[m [1m(attach-javadocs)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/leonardo/uni/isw2/SyncopeNoTest/common/am/rest-api/target/syncope-common-am-rest-api-5.0.0-SNAPSHOT-javadoc.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-common-am-rest-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] Checking legal files in: syncope-common-am-rest-api-5.0.0-SNAPSHOT-javadoc.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36morg.apache.syncope:syncope-core[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core 5.0.0-SNAPSHOT                      [14/22][m
+[[1;34mINFO[m]   from core/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope:syncope-core
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence API 5.0.0-SNAPSHOT      [15/22][m
+[[1;34mINFO[m]   from core/persistence-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-persistence-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-api/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-persistence-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning API 5.0.0-SNAPSHOT     [16/22][m
+[[1;34mINFO[m]   from core/provisioning-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-provisioning-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-api/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-provisioning-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-api[0;1m >----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow API 5.0.0-SNAPSHOT         [17/22][m
+[[1;34mINFO[m]   from core/workflow-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-workflow-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-api/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-api/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-workflow-api-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.core:syncope-core-spring[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Spring 5.0.0-SNAPSHOT               [18/22][m
+[[1;34mINFO[m]   from core/spring/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-spring
+[[1;33mWARNING[m] 1 problem was encountered while building the effective model for org.evosuite:evosuite-standalone-runtime:jar:1.0.6 during dependency collection step for project (use -X to see details)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Copying 0 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 2 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from src/test/resources to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.apache.syncope.core.spring.security.[1mAuthDataAccessorLLMGuidedTreeTest[m
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m11[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.883 s -- in org.apache.syncope.core.spring.security.[1mAuthDataAccessorLLMGuidedTreeTest[m
+[[1;34mINFO[m] Running org.apache.syncope.core.spring.security.[1mAuthDataAccessorTest[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m17[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.343 s -- in org.apache.syncope.core.spring.security.[1mAuthDataAccessorTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1;32mTests run: 28, Failures: 0, Errors: 0, Skipped: 0[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Loading execution data file /home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/jacoco.exec
+[[1;34mINFO[m] Analyzed bundle 'Apache Syncope Core Spring' with 46 classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-spring-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.core:syncope-core-persistence-common[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence Common 5.0.0-SNAPSHOT   [19/22][m
+[[1;34mINFO[m]   from core/persistence-common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-persistence-common
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-common/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-common/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-common/src/test/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] No tests to run.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-persistence-common-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-jpa[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence JPA 5.0.0-SNAPSHOT      [20/22][m
+[[1;34mINFO[m]   from core/persistence-jpa/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-persistence-jpa
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Copying 15 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mhibernate:7.3.2.Final:enhance[m [1m(enhance)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAImplementation.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPABatch.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAny.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAOIDCRPClientApp.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPASAML2IdPEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAuthProfile.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAWAConfigEntry.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAuthModule.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAPasswordManagement.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAOIDCOpEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAttrRepo.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPASAML2SPClientApp.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/AbstractClientApp.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPACASSPClientApp.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPropagationTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPullTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractSchedTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPALiveSyncTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAFormPropertyDef.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPANotificationTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPushTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractInboundTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPASchedTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTaskCommand.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPropagationTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPASchedTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractProvisioningTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtils.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtilsFactory.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPushTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPullTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPALiveSyncTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAAnyTemplateLiveSyncTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtils$1.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPANotificationTaskExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAAnyTemplatePullTask.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARole.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractRelatable.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPADelegation.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractGeneratedKeyEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/PGEntityFactory.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPAConfParam.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPANetworkService.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPADomain.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAnyTemplate.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/OracleEntityFactory.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAFIQLQuery.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPADerSchema.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyType.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAReportExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAExternalResource.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAConnInstance.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditEvent$1.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractCorrelationRuleEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractProvisioningPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAuthPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAccessPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAInboundPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAccountPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAInboundCorrelationRuleEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAttrReleasePolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPropagationPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPushCorrelationRuleEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPATicketExpirationPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPushPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPasswordPolicy.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractExec.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/EntityValidationListener.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractProvidedKeyEntity.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyAbout.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractGroupableRelatable.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAMailTemplate.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARemediation.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditEvent.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPASecurityQuestion.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPALinkedAccount.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAURelationship.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAUser.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAUMembership.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractEntityFactory.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARelationshipTypeExtension.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPASRARoute.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPANotification.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/MySQLEntityFactory.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARealm.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAJobStatus.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyTypeClass.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAReport.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractTypeExtension.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARelationshipType.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/MariaDBEntityFactory.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAttributable.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAAnyObject.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAARelationship.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAAMembership.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAccessToken.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyTemplateRealm.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGroup.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGRelationship.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGroupTypeExtension.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditConf.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractSchema.class
+[[1;34mINFO[m] Added file to source set: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAPlainSchema.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAImplementation.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPABatch.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAny.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAOIDCRPClientApp.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPASAML2IdPEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAuthProfile.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAWAConfigEntry.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAuthModule.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAPasswordManagement.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAOIDCOpEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAttrRepo.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPASAML2SPClientApp.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/AbstractClientApp.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPACASSPClientApp.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPropagationTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPullTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractSchedTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPALiveSyncTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAFormPropertyDef.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPANotificationTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPushTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractInboundTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPASchedTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTaskCommand.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPropagationTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPASchedTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractProvisioningTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtils.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtilsFactory.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPushTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPullTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPALiveSyncTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAAnyTemplateLiveSyncTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtils$1.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPANotificationTaskExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAAnyTemplatePullTask.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARole.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractRelatable.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPADelegation.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractGeneratedKeyEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/PGEntityFactory.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPAConfParam.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPANetworkService.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPADomain.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAnyTemplate.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/OracleEntityFactory.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAFIQLQuery.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPADerSchema.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyType.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAReportExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAExternalResource.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAConnInstance.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditEvent$1.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractCorrelationRuleEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractProvisioningPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAuthPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAccessPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAInboundPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAccountPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAInboundCorrelationRuleEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAttrReleasePolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPropagationPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPushCorrelationRuleEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPATicketExpirationPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPushPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPasswordPolicy.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractExec.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/EntityValidationListener.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractProvidedKeyEntity.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyAbout.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractGroupableRelatable.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAMailTemplate.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARemediation.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditEvent.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPASecurityQuestion.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPALinkedAccount.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAURelationship.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAUser.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAUMembership.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractEntityFactory.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARelationshipTypeExtension.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPASRARoute.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPANotification.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/MySQLEntityFactory.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARealm.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAJobStatus.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyTypeClass.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAReport.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractTypeExtension.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARelationshipType.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/MariaDBEntityFactory.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAttributable.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAAnyObject.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAARelationship.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAAMembership.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAccessToken.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyTemplateRealm.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGroup.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGRelationship.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGroupTypeExtension.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditConf.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractSchema.class
+[[1;34mINFO[m] Successfully discovered types for classes in file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAPlainSchema.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAImplementation.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPABatch.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAny.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAOIDCRPClientApp.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPASAML2IdPEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAuthProfile.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAWAConfigEntry.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAuthModule.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAPasswordManagement.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAOIDCOpEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPAAttrRepo.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPASAML2SPClientApp.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/AbstractClientApp.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/am/JPACASSPClientApp.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPropagationTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPullTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractSchedTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPALiveSyncTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAFormPropertyDef.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPANotificationTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPushTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractInboundTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPASchedTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTaskCommand.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPropagationTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPASchedTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractProvisioningTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtils.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/AbstractTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtilsFactory.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPushTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAPullTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPALiveSyncTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAMacroTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAAnyTemplateLiveSyncTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPATaskUtils$1.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPANotificationTaskExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/task/JPAAnyTemplatePullTask.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARole.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractRelatable.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPADelegation.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractGeneratedKeyEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/PGEntityFactory.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPAConfParam.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPANetworkService.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/keymaster/JPADomain.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAnyTemplate.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/OracleEntityFactory.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAFIQLQuery.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPADerSchema.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyType.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAReportExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAExternalResource.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAConnInstance.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditEvent$1.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractCorrelationRuleEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractProvisioningPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAuthPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAccessPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/AbstractPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAInboundPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAccountPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAInboundCorrelationRuleEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAAttrReleasePolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPropagationPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPushCorrelationRuleEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPATicketExpirationPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPushPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/policy/JPAPasswordPolicy.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractExec.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/EntityValidationListener.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractProvidedKeyEntity.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyAbout.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractGroupableRelatable.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAMailTemplate.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARemediation.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditEvent.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPASecurityQuestion.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPALinkedAccount.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAURelationship.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAUser.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/user/JPAUMembership.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractEntityFactory.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARelationshipTypeExtension.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPASRARoute.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPANotification.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/MySQLEntityFactory.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARealm.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAJobStatus.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyTypeClass.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAReport.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractTypeExtension.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPARelationshipType.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/MariaDBEntityFactory.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractAttributable.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAAnyObject.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAARelationship.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/anyobject/JPAAMembership.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAccessToken.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAnyTemplateRealm.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGroup.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGRelationship.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/group/JPAGroupTypeExtension.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAAuditConf.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/AbstractSchema.class
+[[1;34mINFO[m] Skipping file: /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target/classes/org/apache/syncope/core/persistence/jpa/entity/JPAPlainSchema.class
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Copying 0 resource from src/test/resources to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-persistence-jpa-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-java[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow Java 5.0.0-SNAPSHOT        [21/22][m
+[[1;34mINFO[m]   from core/workflow-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-workflow-java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-java/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-java/src/test/resources
+[[1;34mINFO[m] Copying 0 resource from ../persistence-jpa/src/test/resources to target/test-classes
+[[1;34mINFO[m] Copying 2 resources from ../provisioning-java/src/test/resources to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] No sources to compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution due to missing execution data file.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-workflow-java-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-java[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning Java 5.0.0-SNAPSHOT    [22/22][m
+[[1;34mINFO[m]   from core/provisioning-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-provisioning-java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] argLine set to -javaagent:/home/leonardo/.m2/repository/org/jacoco/org.jacoco.agent/0.8.14/org.jacoco.agent-0.8.14-runtime.jar=destfile=/home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/jacoco.exec -Xms512m -Xmx1024m -Xss256k
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Compiling 1 source file with javac [debug deprecation release 25] to target/classes
+[[1;33mWARNING[m] Supported source version 'RELEASE_6' from annotation processor 'org.eclipse.sisu.scanners.index.SisuIndexAPT6' less than -source '25'
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:testResources[m [1m(default-testResources)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from src/test/resources to target/test-classes
+[[1;34mINFO[m] Copying 0 resource from ../persistence-jpa/src/test/resources to target/test-classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mdependency:3.10.0:copy[m [1m(set-bundles)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] net.tirasa.connid.bundles.soap:net.tirasa.connid.bundles.soap:bundle:1.5.0:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.rest:bundle:1.1.1:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.csvdir:bundle:0.8.10:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles.db:net.tirasa.connid.bundles.db:bundle:2.4.1:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.ldap:bundle:1.5.10:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.ad:bundle:1.4.0:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles.googleapps:net.tirasa.connid.bundles.googleapps:bundle:1.4.6:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.azure:bundle:3.0.0:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.scim:bundle:1.0.5:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.servicenow:bundle:1.0.4:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles.okta:net.tirasa.connid.bundles.okta:bundle:3.0.8:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.cmd:bundle:0.5:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.kafka:bundle:1.0.0:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] net.tirasa.connid.bundles:net.tirasa.connid.bundles.ldup:bundle:0.1.0:jar already exists in /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/bundles
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:testCompile[m [1m(default-testCompile)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Nothing to compile - all classes are up to date.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32msurefire:3.5.5:test[m [1m(default-test)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.apache.syncope.core.provisioning.java.job.[1mDefaultJobManagerLLMGuidedTreeTest[m
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m12[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.048 s -- in org.apache.syncope.core.provisioning.java.job.[1mDefaultJobManagerLLMGuidedTreeTest[m
+[[1;34mINFO[m] Running org.apache.syncope.core.provisioning.java.job.[1mDefaultJobManagerTest[m
+[[1;33mWARNING[m] [1;33mTests [0;1mrun: [0;1m16[m, Failures: 0, Errors: 0, [1;33mSkipped: [0;1;33m4[m, Time elapsed: 0.073 s -- in org.apache.syncope.core.provisioning.java.job.[1mDefaultJobManagerTest[m
+[[1;34mINFO[m] Running org.apache.syncope.core.provisioning.java.job.randoop.[1mDefaultJobManagerRandoopTest[m
+[[1;34mINFO[m] Running org.apache.syncope.core.provisioning.java.job.randoop.[1mDefaultJobManagerRandoopTest0[m
+[[1;34mINFO[m] [1;32mTests run: [0;1;32m8[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s -- in org.apache.syncope.core.provisioning.java.job.randoop.[1mDefaultJobManagerRandoopTest0[m
+[[1;34mINFO[m] [1mTests run: [0;1m0[m, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s -- in org.apache.syncope.core.provisioning.java.job.randoop.[1mDefaultJobManagerRandoopTest[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 36, Failures: 0, Errors: 0, Skipped: 4
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:report[m [1m(generate-code-coverage-report)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Loading execution data file /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/jacoco.exec
+[[1;34mINFO[m] Analyzed bundle 'Apache Syncope Core Provisioning Java' with 141 classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjar:3.5.0:jar[m [1m(default-jar)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Building jar: /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/syncope-core-provisioning-java-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mfailsafe:3.5.5:integration-test[m [1m(default)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[[1;34mINFO[m] 
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m]  T E S T S
+[[1;34mINFO[m] -------------------------------------------------------
+[[1;34mINFO[m] Running org.apache.syncope.core.provisioning.java.job.[1mDefaultJobManagerLoadIT[m
+OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+[[1;33mWARNING[m] [1;33mTests [0;1mrun: [0;1m9[m, Failures: 0, Errors: 0, [1;33mSkipped: [0;1;33m2[m, Time elapsed: 2.224 s -- in org.apache.syncope.core.provisioning.java.job.[1mDefaultJobManagerLoadIT[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Results:
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Tests run: 9, Failures: 0, Errors: 0, Skipped: 2
+[[1;34mINFO[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mmodernizer:3.3.0:modernizer[m [1m(modernizer-check)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Skipping modernizer execution!
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mfailsafe:3.5.5:verify[m [1m(default)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mapache-rat:0.16.1:check[m [1m(rat-check)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mtools:1.4:verify-legal-files[m [1m(verify-legal-files)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Checking legal files in: syncope-core-provisioning-java-5.0.0-SNAPSHOT.jar
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for Apache Syncope 5.0.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope ..................................... [1;32mSUCCESS[m [  1.906 s]
+[[1;34mINFO[m] Apache Syncope Common .............................. [1;32mSUCCESS[m [  0.037 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo ....................... [1;32mSUCCESS[m [  0.033 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib ................... [1;32mSUCCESS[m [  0.370 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster .................... [1;32mSUCCESS[m [  0.032 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API ......... [1;32mSUCCESS[m [  0.055 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API .............. [1;32mSUCCESS[m [  0.398 s]
+[[1;34mINFO[m] Apache Syncope Common IdM .......................... [1;32mSUCCESS[m [  0.028 s]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib ...................... [1;32mSUCCESS[m [  0.042 s]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API ................. [1;32mSUCCESS[m [  0.100 s]
+[[1;34mINFO[m] Apache Syncope Common AM ........................... [1;32mSUCCESS[m [  0.026 s]
+[[1;34mINFO[m] Apache Syncope Common AM Lib ....................... [1;32mSUCCESS[m [  0.057 s]
+[[1;34mINFO[m] Apache Syncope Common AM REST API .................. [1;32mSUCCESS[m [  0.105 s]
+[[1;34mINFO[m] Apache Syncope Core ................................ [1;32mSUCCESS[m [  0.026 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence API ................ [1;32mSUCCESS[m [  0.089 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API ............... [1;32mSUCCESS[m [  0.073 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow API ................... [1;32mSUCCESS[m [  0.042 s]
+[[1;34mINFO[m] Apache Syncope Core Spring ......................... [1;32mSUCCESS[m [  3.631 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common ............. [1;32mSUCCESS[m [  0.121 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA ................ [1;32mSUCCESS[m [  0.780 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java .................. [1;32mSUCCESS[m [  0.102 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java .............. [1;32mSUCCESS[m [  7.747 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  17.206 s
+[[1;34mINFO[m] Finished at: 2026-05-28T14:30:34+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

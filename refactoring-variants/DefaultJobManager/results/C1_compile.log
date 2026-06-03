@@ -1,0 +1,576 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/usr/share/maven/lib/guava.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[[1;34mINFO[m] Loading cache configuration from /home/leonardo/uni/isw2/SyncopeNoTest/.mvn/maven-build-cache-config.xml
+[[1;34mINFO[m] Using XX hash algorithm for cache
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.syncope.core:syncope-core-spring:jar:5.0.0-SNAPSHOT
+[[1;33mWARNING[m] 'dependencies.dependency.version' for org.testng:testng:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 180, column 16
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope                                                     [pom]
+[[1;34mINFO[m] Apache Syncope Common                                              [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo                                       [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib                                   [jar]
+[[1;34mINFO[m] Apache Syncope Common Keymaster                                    [pom]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API                         [jar]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API                              [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM                                          [pom]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib                                      [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API                                 [jar]
+[[1;34mINFO[m] Apache Syncope Common AM                                           [pom]
+[[1;34mINFO[m] Apache Syncope Common AM Lib                                       [jar]
+[[1;34mINFO[m] Apache Syncope Common AM REST API                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core                                                [pom]
+[[1;34mINFO[m] Apache Syncope Core Persistence API                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API                               [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow API                                   [jar]
+[[1;34mINFO[m] Apache Syncope Core Spring                                         [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common                             [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java                              [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36morg.apache.syncope:syncope[0;1m >---------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope 5.0.0-SNAPSHOT                            [1/22][m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope:syncope
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope, artifactId=syncope, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 19 ms. XX checksum [ce67442b98128e27] calculated in 5 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope:syncope from build cache
+[[1;34mINFO[m] Local build found by checksum ce67442b98128e27
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope:syncope from cache by checksum ce67442b98128e27
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------< [0;36morg.apache.syncope:syncope-common[0;1m >------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common 5.0.0-SNAPSHOT                     [2/22][m
+[[1;34mINFO[m]   from common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope:syncope-common
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope, artifactId=syncope-common, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 4 ms. XX checksum [9a969d9a8694fc5f] calculated in 1 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope:syncope-common from build cache
+[[1;34mINFO[m] Local build found by checksum 9a969d9a8694fc5f
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope:syncope-common from cache by checksum 9a969d9a8694fc5f
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36morg.apache.syncope.common:syncope-common-idrepo[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo 5.0.0-SNAPSHOT              [3/22][m
+[[1;34mINFO[m]   from common/idrepo/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common:syncope-common-idrepo
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common, artifactId=syncope-common-idrepo, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 6 ms. XX checksum [65786a1ca5ffa78f] calculated in 1 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common:syncope-common-idrepo from build cache
+[[1;34mINFO[m] Local build found by checksum 65786a1ca5ffa78f
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common:syncope-common-idrepo from cache by checksum 65786a1ca5ffa78f
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-lib[0;1m >-----[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo Lib 5.0.0-SNAPSHOT          [4/22][m
+[[1;34mINFO[m]   from common/idrepo/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-lib
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 190 input files. Project dir processing: 15, plugins: 12 millis
+[[1;34mINFO[m] Project inputs calculated in 37 ms. XX checksum [070c1b714129386b] calculated in 82 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common.idrepo:syncope-common-idrepo-lib from build cache
+[[1;34mINFO[m] Local build found by checksum 070c1b714129386b
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common.idrepo:syncope-common-idrepo-lib from cache by checksum 070c1b714129386b
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common:syncope-common-keymaster[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster 5.0.0-SNAPSHOT           [5/22][m
+[[1;34mINFO[m]   from common/keymaster/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common:syncope-common-keymaster
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common, artifactId=syncope-common-keymaster, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 3 ms. XX checksum [44089e3957fe8245] calculated in 0 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common:syncope-common-keymaster from build cache
+[[1;34mINFO[m] Local build found by checksum 44089e3957fe8245
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common:syncope-common-keymaster from cache by checksum 44089e3957fe8245
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.keymaster:syncope-common-keymaster-client-api[0;1m >--[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster Client API 5.0.0-SNAPSHOT [6/22][m
+[[1;34mINFO[m]   from common/keymaster/client-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common.keymaster:syncope-common-keymaster-client-api
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.keymaster, artifactId=syncope-common-keymaster-client-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 26 input files. Project dir processing: 2, plugins: 5 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 9 ms. XX checksum [337ed6d6a1d38998] calculated in 5 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common.keymaster:syncope-common-keymaster-client-api from build cache
+[[1;34mINFO[m] Local build found by checksum 337ed6d6a1d38998
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common.keymaster:syncope-common-keymaster-client-api from cache by checksum 337ed6d6a1d38998
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo REST API 5.0.0-SNAPSHOT     [7/22][m
+[[1;34mINFO[m]   from common/idrepo/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-rest-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 61 input files. Project dir processing: 3, plugins: 2 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 7 ms. XX checksum [ee2b72e4ad30a840] calculated in 10 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api from build cache
+[[1;34mINFO[m] Local build found by checksum ee2b72e4ad30a840
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api from cache by checksum ee2b72e4ad30a840
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-idm[0;1m >------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM 5.0.0-SNAPSHOT                 [8/22][m
+[[1;34mINFO[m]   from common/idm/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common:syncope-common-idm
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common, artifactId=syncope-common-idm, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 1 ms. XX checksum [1326ae14b81ad739] calculated in 0 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common:syncope-common-idm from build cache
+[[1;34mINFO[m] Local build found by checksum 1326ae14b81ad739
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common:syncope-common-idm from cache by checksum 1326ae14b81ad739
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.common.idm:syncope-common-idm-lib[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM Lib 5.0.0-SNAPSHOT             [9/22][m
+[[1;34mINFO[m]   from common/idm/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common.idm:syncope-common-idm-lib
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idm, artifactId=syncope-common-idm-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 37 input files. Project dir processing: 1, plugins: 3 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 6 ms. XX checksum [5c67d785a7ad72f3] calculated in 5 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common.idm:syncope-common-idm-lib from build cache
+[[1;34mINFO[m] Local build found by checksum 5c67d785a7ad72f3
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common.idm:syncope-common-idm-lib from cache by checksum 5c67d785a7ad72f3
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idm:syncope-common-idm-rest-api[0;1m >------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM REST API 5.0.0-SNAPSHOT       [10/22][m
+[[1;34mINFO[m]   from common/idm/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common.idm:syncope-common-idm-rest-api
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idm, artifactId=syncope-common-idm-rest-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 19 input files. Project dir processing: 1, plugins: 2 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-rest-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idm, artifactId=syncope-common-idm-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 5 ms. XX checksum [1d9df5418ab9518d] calculated in 3 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common.idm:syncope-common-idm-rest-api from build cache
+[[1;34mINFO[m] Local build found by checksum 1d9df5418ab9518d
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common.idm:syncope-common-idm-rest-api from cache by checksum 1d9df5418ab9518d
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-am[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM 5.0.0-SNAPSHOT                 [11/22][m
+[[1;34mINFO[m]   from common/am/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common:syncope-common-am
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common, artifactId=syncope-common-am, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 2 ms. XX checksum [da5209372ce1518a] calculated in 1 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common:syncope-common-am from build cache
+[[1;34mINFO[m] Local build found by checksum da5209372ce1518a
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common:syncope-common-am from cache by checksum da5209372ce1518a
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common.am:syncope-common-am-lib[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM Lib 5.0.0-SNAPSHOT             [12/22][m
+[[1;34mINFO[m]   from common/am/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common.am:syncope-common-am-lib
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.am, artifactId=syncope-common-am-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 126 input files. Project dir processing: 3, plugins: 3 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 9 ms. XX checksum [49466b64f43706af] calculated in 14 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common.am:syncope-common-am-lib from build cache
+[[1;34mINFO[m] Local build found by checksum 49466b64f43706af
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common.am:syncope-common-am-lib from cache by checksum 49466b64f43706af
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.common.am:syncope-common-am-rest-api[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM REST API 5.0.0-SNAPSHOT        [13/22][m
+[[1;34mINFO[m]   from common/am/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.common.am:syncope-common-am-rest-api
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.am, artifactId=syncope-common-am-rest-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 30 input files. Project dir processing: 1, plugins: 3 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idrepo, artifactId=syncope-common-idrepo-rest-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.am, artifactId=syncope-common-am-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 7 ms. XX checksum [dd0481f0344de118] calculated in 2 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.common.am:syncope-common-am-rest-api from build cache
+[[1;34mINFO[m] Local build found by checksum dd0481f0344de118
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.common.am:syncope-common-am-rest-api from cache by checksum dd0481f0344de118
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36morg.apache.syncope:syncope-core[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core 5.0.0-SNAPSHOT                      [14/22][m
+[[1;34mINFO[m]   from core/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope:syncope-core
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope, artifactId=syncope-core, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 2 ms. XX checksum [ac4ebfb029990cb8] calculated in 0 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope:syncope-core from build cache
+[[1;34mINFO[m] Local build found by checksum ac4ebfb029990cb8
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope:syncope-core from cache by checksum ac4ebfb029990cb8
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence API 5.0.0-SNAPSHOT      [15/22][m
+[[1;34mINFO[m]   from core/persistence-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-persistence-api
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 214 input files. Project dir processing: 4, plugins: 1 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idm, artifactId=syncope-common-idm-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.am, artifactId=syncope-common-am-lib, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.keymaster, artifactId=syncope-common-keymaster-client-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 8 ms. XX checksum [da6257fca642522d] calculated in 8 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-persistence-api from build cache
+[[1;34mINFO[m] Local build found by checksum da6257fca642522d
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-persistence-api from cache by checksum da6257fca642522d
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning API 5.0.0-SNAPSHOT     [16/22][m
+[[1;34mINFO[m]   from core/provisioning-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-provisioning-api
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-provisioning-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 142 input files. Project dir processing: 4, plugins: 2 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 8 ms. XX checksum [3e271a0b1d2b9456] calculated in 4 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-provisioning-api from build cache
+[[1;34mINFO[m] Local build found by checksum 3e271a0b1d2b9456
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-provisioning-api from cache by checksum 3e271a0b1d2b9456
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-api[0;1m >----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow API 5.0.0-SNAPSHOT         [17/22][m
+[[1;34mINFO[m]   from core/workflow-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-workflow-api
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-workflow-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 17 input files. Project dir processing: 1, plugins: 2 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-provisioning-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 5 ms. XX checksum [c83f870ef2a8afbb] calculated in 2 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-workflow-api from build cache
+[[1;34mINFO[m] Local build found by checksum c83f870ef2a8afbb
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-workflow-api from cache by checksum c83f870ef2a8afbb
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.core:syncope-core-spring[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Spring 5.0.0-SNAPSHOT               [18/22][m
+[[1;34mINFO[m]   from core/spring/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-spring
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-spring, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 54 input files. Project dir processing: 2, plugins: 2 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-provisioning-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.idm, artifactId=syncope-common-idm-rest-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.am, artifactId=syncope-common-am-rest-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.common.keymaster, artifactId=syncope-common-keymaster-client-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 6 ms. XX checksum [63b4076888c00abb] calculated in 3 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-spring from build cache
+[[1;34mINFO[m] Local build found by checksum 63b4076888c00abb
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-spring from cache by checksum 63b4076888c00abb
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.core:syncope-core-persistence-common[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence Common 5.0.0-SNAPSHOT   [19/22][m
+[[1;34mINFO[m]   from core/persistence-common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-persistence-common
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-common, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 84 input files. Project dir processing: 1, plugins: 1 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-spring, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 4 ms. XX checksum [fcc04d31cbc49629] calculated in 2 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-persistence-common from build cache
+[[1;34mINFO[m] Local build found by checksum fcc04d31cbc49629
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-persistence-common from cache by checksum fcc04d31cbc49629
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-jpa[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence JPA 5.0.0-SNAPSHOT      [20/22][m
+[[1;34mINFO[m]   from core/persistence-jpa/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-persistence-jpa
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-jpa, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 304 input files. Project dir processing: 5, plugins: 2 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-common, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-common, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 8 ms. XX checksum [39408966cdedcf41] calculated in 9 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-persistence-jpa from build cache
+[[1;34mINFO[m] Local build found by checksum 39408966cdedcf41
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-persistence-jpa from cache by checksum 39408966cdedcf41
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-java[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow Java 5.0.0-SNAPSHOT        [21/22][m
+[[1;34mINFO[m]   from core/workflow-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-workflow-java
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-workflow-java, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 19 input files. Project dir processing: 1, plugins: 1 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-workflow-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-spring, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-jpa, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 3 ms. XX checksum [bdadbffdaea27df6] calculated in 1 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-workflow-java from build cache
+[[1;34mINFO[m] Local build found by checksum bdadbffdaea27df6
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-workflow-java from cache by checksum bdadbffdaea27df6
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-java[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning Java 5.0.0-SNAPSHOT    [22/22][m
+[[1;34mINFO[m]   from core/provisioning-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is INITIALIZED on project level for org.apache.syncope.core:syncope-core-provisioning-java
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-provisioning-java, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Scanning plugins configurations to find input files. Probing is enabled, values will be checked for presence in file system
+[[1;34mINFO[m] Found 140 input files. Project dir processing: 5, plugins: 3 millis
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-workflow-api, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-spring, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-workflow-java, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Going to calculate checksum for project [groupId=org.apache.syncope.core, artifactId=syncope-core-persistence-jpa, version=5.0.0-SNAPSHOT]
+[[1;34mINFO[m] Project inputs calculated in 10 ms. XX checksum [73bd6f3ac5e0a04b] calculated in 13 ms.
+[[1;34mINFO[m] Attempting to restore project org.apache.syncope.core:syncope-core-provisioning-java from build cache
+[[1;34mINFO[m] Local build found by checksum 73bd6f3ac5e0a04b
+[[1;34mINFO[m] Found cached build, restoring org.apache.syncope.core:syncope-core-provisioning-java from cache by checksum 73bd6f3ac5e0a04b
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): enforcer:enforce
+[[1;34mINFO[m] Skipping plugin execution (cached): jacoco:prepare-agent
+[[1;34mINFO[m] Skipping plugin execution (cached): gplus:execute
+[[1;34mINFO[m] Skipping plugin execution (cached): remote-resources:process
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): resources:copy-resources
+[[1;34mINFO[m] Skipping plugin execution (cached): compiler:compile
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for Apache Syncope 5.0.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope ..................................... [1;32mSUCCESS[m [  0.679 s]
+[[1;34mINFO[m] Apache Syncope Common .............................. [1;32mSUCCESS[m [  0.015 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo ....................... [1;32mSUCCESS[m [  0.020 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib ................... [1;32mSUCCESS[m [  0.310 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster .................... [1;32mSUCCESS[m [  0.014 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API ......... [1;32mSUCCESS[m [  0.030 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API .............. [1;32mSUCCESS[m [  0.067 s]
+[[1;34mINFO[m] Apache Syncope Common IdM .......................... [1;32mSUCCESS[m [  0.010 s]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib ...................... [1;32mSUCCESS[m [  0.025 s]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API ................. [1;32mSUCCESS[m [  0.026 s]
+[[1;34mINFO[m] Apache Syncope Common AM ........................... [1;32mSUCCESS[m [  0.010 s]
+[[1;34mINFO[m] Apache Syncope Common AM Lib ....................... [1;32mSUCCESS[m [  0.066 s]
+[[1;34mINFO[m] Apache Syncope Common AM REST API .................. [1;32mSUCCESS[m [  0.024 s]
+[[1;34mINFO[m] Apache Syncope Core ................................ [1;32mSUCCESS[m [  0.008 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence API ................ [1;32mSUCCESS[m [  0.055 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API ............... [1;32mSUCCESS[m [  0.040 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow API ................... [1;32mSUCCESS[m [  0.015 s]
+[[1;34mINFO[m] Apache Syncope Core Spring ......................... [1;32mSUCCESS[m [  0.023 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common ............. [1;32mSUCCESS[m [  0.024 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA ................ [1;32mSUCCESS[m [  0.077 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java .................. [1;32mSUCCESS[m [  0.011 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java .............. [1;32mSUCCESS[m [  0.065 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  2.421 s
+[[1;34mINFO[m] Finished at: 2026-05-28T12:54:24+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

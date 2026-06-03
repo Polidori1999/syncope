@@ -1,0 +1,11 @@
+Compiled from "AuthDataAccessor.java"
+public class org.apache.syncope.core.spring.security.AuthDataAccessor {
+  public org.apache.syncope.core.spring.security.AuthDataAccessor();
+  public org.apache.syncope.core.spring.security.JWTSSOProvider getJWTSSOProvider(java.lang.String);
+  public org.apache.syncope.core.persistence.api.entity.Domain findDomain(java.lang.String);
+  public org.apache.commons.lang3.tuple.Pair<org.apache.syncope.core.persistence.api.entity.user.User, java.lang.Boolean> authenticate(org.springframework.security.core.Authentication);
+  public java.util.Set<org.apache.syncope.core.spring.security.SyncopeGrantedAuthority> getAuthorities(java.lang.String);
+  public org.apache.commons.lang3.tuple.Pair<java.lang.String, java.util.Set<org.apache.syncope.core.spring.security.SyncopeGrantedAuthority>> authenticate(org.apache.syncope.core.spring.security.JWTAuthentication);
+  public void removeExpired(java.lang.String);
+  public void audit(org.apache.syncope.common.lib.types.AuditElements$EventCategoryType, java.lang.String, java.lang.String, java.lang.String, org.apache.syncope.common.lib.types.AuditElements$Result, java.lang.Object, java.lang.Object, java.lang.Object...);
+}

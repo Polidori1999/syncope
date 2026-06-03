@@ -1,0 +1,104 @@
+Imagine three different experts in software testing who are tasked with developing
+comprehensive JUnit 4 test cases for the following Java class named AuthDataAccessor.
+
+The target project is Apache Syncope.
+The Maven module is core/spring.
+The target package is org.apache.syncope.core.spring.security.
+The class version under test is the refactored variant C3.
+
+Generate a NEW test suite specifically for the provided C3 source code.
+Use only the provided C3 AuthDataAccessor source code as production-code reference.
+Do not reuse, adapt, or assume any previous C0/C1/C2 test suite.
+
+The generated test file must be named AuthDataAccessorC3LLMGuidedTreeTest.java.
+The generated test class must be named AuthDataAccessorC3LLMGuidedTreeTest.
+
+They must follow these steps:
+1. Extract and list all public and protected methods of AuthDataAccessor, including their signatures.
+2. For each method, identify its expected functionality by analyzing the provided C3 source code.
+3. Identify normal cases, edge cases, and exception-handling scenarios.
+4. Generate focused JUnit 4 test cases for the methods that can be tested safely with Mockito.
+5. Merge the generated tests into one complete JUnit 4 file named AuthDataAccessorC3LLMGuidedTreeTest.java.
+6. Add a short comment for each generated test explaining the expected behavior.
+
+The generated test file must satisfy these requirements:
+- The package must be org.apache.syncope.core.spring.security.
+- The test class name must be AuthDataAccessorC3LLMGuidedTreeTest.
+- Use JUnit 4 only.
+- Use Mockito.
+- Use org.mockito.junit.MockitoJUnitRunner.
+- Do not use org.mockito.runners.MockitoJUnitRunner.
+- Do not use org.mockito.Matchers.
+- Do not use JUnit 5 annotations or assertions.
+- Do not generate reflection-based tests.
+- Do not test Object methods such as equals, hashCode, toString, wait, notify, or getClass.
+- Do not generate tests that only verify constructors, constants, or method existence.
+- Prefer observable behavior: return values, thrown exceptions, or interactions with mocked collaborators.
+- Return only valid Java source code.
+- The first non-empty line must be:
+  package org.apache.syncope.core.spring.security;
+- Do not include Markdown fences.
+- Do not include explanatory text before or after the Java code.
+- Do not include marker lines such as ###Test START### or ###Test END###.
+
+Important project-specific compilation guidance:
+- AuthDataAccessor must be instantiated manually in setUp(); do not use @InjectMocks.
+- If the source code allows it and a spy is useful for isolating complex authentication internals, instantiate AuthDataAccessor as a Mockito spy in setUp().
+- The constructor parameters must be passed exactly in this order:
+SecurityProperties securityProperties,
+EncryptorManager encryptorManager,
+RealmSearchDAO realmSearchDAO,
+UserDAO userDAO,
+GroupDAO groupDAO,
+AnySearchDAO anySearchDAO,
+AccessTokenDAO accessTokenDAO,
+ConfParamOps confParamOps,
+RoleDAO roleDAO,
+DelegationDAO delegationDAO,
+ExternalResourceDAO resourceDAO,
+ConnectorManager connectorManager,
+AuditManager auditManager,
+MappingManager mappingManager,
+List<JWTSSOProvider> jwtSSOProviders
+
+- Do not pass MappingManager twice.
+- Do not create helper methods or helper variables only to return constructor mocks.
+- Use the existing Mockito fields directly: connectorManager, auditManager, mappingManager.
+- Do not use snake_case variable names such as connector_manager, audit_manager, or mapping_manager.
+- Do not mock List<JWTSSOProvider>. Use a real list, for example Collections.emptyList() or List.of(provider), depending on the Java version supported by the project.
+- Do not import org.springframework.security.core.userdetails.User.
+- When a user entity is needed, use org.apache.syncope.core.persistence.api.entity.user.User.
+- If there is ambiguity around User, use the fully qualified name.
+- Do not invent JWTClaims.
+- Do not invent JWTAuthentication.Claims.
+- Use only JWT-related types and methods that appear in the provided C3 AuthDataAccessor source code.
+- Do not invent methods on Syncope domain classes.
+- Do not access private fields of AuthDataAccessor nested result classes. Use only public accessors if they exist.
+- Do not use EncryptorManager.Instance; this type does not exist.
+- Do not stub securityProperties.getAdminPasswordAlgorithm() with a String because it returns a CipherAlgorithm.
+- Avoid tests that require real Spring context, real database access, real connectors, real encryption configuration, real JWT parsing, or real security policies.
+- Use Mockito mocks for DAO, manager, provider, authentication, details, and domain entities.
+- Use typed Mockito matchers when method overloads could be ambiguous.
+- For DAO methods returning Optional<? extends T>, use doReturn(Optional.of(mock)).when(dao).method(...) instead of when(...).thenReturn(Optional.of(mock)).
+
+Behavioral priorities:
+- The generated suite should prioritize behaviorally relevant public or protected methods.
+- Do not ignore authenticate if it is public or protected in the provided C3 source code, because authentication is a central behavior of AuthDataAccessor.
+- Also consider authority retrieval, JWT provider lookup, delegation handling, token removal, and audit delegation if these behaviors are exposed or safely testable.
+- Infer normal cases, edge cases, exception cases, expected outcomes, and assertions from the provided C3 source code.
+- If a method is private, removed, renamed, or not directly accessible in the provided C3 source code, do not test it directly; instead test the corresponding observable behavior through public or protected methods.
+- If a path requires complex Syncope entities or policies that are hard to mock reliably, prefer a smaller focused test or avoid that path.
+
+Oracle stability guidance:
+- Do not assert that admin authorities are non-empty unless this is explicitly guaranteed by the provided source code.
+- For admin-user authority behavior, prefer checking that the result is not null and that normal user lookup is not performed.
+- For audit behavior, verify the actual auditManager.audit(...) invocation shape used by the provided source code. Do not require extra varargs if the actual invocation does not include them.
+- For authenticate success paths, if the source code reads the configuration key "log.lastlogindate", stub ConfParamOps with:
+  confParamOps.get(anyString(), eq("log.lastlogindate"), any(), eq(Boolean.class))
+  returning Boolean.TRUE or Boolean.FALSE as appropriate.
+- For authenticate paths, ensure the mocked user is allowed by the source code: not suspended, allowed status, and matching authentication attributes.
+
+Generate fewer tests if needed, but make them more likely to compile and pass.
+
+The Java class is AuthDataAccessor, and the source code provided below is the C3 refactored version.
+

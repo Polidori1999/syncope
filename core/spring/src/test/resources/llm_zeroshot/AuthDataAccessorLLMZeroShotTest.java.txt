@@ -1,0 +1,297 @@
+package org.apache.syncope.core.spring.security;
+
+import org.junit.BeforeClass;
+import org.junit.Test;
+import org.junit.Assert;
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
+import java.util.concurrent.*;
+import java.util.*;
+
+/**
+ * Comprehensive reflection-based JUnit 4 tests for AuthDataAccessor.
+ *
+ * These tests are written to be resilient when the concrete AuthDataAccessor
+ * implementation changes. They:
+ * - Verify the class is present and loadable.
+ * - Inspect constructors and methods.
+ * - Attempt safe instantiation (no-arg constructor preferred).
+ * - Invoke zero-argument public methods to ensure they don't throw unexpectedly.
+ * - Check basic contract methods (equals/hashCode/toString) when an instance can be created.
+ * - Run concurrent invocations of safe methods to surface obvious thread-safety issues.
+ *
+ * Each test includes a short comment describing its intent.
+ *
+ * Note: These tests intentionally avoid invoking methods that require complex
+ * domain objects or external resources. They aim to exercise the surface area
+ * of the class in a safe, zero-shot manner so they can be used as a starting
+ * point for more specific unit tests that depend on project-specific fixtures.
+ */
+public class AuthDataAccessorLLMZeroShotTest {
+
+    private static final String TARGET_CLASS = "org.apache.syncope.core.spring.security.AuthDataAccessor";
+    private static Class<?> authDataAccessorClass;
+    private static Object authDataAccessorInstance; // may remain null if instantiation not possible
+    private static List<Method> zeroArgPublicMethods = new ArrayList<>();
+
+    @BeforeClass
+    public static void setUpOnce() throws Exception {
+        // Load the class by name; fail fast if not present.
+        authDataAccessorClass = Class.forName(TARGET_CLASS);
+
+        // Try to find and record public zero-argument methods for safe invocation later.
+        for (Method m : authDataAccessorClass.getMethods()) {
+            if (Modifier.isPublic(m.getModifiers()) && m.getParameterCount() == 0 && !m.isSynthetic()) {
+                zeroArgPublicMethods.add(m);
+            }
+        }
+
+        // Attempt to instantiate using a no-arg constructor if available and accessible.
+        try {
+            Constructor<?> noArgCtor = null;
+            for (Constructor<?> ctor : authDataAccessorClass.getDeclaredConstructors()) {
+                if (ctor.getParameterCount() == 0) {
+                    noArgCtor = ctor;
+                    break;
+                }
+            }
+            if (noArgCtor != null) {
+                if (!noArgCtor.isAccessible()) {
+                    noArgCtor.setAccessible(true);
+                }
+                authDataAccessorInstance = noArgCtor.newInstance();
+            } else {
+                // If no no-arg constructor, attempt to instantiate using the first constructor
+                // by passing nulls for reference types and default values for primitives.
+                Constructor<?> ctor = authDataAccessorClass.getDeclaredConstructors()[0];
+                if (!ctor.isAccessible()) {
+                    ctor.setAccessible(true);
+                }
+                Object[] args = Arrays.stream(ctor.getParameterTypes())
+                        .map(AuthDataAccessorLLMZeroShotTest::defaultValueFor)
+                        .toArray();
+                try {
+                    authDataAccessorInstance = ctor.newInstance(args);
+                } catch (InvocationTargetException ite) {
+                    // Instantiation failed; leave instance null. Tests will adapt accordingly.
+                    authDataAccessorInstance = null;
+                }
+            }
+        } catch (Throwable t) {
+            // If any unexpected error occurs during instantiation, keep instance null.
+            authDataAccessorInstance = null;
+        }
+    }
+
+    // Helper to produce a default value for a given parameter type.
+    private static Object defaultValueFor(Class<?> type) {
+        if (!type.isPrimitive()) {
+            return null;
+        }
+        if (type == boolean.class) return false;
+        if (type == byte.class) return (byte) 0;
+        if (type == short.class) return (short) 0;
+        if (type == int.class) return 0;
+        if (type == long.class) return 0L;
+        if (type == float.class) return 0f;
+        if (type == double.class) return 0d;
+        if (type == char.class) return '\0';
+        return null;
+    }
+
+    /**
+     * Test that the AuthDataAccessor class can be loaded by the classloader.
+     */
+    @Test
+    public void testClassIsLoadable() {
+        Assert.assertNotNull("AuthDataAccessor class should be loadable", authDataAccessorClass);
+    }
+
+    /**
+     * Test that the class declares at least one public method.
+     * This ensures the class exposes behavior to be tested.
+     */
+    @Test
+    public void testHasPublicMethods() {
+        Method[] methods = authDataAccessorClass.getMethods();
+        Assert.assertTrue("AuthDataAccessor should declare at least one public method", methods.length > 0);
+    }
+
+    /**
+     * Test that public zero-argument methods (if any) can be invoked without throwing
+     * an unexpected runtime exception when an instance is available.
+     *
+     * This avoids calling methods that require complex parameters or external resources.
+     */
+    @Test
+    public void testInvokeZeroArgPublicMethods() {
+        if (zeroArgPublicMethods.isEmpty()) {
+            // Nothing to invoke; consider this a valid scenario.
+            return;
+        }
+        if (authDataAccessorInstance == null) {
+            // If we cannot instantiate the class, we cannot safely invoke instance methods.
+            // However, static zero-arg methods could still be invoked; attempt those.
+            for (Method m : zeroArgPublicMethods) {
+                if (Modifier.isStatic(m.getModifiers())) {
+                    try {
+                        Object result = m.invoke(null);
+                        // Invocation succeeded; result may be null or non-null.
+                    } catch (IllegalAccessException | InvocationTargetException e) {
+                        Assert.fail("Static zero-arg method " + m.getName() + " threw: " + e.getCause());
+                    }
+                }
+            }
+            return;
+        }
+
+        for (Method m : zeroArgPublicMethods) {
+            try {
+                Object result = m.invoke(authDataAccessorInstance);
+                // We don't assert on result content because behavior is domain-specific.
+                // We only assert that invocation does not throw an unexpected exception.
+            } catch (IllegalAccessException e) {
+                Assert.fail("Method " + m.getName() + " should be accessible: " + e.getMessage());
+            } catch (InvocationTargetException ite) {
+                // If the underlying method throws an exception, fail the test with the cause message.
+                Throwable cause = ite.getCause();
+                Assert.fail("Invocation of method " + m.getName() + " threw: " + (cause == null ? ite.getMessage() : cause.toString()));
+            }
+        }
+    }
+
+    /**
+     * Test basic object contract methods (equals, hashCode, toString) when an instance can be created.
+     * This verifies that these methods are implemented in a reasonable way and do not throw.
+     */
+    @Test
+    public void testEqualsHashCodeToString() {
+        if (authDataAccessorInstance == null) {
+            // Cannot perform contract checks without an instance.
+            return;
+        }
+        // equals with self should be true
+        Assert.assertTrue("equals(self) should be true", authDataAccessorInstance.equals(authDataAccessorInstance));
+
+        // hashCode should be stable across multiple invocations
+        int h1 = authDataAccessorInstance.hashCode();
+        int h2 = authDataAccessorInstance.hashCode();
+        Assert.assertEquals("hashCode should be stable across invocations", h1, h2);
+
+        // toString should not be null
+        String s = authDataAccessorInstance.toString();
+        Assert.assertNotNull("toString should not return null", s);
+    }
+
+    /**
+     * Test that all declared public methods have sensible modifiers and are not synthetic/bridge methods.
+     * This is a lightweight structural check on the API surface.
+     */
+    @Test
+    public void testMethodSignaturesAreSane() {
+        Method[] methods = authDataAccessorClass.getMethods();
+        for (Method m : methods) {
+            Assert.assertFalse("Method " + m.getName() + " should not be synthetic", m.isSynthetic());
+            Assert.assertFalse("Method " + m.getName() + " should not be a bridge method", m.isBridge());
+            // Ensure method name is a valid Java identifier (basic sanity)
+            Assert.assertTrue("Method name should be non-empty", m.getName() != null && !m.getName().trim().isEmpty());
+        }
+    }
+
+    /**
+     * Concurrently invoke safe zero-argument public methods to detect obvious concurrency issues.
+     * Each method is invoked multiple times in parallel; failures are reported.
+     */
+    @Test
+    public void testConcurrentInvocationOfSafeMethods() throws InterruptedException {
+        if (zeroArgPublicMethods.isEmpty()) {
+            return;
+        }
+        // Use a small thread pool to run concurrent invocations.
+        int threads = Math.min(4, Math.max(1, zeroArgPublicMethods.size()));
+        ExecutorService exec = Executors.newFixedThreadPool(threads);
+        List<Future<?>> futures = new ArrayList<>();
+
+        for (final Method m : zeroArgPublicMethods) {
+            // Only test instance methods if we have an instance; static methods can be tested regardless.
+            if (!Modifier.isStatic(m.getModifiers()) && authDataAccessorInstance == null) {
+                continue;
+            }
+            Callable<Void> task = () -> {
+                for (int i = 0; i < 10; i++) {
+                    try {
+                        if (Modifier.isStatic(m.getModifiers())) {
+                            m.invoke(null);
+                        } else {
+                            m.invoke(authDataAccessorInstance);
+                        }
+                    } catch (InvocationTargetException ite) {
+                        throw new RuntimeException("Method " + m.getName() + " threw: " + ite.getCause(), ite);
+                    } catch (IllegalAccessException iae) {
+                        throw new RuntimeException("Method " + m.getName() + " not accessible: " + iae, iae);
+                    }
+                }
+                return null;
+            };
+            futures.add(exec.submit(task));
+        }
+
+        exec.shutdown();
+        boolean finished = exec.awaitTermination(10, TimeUnit.SECONDS);
+        if (!finished) {
+            exec.shutdownNow();
+            Assert.fail("Concurrent invocation tasks did not finish in time");
+        }
+
+        // Check for exceptions in futures
+        for (Future<?> f : futures) {
+            try {
+                f.get();
+            } catch (ExecutionException ee) {
+                Assert.fail("Concurrent invocation failed: " + ee.getCause());
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+                Assert.fail("Test interrupted");
+            }
+        }
+    }
+
+    /**
+     * Ensure that the class is not an interface and not abstract (i.e., it is instantiable in principle).
+     * This is a structural check that helps detect accidental refactorings that would break consumers.
+     */
+    @Test
+    public void testClassIsConcrete() {
+        int mods = authDataAccessorClass.getModifiers();
+        Assert.assertFalse("AuthDataAccessor should not be an interface", authDataAccessorClass.isInterface());
+        Assert.assertFalse("AuthDataAccessor should not be abstract", Modifier.isAbstract(mods));
+    }
+
+    /**
+     * If the class exposes any public static factory methods that return its own type,
+     * attempt to call them with null/default arguments and verify they return an instance or null safely.
+     */
+    @Test
+    public void testPublicStaticFactoryMethodsReturnType() {
+        Method[] methods = authDataAccessorClass.getMethods();
+        for (Method m : methods) {
+            if (Modifier.isStatic(m.getModifiers()) && authDataAccessorClass.isAssignableFrom(m.getReturnType())) {
+                // Build default args for parameters
+                Object[] args = Arrays.stream(m.getParameterTypes()).map(AuthDataAccessorLLMZeroShotTest::defaultValueFor).toArray();
+                try {
+                    Object result = m.invoke(null, args);
+                    // result may be null or an instance; both are acceptable for this generic test.
+                    if (result != null) {
+                        Assert.assertTrue("Factory method " + m.getName() + " should return an instance of the class",
+                                authDataAccessorClass.isInstance(result));
+                    }
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    Assert.fail("Invoking static factory " + m.getName() + " failed: " + e.getCause());
+                }
+            }
+        }
+    }
+}

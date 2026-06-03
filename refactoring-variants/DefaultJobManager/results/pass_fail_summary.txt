@@ -1,0 +1,24 @@
+DefaultJobManager - Pass/Fail matrix using C0 tests
+
+C0: PASS
+C1: PASS
+C2: FAIL
+C3: FAIL
+C4: FAIL
+
+Failure observed for C2, C3, C4:
+DefaultJobManagerTest.executeWithNullJobDataCurrentlyThrowsNullPointerException
+
+Reason:
+The original C0 behavior throws NullPointerException when jobData is null.
+C2, C3, and C4 changed this observable behavior and no exception was thrown.
+
+Suites included in the run:
+- DefaultJobManagerLLMGuidedTreeTest
+- DefaultJobManagerTest
+- DefaultJobManagerRandoopTest
+- DefaultJobManagerRandoopTest0
+- DefaultJobManagerLoadIT
+
+EvoSuite:
+N/A

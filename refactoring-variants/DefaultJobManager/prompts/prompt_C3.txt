@@ -1,0 +1,38 @@
+You are an expert Java developer.
+
+I want to improve the maintainability of the following Java class from Apache Syncope.
+
+Create a refactored version of the class without changing its external behavior.
+The refactored class must replace the original class in the existing system.
+
+Strict constraints:
+- Keep the same package declaration.
+- Keep the same class name: DefaultJobManager.
+- Keep the same public API.
+- Keep all public and protected method signatures unchanged.
+- Do not change the observable behavior.
+- Do not modify or require changes to other classes.
+- Do not introduce unrelated changes.
+- Do not remove required annotations, dependency injections, logging, or framework-specific behavior.
+- The class must compile inside the existing Apache Syncope project.
+- The class must pass the Black-Box tests and Control-Flow tests provided below.
+- Return the complete Java class only, with no markdown and no explanation.
+
+Refactoring goal:
+- Improve maintainability.
+- Reduce the SonarCloud code smells listed below.
+- Prefer small, behavior-preserving refactorings.
+- Extract helper methods only when this improves readability.
+- Reduce duplication where possible.
+- Keep the logic easy to compare with the original version.
+
+SonarCloud smells to address:
+
+
+Black-Box tests that must still pass:
+
+
+Control-Flow tests that must still pass:
+
+Original class:
+

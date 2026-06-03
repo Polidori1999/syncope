@@ -1,0 +1,6 @@
+Variant: C1
+Class: DefaultJobManager
+Input to LLM: C0 + SonarCloud smells
+Tests provided to LLM: none
+Compile with Maven cache: PASS
+Compile without Maven cache: PASS

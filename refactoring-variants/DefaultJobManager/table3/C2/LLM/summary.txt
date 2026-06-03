@@ -1,0 +1,36 @@
+DefaultJobManager - C2 - LLM
+
+Generation:
+New LLM Guided Tree-of-Thought test suite generated for C2.
+Final test class:
+DefaultJobManagerC2LLMGuidedTreeTest
+
+Execution:
+Tests run: 9
+Failures: 0
+Errors: 0
+Skipped: 0
+BUILD SUCCESS
+
+JaCoCo:
+Line Coverage: 59/184 = 32.07%
+Instruction Coverage: 238/745 = 31.95%
+Branch Coverage: 17/44 = 38.64%
+Method Coverage: 13/29 = 44.83%
+
+PIT:
+Line Coverage for mutated classes: 59/185 = 32%
+Generated mutations: 64
+Killed mutations: 27
+Mutation Score: 42%
+No coverage mutations: 34
+Test strength: 90%
+
+Delta against C0 LLM:
+C0 Line Coverage: 35.50%
+C2 Line Coverage: 32.07%
+Delta Coverage: -3.43%
+
+C0 Mutation Score: 43%
+C2 Mutation Score: 42%
+Delta Mutation Score: -1%

@@ -1,0 +1,14 @@
+AuthDataAccessor - Table 3 - Updated C0 baseline
+
+C0 RND:
+- JaCoCo line coverage: 33 / 219 = 15.07%
+- PIT mutation score: 4 / 102 = 4%
+- Test smells: 1386
+
+C0 LLM:
+- JaCoCo line coverage: 91 / 219 = 41.55%
+- PIT mutation score: 19 / 102 = 19%
+- Test smells: 6
+
+C0 ES:
+- N/A

@@ -1,0 +1,321 @@
+[[1;34mINFO[m] Cache disabled by command line flag, project will be built fully and not cached
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.syncope.core:syncope-core-spring:jar:5.0.0-SNAPSHOT
+[[1;33mWARNING[m] 'dependencies.dependency.version' for org.testng:testng:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 180, column 16
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.core:syncope-core-spring[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Spring 5.0.0-SNAPSHOT[m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-spring
+[[1;33mWARNING[m] 1 problem was encountered while building the effective model for org.evosuite:evosuite-standalone-runtime:jar:1.0.6 during dependency collection step for project (use -X to see details)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.24.0:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Root dir is : /home/leonardo/uni/isw2/SyncopeNoTest
+[[1;34mINFO[m] Found plugin : Default csv report plugin
+[[1;34mINFO[m] Found plugin : Default xml report plugin
+[[1;34mINFO[m] Found plugin : Default html report plugin
+[[1;34mINFO[m] Found plugin : Static initializer code detector plugin
+[[1;34mINFO[m] Found plugin : Excluded annotations plugin
+[[1;34mINFO[m] Found plugin : Try with resources filter
+[[1;34mINFO[m] Found plugin : Inlined finally block filter plugin
+[[1;34mINFO[m] Found plugin : Implicit null check filter
+[[1;34mINFO[m] Found plugin : Method reference null check filter
+[[1;34mINFO[m] Found plugin : For each loop filter
+[[1;34mINFO[m] Found plugin : Enum junk filter
+[[1;34mINFO[m] Found plugin : Record junk mutation filter
+[[1;34mINFO[m] Found plugin : String switch filter
+[[1;34mINFO[m] Found plugin : Assertions filter
+[[1;34mINFO[m] Found plugin : Enum switch filter
+[[1;34mINFO[m] Found plugin : Logging calls filter
+[[1;34mINFO[m] Found plugin : Infinite for loop filter
+[[1;34mINFO[m] Found plugin : Long running iterator loop filter
+[[1;34mINFO[m] Found plugin : For loop counter filter
+[[1;34mINFO[m] Found plugin : Kotlin junk mutations filter
+[[1;34mINFO[m] Found plugin : Groovy junk mutations filter
+[[1;34mINFO[m] Found plugin : Max mutations per class limit
+[[1;34mINFO[m] Found plugin : Equals shortcut equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Trivial return vals equivalence filter
+[[1;34mINFO[m] Found plugin : Filters mutants with line number <= 1
+[[1;34mINFO[m] Found plugin : Division by one equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Lombok junk mutations filter
+[[1;34mINFO[m] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[[1;34mINFO[m] Found plugin : Final field null assignment equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Mutant export plugin
+[[1;34mINFO[m] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[[1;34mINFO[m] Found plugin : Auto set number of threads based on machine
+[[1;34mINFO[m] Found plugin : Automatically add -ea to launch args to enable assertions
+[[1;34mINFO[m] Found plugin : Default build verifier
+[[1;34mINFO[m] Found plugin : Detect missing JUnit5 plugin
+[[1;34mINFO[m] Found plugin : Detect missing TestNG plugin
+[[1;34mINFO[m] Found plugin : Detect missing kotlin plugin
+[[1;34mINFO[m] Found plugin : Detect missing spring plugin
+[[1;34mINFO[m] Found plugin : Default coverage exporter
+[[1;34mINFO[m] Found plugin : Basic test statistics
+[[1;34mINFO[m] Found shared classpath plugin : Default mutation engine
+[[1;34mINFO[m] Found shared classpath plugin : JUnit plugin
+[[1;34mINFO[m] Found shared classpath plugin : Support for mocking frameworks using javassist
+[[1;34mINFO[m] Found shared classpath plugin : Reset environment for javassist
+[[1;34mINFO[m] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[[1;34mINFO[m] Adding org.pitest:pitest to SUT classpath
+[[1;34mINFO[m] Auto adding org.junit.platform:junit-platform-launcher:jar:6.0.3 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
+[[1;34mINFO[m] Mutating from /home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/classes
+[[1;34mINFO[m] Replacing properties in argLine -Xms512m -Xmx1024m -Xss256k
+/-\|/-\|/-\stdout  : Installing PIT agent
+stderr  : 13:03:34 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[41], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=AuthDataAccessor.java, block=[13], lineNumber=224, description=negated conditional, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegationNotValid(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegatingUserNotFound(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:34 PIT >> FINE : mutating method getDelegationKey
+stderr  : 13:03:34 PIT >> FINE : 2 relevant test for getDelegationKey
+stderr  : 13:03:34 PIT >> FINE : replaced class with mutant in 9 ms
+stderr  : 13:03:34 PIT >> FINE : Running 1 units
+stderr  : Mockito is currently self-attaching to enable the inline-mock-maker. This will no longer work in future releases of the JDK. Please add Mockito as an agent to your build as described in Mockito's documentation: https://javadoc.io/doc/org.mockito/mockito-core/latest/org.mockito/org/mockito/Mockito.html#0.3
+stderr  : WARNING: A Java agent has been loaded dynamically (/home/leonardo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar)
+stderr  : WARNING: If a serviceability tool is in use, please run with -XX:+EnableDynamicAgentLoading to hide this warning
+stderr  : WARNING: If a serviceability tool is not in use, please run with -Djdk.instrument.traceUsage for more information
+stderr  : WARNING: Dynamic loading of agents will be disallowed by default in a future release
+stderr  : OpenJDK 64-Bit Server VM warning: Sharing is only supported for boot loader classes because bootstrap classpath has been appended
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[41], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator] detected = SURVIVED
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 1038 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=removeExpired, methodDesc=(Ljava/lang/String;)V], indexes=[6], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator], filename=AuthDataAccessor.java, block=[0], lineNumber=522, description=removed call to org/apache/syncope/core/persistence/api/dao/AccessTokenDAO::deleteById, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.removeExpiredShouldInvokeDeleteOnAccessTokenDAO(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method removeExpired
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for removeExpired
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 28 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=removeExpired, methodDesc=(Ljava/lang/String;)V], indexes=[6], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.removeExpiredShouldInvokeDeleteOnAccessTokenDAO(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 67 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[35], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=AuthDataAccessor.java, block=[9], lineNumber=448, description=negated conditional, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldThrowWhenNormalUserMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method getAuthorities
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for getAuthorities
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 37 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[35], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator] detected = SURVIVED
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 53 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getJWTSSOProvider$0, methodDesc=(Ljava/lang/String;Lorg/apache/syncope/core/spring/security/JWTSSOProvider;)Z], indexes=[7], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator], filename=AuthDataAccessor.java, block=[2], lineNumber=211, description=replaced boolean return with true for org/apache/syncope/core/spring/security/AuthDataAccessor::lambda$getJWTSSOProvider$0, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldThrowWhenIssuerMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldReturnMatchingProvider(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method lambda$getJWTSSOProvider$0
+stderr  : 13:03:35 PIT >> FINE : 2 relevant test for lambda$getJWTSSOProvider$0
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 34 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getJWTSSOProvider$0, methodDesc=(Ljava/lang/String;Lorg/apache/syncope/core/spring/security/JWTSSOProvider;)Z], indexes=[7], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldThrowWhenIssuerMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 78 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getAuthorities$1, methodDesc=(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UsernameNotFoundException;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator], filename=AuthDataAccessor.java, block=[1], lineNumber=458, description=replaced return value with null for org/apache/syncope/core/spring/security/AuthDataAccessor::lambda$getAuthorities$1, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldThrowWhenNormalUserMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method lambda$getAuthorities$1
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for lambda$getAuthorities$1
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 30 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getAuthorities$1, methodDesc=(Ljava/lang/String;)Lorg/springframework/security/core/userdetails/UsernameNotFoundException;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldThrowWhenNormalUserMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 46 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[18], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=AuthDataAccessor.java, block=[6], lineNumber=221, description=negated conditional, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegationNotValid(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegatingUserNotFound(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method getDelegationKey
+stderr  : 13:03:35 PIT >> FINE : 2 relevant test for getDelegationKey
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 30 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[18], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator] detected = SURVIVED
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 45 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[9], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator], filename=AuthDataAccessor.java, block=[2], lineNumber=218, description=replaced return value with "" for org/apache/syncope/core/spring/security/AuthDataAccessor::getDelegationKey, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldReturnNullWhenNoDelegatedBy(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method getDelegationKey
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for getDelegationKey
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 32 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[9], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldReturnNullWhenNoDelegatedBy(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 44 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getJWTSSOProvider$1, methodDesc=(Ljava/lang/String;)Lorg/springframework/security/authentication/AuthenticationCredentialsNotFoundException;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator], filename=AuthDataAccessor.java, block=[1], lineNumber=212, description=replaced return value with null for org/apache/syncope/core/spring/security/AuthDataAccessor::lambda$getJWTSSOProvider$1, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldThrowWhenIssuerMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method lambda$getJWTSSOProvider$1
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for lambda$getJWTSSOProvider$1
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 30 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getJWTSSOProvider$1, methodDesc=(Ljava/lang/String;)Lorg/springframework/security/authentication/AuthenticationCredentialsNotFoundException;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldThrowWhenIssuerMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 44 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$buildAuthorities$0, methodDesc=(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)V], indexes=[18], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator], filename=AuthDataAccessor.java, block=[3], lineNumber=385, description=removed call to org/apache/syncope/core/spring/security/SyncopeGrantedAuthority::addRealms, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.buildAuthoritiesShouldConvertMapToAuthorities(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method lambda$buildAuthorities$0
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for lambda$buildAuthorities$0
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 38 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$buildAuthorities$0, methodDesc=(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)V], indexes=[18], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator] detected = SURVIVED
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 54 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=AuthDataAccessor.java, block=[2], lineNumber=444, description=negated conditional, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldThrowWhenNormalUserMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldReturnAnonymousAuthoritiesForAnonymousUser(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method getAuthorities
+stderr  : 13:03:35 PIT >> FINE : 2 relevant test for getAuthorities
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 39 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldThrowWhenNormalUserMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 53 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$audit$0, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;], indexes=[5], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator], filename=AuthDataAccessor.java, block=[0], lineNumber=537, description=replaced return value with "" for org/apache/syncope/core/spring/security/AuthDataAccessor::lambda$audit$0, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.auditShouldInvokeAuditManagerWithDelegationSuffix(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method lambda$audit$0
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for lambda$audit$0
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 37 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$audit$0, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/lang/String;], indexes=[5], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.auditShouldInvokeAuditManagerWithDelegationSuffix(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 51 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getJWTSSOProvider, methodDesc=(Ljava/lang/String;)Lorg/apache/syncope/core/spring/security/JWTSSOProvider;], indexes=[4], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=AuthDataAccessor.java, block=[0], lineNumber=207, description=negated conditional, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldThrowOnNullIssuer(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldThrowWhenIssuerMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldReturnMatchingProvider(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method getJWTSSOProvider
+stderr  : 13:03:35 PIT >> FINE : 3 relevant test for getJWTSSOProvider
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 31 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getJWTSSOProvider, methodDesc=(Ljava/lang/String;)Lorg/apache/syncope/core/spring/security/JWTSSOProvider;], indexes=[4], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldReturnMatchingProvider(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 49 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=buildAuthorities, methodDesc=(Ljava/util/Map;)Ljava/util/Set;], indexes=[12], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator], filename=AuthDataAccessor.java, block=[1], lineNumber=381, description=removed call to java/util/Map::forEach, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.buildAuthoritiesShouldConvertMapToAuthorities(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method buildAuthorities
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for buildAuthorities
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 41 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=buildAuthorities, methodDesc=(Ljava/util/Map;)Ljava/util/Set;], indexes=[12], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.buildAuthoritiesShouldConvertMapToAuthorities(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 52 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$buildAuthorities$0, methodDesc=(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)V], indexes=[24], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator], filename=AuthDataAccessor.java, block=[5], lineNumber=386, description=removed call to org/apache/syncope/core/spring/security/SyncopeGrantedAuthority::addRealms, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.buildAuthoritiesShouldConvertMapToAuthorities(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method lambda$buildAuthorities$0
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for lambda$buildAuthorities$0
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 32 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$buildAuthorities$0, methodDesc=(Ljava/util/Set;Ljava/lang/String;Ljava/util/Set;)V], indexes=[24], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator] detected = SURVIVED
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 39 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getJWTSSOProvider, methodDesc=(Ljava/lang/String;)Lorg/apache/syncope/core/spring/security/JWTSSOProvider;], indexes=[30], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator], filename=AuthDataAccessor.java, block=[7], lineNumber=211, description=replaced return value with null for org/apache/syncope/core/spring/security/AuthDataAccessor::getJWTSSOProvider, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldReturnMatchingProvider(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method getJWTSSOProvider
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for getJWTSSOProvider
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 34 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:35 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getJWTSSOProvider, methodDesc=(Ljava/lang/String;)Lorg/apache/syncope/core/spring/security/JWTSSOProvider;], indexes=[30], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldReturnMatchingProvider(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:35 PIT >> FINE : processed mutation in 42 ms.
+stderr  : 13:03:35 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=buildAuthorities, methodDesc=(Ljava/util/Map;)Ljava/util/Set;], indexes=[16], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator], filename=AuthDataAccessor.java, block=[2], lineNumber=390, description=replaced return value with Collections.emptySet for org/apache/syncope/core/spring/security/AuthDataAccessor::buildAuthorities, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.buildAuthoritiesShouldConvertMapToAuthorities(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:35 PIT >> FINE : mutating method buildAuthorities
+stderr  : 13:03:35 PIT >> FINE : 1 relevant test for buildAuthorities
+stderr  : 13:03:35 PIT >> FINE : replaced class with mutant in 33 ms
+stderr  : 13:03:35 PIT >> FINE : Running 1 units
+stderr  : 13:03:36 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=buildAuthorities, methodDesc=(Ljava/util/Map;)Ljava/util/Set;], indexes=[16], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.buildAuthoritiesShouldConvertMapToAuthorities(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:36 PIT >> FINE : processed mutation in 41 ms.
+stderr  : 13:03:36 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[98], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator], filename=AuthDataAccessor.java, block=[24], lineNumber=464, description=replaced return value with Collections.emptySet for org/apache/syncope/core/spring/security/AuthDataAccessor::getAuthorities, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldReturnAnonymousAuthoritiesForAnonymousUser(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:36 PIT >> FINE : mutating method getAuthorities
+stderr  : 13:03:36 PIT >> FINE : 1 relevant test for getAuthorities
+stderr  : 13:03:36 PIT >> FINE : replaced class with mutant in 33 ms
+stderr  : 13:03:36 PIT >> FINE : Running 1 units
+stderr  : 13:03:36 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[98], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldReturnAnonymousAuthoritiesForAnonymousUser(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:36 PIT >> FINE : processed mutation in 41 ms.
+stderr  : 13:03:36 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[5], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=AuthDataAccessor.java, block=[1], lineNumber=217, description=negated conditional, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegationNotValid(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegatingUserNotFound(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldReturnNullWhenNoDelegatedBy(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:36 PIT >> FINE : mutating method getDelegationKey
+stderr  : 13:03:36 PIT >> FINE : 3 relevant test for getDelegationKey
+stderr  : 13:03:36 PIT >> FINE : replaced class with mutant in 32 ms
+stderr  : 13:03:36 PIT >> FINE : Running 1 units
+stderr  : 13:03:36 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getDelegationKey, methodDesc=(Lorg/apache/syncope/core/spring/security/SyncopeAuthenticationDetails;Ljava/lang/String;)Ljava/lang/String;], indexes=[5], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegationNotValid(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:36 PIT >> FINE : processed mutation in 40 ms.
+stderr  : 13:03:36 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[23], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator], filename=AuthDataAccessor.java, block=[6], lineNumber=446, description=negated conditional, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldThrowWhenNormalUserMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:36 PIT >> FINE : mutating method getAuthorities
+stderr  : 13:03:36 PIT >> FINE : 1 relevant test for getAuthorities
+stderr  : 13:03:36 PIT >> FINE : replaced class with mutant in 31 ms
+stderr  : 13:03:36 PIT >> FINE : Running 1 units
+stderr  : 13:03:36 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=getAuthorities, methodDesc=(Ljava/lang/String;Ljava/lang/String;)Ljava/util/Set;], indexes=[23], mutator=org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getAuthoritiesShouldThrowWhenNormalUserMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:36 PIT >> FINE : processed mutation in 40 ms.
+stderr  : 13:03:36 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=audit, methodDesc=(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/apache/syncope/common/lib/types/OpEvent$Outcome;Ljava/lang/Object;[Ljava/lang/Object;)V], indexes=[30], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator], filename=AuthDataAccessor.java, block=[3], lineNumber=534, description=removed call to org/apache/syncope/core/provisioning/api/AuditManager::audit, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.auditShouldInvokeAuditManagerWithDelegationSuffix(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:36 PIT >> FINE : mutating method audit
+stderr  : 13:03:36 PIT >> FINE : 1 relevant test for audit
+stderr  : 13:03:36 PIT >> FINE : replaced class with mutant in 32 ms
+stderr  : 13:03:36 PIT >> FINE : Running 1 units
+stderr  : 13:03:36 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=audit, methodDesc=(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Lorg/apache/syncope/common/lib/types/OpEvent$Outcome;Ljava/lang/Object;[Ljava/lang/Object;)V], indexes=[30], mutator=org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.auditShouldInvokeAuditManagerWithDelegationSuffix(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:36 PIT >> FINE : processed mutation in 41 ms.
+stderr  : 13:03:36 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getJWTSSOProvider$0, methodDesc=(Ljava/lang/String;Lorg/apache/syncope/core/spring/security/JWTSSOProvider;)Z], indexes=[7], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator], filename=AuthDataAccessor.java, block=[2], lineNumber=211, description=replaced boolean return with false for org/apache/syncope/core/spring/security/AuthDataAccessor::lambda$getJWTSSOProvider$0, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldThrowWhenIssuerMissing(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest), org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldReturnMatchingProvider(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:36 PIT >> FINE : mutating method lambda$getJWTSSOProvider$0
+stderr  : 13:03:36 PIT >> FINE : 2 relevant test for lambda$getJWTSSOProvider$0
+stderr  : 13:03:36 PIT >> FINE : replaced class with mutant in 32 ms
+stderr  : 13:03:36 PIT >> FINE : Running 1 units
+stderr  : 13:03:36 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getJWTSSOProvider$0, methodDesc=(Ljava/lang/String;Lorg/apache/syncope/core/spring/security/JWTSSOProvider;)Z], indexes=[7], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getJWTSSOProviderShouldReturnMatchingProvider(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:36 PIT >> FINE : processed mutation in 43 ms.
+stderr  : 13:03:36 PIT >> FINE : Running mutation MutationDetails [id=MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getDelegationKey$0, methodDesc=(Ljava/lang/String;)Lorg/springframework/security/web/authentication/session/SessionAuthenticationException;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator], filename=AuthDataAccessor.java, block=[1], lineNumber=232, description=replaced return value with null for org/apache/syncope/core/spring/security/AuthDataAccessor::lambda$getDelegationKey$0, testsInOrder=[org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegationNotValid(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]]
+stderr  : 13:03:36 PIT >> FINE : mutating method lambda$getDelegationKey$0
+stderr  : 13:03:36 PIT >> FINE : 1 relevant test for lambda$getDelegationKey$0
+stderr  : 13:03:36 PIT >> FINE : replaced class with mutant in 33 ms
+stderr  : 13:03:36 PIT >> FINE : Running 1 units
+stderr  : 13:03:36 PIT >> FINE : Mutation MutationIdentifier [location=Location [clazz=org.apache.syncope.core.spring.security.AuthDataAccessor, method=lambda$getDelegationKey$0, methodDesc=(Ljava/lang/String;)Lorg/springframework/security/web/authentication/session/SessionAuthenticationException;], indexes=[8], mutator=org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator] detected = KILLED by [org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest.getDelegationKeyShouldThrowWhenDelegationNotValid(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)]
+stderr  : 13:03:36 PIT >> FINE : processed mutation in 40 ms.
+/================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.ConditionalsBoundaryMutator
+>> Generated 2 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator
+>> Generated 2 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 2 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 29 Killed 3 (10%)
+> KILLED 3 SURVIVED 2 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 24 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 4 Killed 1 (25%)
+> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 12 Killed 4 (33%)
+> KILLED 4 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 8 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.MathMutator
+>> Generated 1 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 13 Killed 4 (31%)
+> KILLED 4 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 9 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 2 Killed 1 (50%)
+> KILLED 1 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
+>> Generated 37 Killed 4 (11%)
+> KILLED 4 SURVIVED 3 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 30 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : 1 seconds
+> build mutation tests : < 1 second
+> run mutation analysis : 2 seconds
+--------------------------------------------------------------------------------
+> Total  : 4 seconds
+--------------------------------------------------------------------------------
+> 0 tests took longer than 2000 ms
+> Slowest test (auditShouldInvokeAuditManagerWithDelegationSuffix(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)) took 919 ms
+> Largest test (getDelegationKeyShouldThrowWhenDelegationNotValid(org.apache.syncope.core.spring.security.AuthDataAccessorLLMGuidedTreeTest)) covered 17 blocks
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage (for mutated classes only): 63/219 (29%)
+>> 1 tests examined
+>> Generated 102 mutations Killed 17 (17%)
+>> Mutations with no coverage 80. Test strength 77%
+>> Ran 27 tests (0.26 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+
+Build messages:- 
+* JUnit 5 is on the classpath but the pitest junit 5 plugin is not installed. (https://github.com/pitest/pitest-junit5-plugin)
+* TestNG is on the classpath but the pitest TestNG plugin is not installed. (https://github.com/pitest/pitest-testng-plugin)
+* Project uses Spring, but the Arcmutate Spring plugin is not present. (https://docs.arcmutate.com/docs/spring.html)
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  5.991 s
+[[1;34mINFO[m] Finished at: 2026-05-29T13:03:36+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

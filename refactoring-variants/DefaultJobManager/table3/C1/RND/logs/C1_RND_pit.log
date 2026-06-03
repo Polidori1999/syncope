@@ -1,0 +1,599 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/usr/share/maven/lib/guava.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[[1;34mINFO[m] Cache disabled by command line flag, project will be built fully and not cached
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.syncope.core:syncope-core-spring:jar:5.0.0-SNAPSHOT
+[[1;33mWARNING[m] 'dependencies.dependency.version' for org.testng:testng:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 180, column 16
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope                                                     [pom]
+[[1;34mINFO[m] Apache Syncope Common                                              [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo                                       [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib                                   [jar]
+[[1;34mINFO[m] Apache Syncope Common Keymaster                                    [pom]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API                         [jar]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API                              [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM                                          [pom]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib                                      [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API                                 [jar]
+[[1;34mINFO[m] Apache Syncope Common AM                                           [pom]
+[[1;34mINFO[m] Apache Syncope Common AM Lib                                       [jar]
+[[1;34mINFO[m] Apache Syncope Common AM REST API                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core                                                [pom]
+[[1;34mINFO[m] Apache Syncope Core Persistence API                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API                               [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow API                                   [jar]
+[[1;34mINFO[m] Apache Syncope Core Spring                                         [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common                             [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java                              [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36morg.apache.syncope:syncope[0;1m >---------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope 5.0.0-SNAPSHOT                            [1/22][m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope:syncope
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Packaging is POM.
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------< [0;36morg.apache.syncope:syncope-common[0;1m >------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common 5.0.0-SNAPSHOT                     [2/22][m
+[[1;34mINFO[m]   from common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope:syncope-common
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Packaging is POM.
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36morg.apache.syncope.common:syncope-common-idrepo[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo 5.0.0-SNAPSHOT              [3/22][m
+[[1;34mINFO[m]   from common/idrepo/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common:syncope-common-idrepo
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Packaging is POM.
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-lib[0;1m >-----[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo Lib 5.0.0-SNAPSHOT          [4/22][m
+[[1;34mINFO[m]   from common/idrepo/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common:syncope-common-keymaster[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster 5.0.0-SNAPSHOT           [5/22][m
+[[1;34mINFO[m]   from common/keymaster/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common:syncope-common-keymaster
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Packaging is POM.
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.keymaster:syncope-common-keymaster-client-api[0;1m >--[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster Client API 5.0.0-SNAPSHOT [6/22][m
+[[1;34mINFO[m]   from common/keymaster/client-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common.keymaster:syncope-common-keymaster-client-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo REST API 5.0.0-SNAPSHOT     [7/22][m
+[[1;34mINFO[m]   from common/idrepo/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-idm[0;1m >------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM 5.0.0-SNAPSHOT                 [8/22][m
+[[1;34mINFO[m]   from common/idm/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common:syncope-common-idm
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Packaging is POM.
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.common.idm:syncope-common-idm-lib[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM Lib 5.0.0-SNAPSHOT             [9/22][m
+[[1;34mINFO[m]   from common/idm/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common.idm:syncope-common-idm-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idm:syncope-common-idm-rest-api[0;1m >------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM REST API 5.0.0-SNAPSHOT       [10/22][m
+[[1;34mINFO[m]   from common/idm/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common.idm:syncope-common-idm-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-am[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM 5.0.0-SNAPSHOT                 [11/22][m
+[[1;34mINFO[m]   from common/am/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common:syncope-common-am
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Packaging is POM.
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common.am:syncope-common-am-lib[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM Lib 5.0.0-SNAPSHOT             [12/22][m
+[[1;34mINFO[m]   from common/am/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common.am:syncope-common-am-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.common.am:syncope-common-am-rest-api[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM REST API 5.0.0-SNAPSHOT        [13/22][m
+[[1;34mINFO[m]   from common/am/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.common.am:syncope-common-am-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36morg.apache.syncope:syncope-core[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core 5.0.0-SNAPSHOT                      [14/22][m
+[[1;34mINFO[m]   from core/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope:syncope-core
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Packaging is POM.
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence API 5.0.0-SNAPSHOT      [15/22][m
+[[1;34mINFO[m]   from core/persistence-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-persistence-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning API 5.0.0-SNAPSHOT     [16/22][m
+[[1;34mINFO[m]   from core/provisioning-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-provisioning-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-api[0;1m >----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow API 5.0.0-SNAPSHOT         [17/22][m
+[[1;34mINFO[m]   from core/workflow-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-workflow-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.core:syncope-core-spring[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Spring 5.0.0-SNAPSHOT               [18/22][m
+[[1;34mINFO[m]   from core/spring/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-spring
+[[1;33mWARNING[m] 1 problem was encountered while building the effective model for org.evosuite:evosuite-standalone-runtime:jar:1.0.6 during dependency collection step for project (use -X to see details)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.24.0:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Root dir is : /home/leonardo/uni/isw2/SyncopeNoTest
+[[1;34mINFO[m] Found plugin : Default csv report plugin
+[[1;34mINFO[m] Found plugin : Default xml report plugin
+[[1;34mINFO[m] Found plugin : Default html report plugin
+[[1;34mINFO[m] Found plugin : Static initializer code detector plugin
+[[1;34mINFO[m] Found plugin : Excluded annotations plugin
+[[1;34mINFO[m] Found plugin : Try with resources filter
+[[1;34mINFO[m] Found plugin : Inlined finally block filter plugin
+[[1;34mINFO[m] Found plugin : Implicit null check filter
+[[1;34mINFO[m] Found plugin : Method reference null check filter
+[[1;34mINFO[m] Found plugin : For each loop filter
+[[1;34mINFO[m] Found plugin : Enum junk filter
+[[1;34mINFO[m] Found plugin : Record junk mutation filter
+[[1;34mINFO[m] Found plugin : String switch filter
+[[1;34mINFO[m] Found plugin : Assertions filter
+[[1;34mINFO[m] Found plugin : Enum switch filter
+[[1;34mINFO[m] Found plugin : Logging calls filter
+[[1;34mINFO[m] Found plugin : Infinite for loop filter
+[[1;34mINFO[m] Found plugin : Long running iterator loop filter
+[[1;34mINFO[m] Found plugin : For loop counter filter
+[[1;34mINFO[m] Found plugin : Kotlin junk mutations filter
+[[1;34mINFO[m] Found plugin : Groovy junk mutations filter
+[[1;34mINFO[m] Found plugin : Max mutations per class limit
+[[1;34mINFO[m] Found plugin : Equals shortcut equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Trivial return vals equivalence filter
+[[1;34mINFO[m] Found plugin : Filters mutants with line number <= 1
+[[1;34mINFO[m] Found plugin : Division by one equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Lombok junk mutations filter
+[[1;34mINFO[m] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[[1;34mINFO[m] Found plugin : Final field null assignment equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Mutant export plugin
+[[1;34mINFO[m] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[[1;34mINFO[m] Found plugin : Auto set number of threads based on machine
+[[1;34mINFO[m] Found plugin : Automatically add -ea to launch args to enable assertions
+[[1;34mINFO[m] Found plugin : Default build verifier
+[[1;34mINFO[m] Found plugin : Detect missing JUnit5 plugin
+[[1;34mINFO[m] Found plugin : Detect missing TestNG plugin
+[[1;34mINFO[m] Found plugin : Detect missing kotlin plugin
+[[1;34mINFO[m] Found plugin : Detect missing spring plugin
+[[1;34mINFO[m] Found plugin : Default coverage exporter
+[[1;34mINFO[m] Found plugin : Basic test statistics
+[[1;34mINFO[m] Found shared classpath plugin : Default mutation engine
+[[1;34mINFO[m] Found shared classpath plugin : JUnit plugin
+[[1;34mINFO[m] Found shared classpath plugin : Support for mocking frameworks using javassist
+[[1;34mINFO[m] Found shared classpath plugin : Reset environment for javassist
+[[1;34mINFO[m] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[[1;34mINFO[m] Adding org.pitest:pitest to SUT classpath
+[[1;34mINFO[m] Auto adding org.junit.platform:junit-platform-launcher:jar:6.0.3 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
+[[1;34mINFO[m] Mutating from /home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/classes
+[[1;34mINFO[m] Replacing properties in argLine -Xms512m -Xmx1024m -Xss256k
+15:38:43 PIT >> INFO : Project base directory is /home/leonardo/uni/isw2/SyncopeNoTest
+15:38:43 PIT >> INFO : ---------------------------------------------------------------------------
+15:38:43 PIT >> INFO : Enabled (+) and disabled (-) features.
+15:38:43 PIT >> INFO : -----------------------------------------
+15:38:43 PIT >> INFO : +auto_assertionsAutomatically add -ea to launch args to enable assertions
+15:38:43 PIT >> INFO : +basic_test_statsBasic test statistics
+15:38:43 PIT >> INFO : +defaultcoverageDefault coverage exporter
+15:38:43 PIT >> INFO : +fann           Filters mutations in classes and methods with matching annotations of class or runtime retention
+15:38:43 PIT >> INFO :   [annotation]    Annotation to avoid (full package name not required)
+15:38:43 PIT >> INFO : +fassert        Filters mutations in compiler generated code for assertions
+15:38:43 PIT >> INFO : +fenum          Filters junk mutations in enums
+15:38:43 PIT >> INFO : +feswitch       Filters mutations in switch statements on enums
+15:38:43 PIT >> INFO : +ffblock        Filters mutations in code duplicated by finally block inlining
+15:38:43 PIT >> INFO : +ffeach         Filters mutations in compiler generated code that implements for each loops
+15:38:43 PIT >> INFO : +ffloop         Filters any mutations to increments in for loops as they may cause timeouts
+15:38:43 PIT >> INFO : +fgroovy        Filters out junk mutations in groovy code
+15:38:43 PIT >> INFO : +finfinc        Filters mutations to increments that may cause infinite loops
+15:38:43 PIT >> INFO : +finfit         Filters mutations that may cause infinite loops by removing calls to iterator.next
+15:38:43 PIT >> INFO : +finull         Filters mutations in compiler generated code that checks for null by calling getClass
+15:38:43 PIT >> INFO : +fkotlin        Filters out junk mutations in bytecode created by compiler for kotlin language features
+15:38:43 PIT >> INFO : +flogcall       Filters mutations in code that makes calls to logging frameworks
+15:38:43 PIT >> INFO : +fmrnull        Filters mutations in compiler generated code that inserts Objects.requireNonNull for method references
+15:38:43 PIT >> INFO : +frecord        Filters mutations in compiler generated record code
+15:38:43 PIT >> INFO : +fretequiv      Filters return vals mutants with bytecode equivalent to the unmutated class
+15:38:43 PIT >> INFO : +fsequivdiv     Filters equivalent mutations of the form x * -1 -> x / -1
+15:38:43 PIT >> INFO : +fsequivequals  Filters equivalent mutations that affect only performance in short cutting equals methods
+15:38:43 PIT >> INFO : +fstati         Filters mutations in static initializers and code called only from them
+15:38:43 PIT >> INFO : +fstrswitch     Filters mutations in compiler generated code for string switch statements
+15:38:43 PIT >> INFO : +ftrywr         Filters mutations in code generated for try with resources statements
+15:38:43 PIT >> INFO : +lombok         Filters out junk mutations generated by lombok
+15:38:43 PIT >> INFO : +macos_focus    Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+15:38:43 PIT >> INFO : +nullfinals     Filters equivalent mutations to null final field assignments
+15:38:43 PIT >> INFO : -auto_threads   Auto set number of threads based on machine
+15:38:43 PIT >> INFO : -classlimit     Limits the maximum number of mutations per class
+15:38:43 PIT >> INFO :   [limit]         Integer value for maximum mutations to create per class
+15:38:43 PIT >> INFO : -export         Exports mutants bytecode and other details to disk
+15:38:43 PIT >> INFO : -funmodifiablecollectionFilter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+15:38:43 PIT >> INFO : -nofirstline    Filters mutants with line number <= 1
+15:38:43 PIT >> INFO : ---------------------------------------------------------------------------
+15:38:43 PIT >> WARNING : JUnit 5 is on the classpath but the pitest junit 5 plugin is not installed.
+15:38:43 PIT >> WARNING : TestNG is on the classpath but the pitest TestNG plugin is not installed.
+15:38:43 PIT >> FINE : Running report with ReportOptions[mode=NORMAL, targetClasses=[org.apache.syncope.core.provisioning.java.job.DefaultJobManager], excludedMethods=[], excludedClasses=[], excludedTestClasses=[], codePaths=[/home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/classes], reportDir='/home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/pit-reports', historyInputLocation=null, historyOutputLocation=null, sourceDirs=[/home/leonardo/uni/isw2/SyncopeNoTest/core/spring/src/main/java, /home/leonardo/uni/isw2/SyncopeNoTest/core/spring/src/test/java], classPathElements=[/home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/test-classes, /home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target/classes, /home/leonardo/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.1.0/jakarta.servlet-api-6.1.0.jar, /home/leonardo/.m2/repository/javax/cache/cache-api/1.1.1/cache-api-1.1.1.jar, /home/leonardo/.m2/repository/org/apache/commons/commons-text/1.15.0/commons-text-1.15.0.jar, /home/leonardo/.m2/repository/org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar, /home/leonardo/.m2/repository/org/jasypt/jasypt/1.9.3/jasypt-1.9.3.jar, /home/leonardo/.m2/repository/com/nimbusds/nimbus-jose-jwt/10.9/nimbus-jose-jwt-10.9.jar, /home/leonardo/.m2/repository/org/passay/passay/2.0.0/passay-2.0.0.jar, /home/leonardo/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar, /home/leonardo/.m2/repository/org/hamcrest/hamcrest-core/3.0/hamcrest-core-3.0.jar, /home/leonardo/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar, /home/leonardo/.m2/repository/org/junit/vintage/junit-vintage-engine/6.0.3/junit-vintage-engine-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/platform/junit-platform-engine/6.0.3/junit-platform-engine-6.0.3.jar, /home/leonardo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar, /home/leonardo/.m2/repository/org/junit/platform/junit-platform-commons/6.0.3/junit-platform-commons-6.0.3.jar, /home/leonardo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar, /home/leonardo/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar, /home/leonardo/.m2/repository/org/mockito/mockito-core/5.20.0/mockito-core-5.20.0.jar, /home/leonardo/.m2/repository/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.jar, /home/leonardo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar, /home/leonardo/.m2/repository/org/objenesis/objenesis/3.4/objenesis-3.4.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter-security/4.0.5/spring-boot-starter-security-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter/4.0.5/spring-boot-starter-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/4.0.5/spring-boot-autoconfigure-4.0.5.jar, /home/leonardo/.m2/repository/jakarta/annotation/jakarta.annotation-api/3.0.0/jakarta.annotation-api-3.0.0.jar, /home/leonardo/.m2/repository/org/yaml/snakeyaml/2.5/snakeyaml-2.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-security/4.0.5/spring-boot-security-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-config/7.0.4/spring-security-config-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-core/7.0.4/spring-security-core-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-crypto/7.0.4/spring-security-crypto-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-web/7.0.4/spring-security-web-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/spring-expression/7.0.6/spring-expression-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-web/7.0.6/spring-web-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-aop/7.0.6/spring-aop-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-beans/7.0.6/spring-beans-7.0.6.jar, /home/leonardo/.m2/repository/org/pitest/pitest-maven/1.24.0/pitest-maven-1.24.0.jar, /home/leonardo/.m2/repository/org/pitest/pitest-entry/1.24.0/pitest-entry-1.24.0.jar, /home/leonardo/.m2/repository/org/pitest/pitest/1.24.0/pitest-1.24.0.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-commons/9.9/asm-commons-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm/9.9/asm-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-util/9.9/asm-util-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-tree/9.9/asm-tree-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-analysis/9.9/asm-analysis-9.9.jar, /home/leonardo/.m2/repository/org/pitest/pitest-html-report/1.24.0/pitest-html-report-1.24.0.jar, /home/leonardo/.m2/repository/org/antlr/stringtemplate/3.2.1/stringtemplate-3.2.1.jar, /home/leonardo/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar, /home/leonardo/.m2/repository/org/pitest/pitest-aggregator/1.24.0/pitest-aggregator-1.24.0.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.21.2/jackson-dataformat-xml-2.21.2.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2.jar, /home/leonardo/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.2/stax2-api-4.2.2.jar, /home/leonardo/.m2/repository/com/fasterxml/woodstox/woodstox-core/7.1.1/woodstox-core-7.1.1.jar, /home/leonardo/.m2/repository/org/apache/maven/reporting/maven-reporting-api/3.1.0/maven-reporting-api-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.jar, /home/leonardo/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar, /home/leonardo/.m2/repository/commons-beanutils/commons-beanutils/1.11.0/commons-beanutils-1.11.0.jar, /home/leonardo/.m2/repository/commons-logging/commons-logging/1.3.5/commons-logging-1.3.5.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.1/plexus-utils-3.3.1.jar, /home/leonardo/.m2/repository/org/apache/maven/reporting/maven-reporting-impl/3.1.0/maven-reporting-impl-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.jar, /home/leonardo/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.jar, /home/leonardo/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar, /home/leonardo/.m2/repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar, /home/leonardo/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar, /home/leonardo/.m2/repository/com/google/guava/guava/10.0.1/guava-10.0.1.jar, /home/leonardo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar, /home/leonardo/.m2/repository/org/sonatype/sisu/sisu-guice/3.1.0/sisu-guice-3.1.0-no_aop.jar, /home/leonardo/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /home/leonardo/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.jar, /home/leonardo/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.4.2/plexus-classworlds-2.4.2.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar, /home/leonardo/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar, /home/leonardo/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.3.3/maven-shared-utils-3.3.3.jar, /home/leonardo/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-decoration-model/1.11.1/doxia-decoration-model-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-core/1.11.1/doxia-core-1.11.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.0/plexus-container-default-2.1.0.jar, /home/leonardo/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar, /home/leonardo/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar, /home/leonardo/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar, /home/leonardo/.m2/repository/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar, /home/leonardo/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-site-renderer/1.11.1/doxia-site-renderer-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-skin-model/1.11.1/doxia-skin-model-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml/1.11.1/doxia-module-xhtml-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml5/1.11.1/doxia-module-xhtml5-1.11.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.jar, /home/leonardo/.m2/repository/org/apache/velocity/velocity/1.7/velocity-1.7.jar, /home/leonardo/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar, /home/leonardo/.m2/repository/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar, /home/leonardo/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar, /home/leonardo/.m2/repository/commons-chain/commons-chain/1.1/commons-chain-1.1.jar, /home/leonardo/.m2/repository/dom4j/dom4j/1.1/dom4j-1.1.jar, /home/leonardo/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-booter/3.2.5/surefire-booter-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-api/3.2.5/surefire-api-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-logger-api/3.2.5/surefire-logger-api-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-extensions-spi/3.2.5/surefire-extensions-spi-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/maven-surefire-common/3.2.5/maven-surefire-common-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-extensions-api/3.2.5/surefire-extensions-api-3.2.5.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar, /home/leonardo/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.1.1/maven-common-artifact-filters-3.1.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-java/1.2.0/plexus-java-1.2.0.jar, /home/leonardo/.m2/repository/com/thoughtworks/qdox/qdox/2.0.3/qdox-2.0.3.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-shared-utils/3.2.5/surefire-shared-utils-3.2.5.jar, /home/leonardo/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar, /home/leonardo/.m2/repository/uk/org/lidalia/sysout-over-slf4j/1.0.2/sysout-over-slf4j-1.0.2.jar, /home/leonardo/.m2/repository/org/aspectj/aspectjweaver/1.9.25.1/aspectjweaver-1.9.25.1.jar, /home/leonardo/.m2/repository/com/fasterxml/uuid/java-uuid-generator/5.2.0/java-uuid-generator-5.2.0.jar, /home/leonardo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-provisioning-api/5.0.0-SNAPSHOT/syncope-core-provisioning-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-persistence-api/5.0.0-SNAPSHOT/syncope-core-persistence-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/jakarta/validation/jakarta.validation-api/3.1.1/jakarta.validation-api-3.1.1.jar, /home/leonardo/.m2/repository/org/springframework/data/spring-data-commons/4.0.4/spring-data-commons-4.0.4.jar, /home/leonardo/.m2/repository/net/tirasa/connid/connector-framework/1.6.1.0/connector-framework-1.6.1.0.jar, /home/leonardo/.m2/repository/net/tirasa/connid/connector-framework-internal/1.6.1.0/connector-framework-internal-1.6.1.0.jar, /home/leonardo/.m2/repository/net/tirasa/connid/slf4j-logging/1.6.1.0/slf4j-logging-1.6.1.0.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy/5.0.5/groovy-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-templates/5.0.5/groovy-templates-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-xml/5.0.5/groovy-xml-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-jsr223/5.0.5/groovy-jsr223-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-datetime/5.0.5/groovy-datetime-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-dateutil/5.0.5/groovy-dateutil-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-sql/5.0.5/groovy-sql-5.0.5.jar, /home/leonardo/.m2/repository/net/tirasa/groovy-security-sandbox/1.0.0/groovy-security-sandbox-1.0.0.jar, /home/leonardo/.m2/repository/org/craftercms/groovy-sandbox/4.0.6/groovy-sandbox-4.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-tx/7.0.6/spring-tx-7.0.6.jar, /home/leonardo/.m2/repository/org/apache/commons/commons-jexl3/3.6.2/commons-jexl3-3.6.2.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idm/syncope-common-idm-rest-api/5.0.0-SNAPSHOT/syncope-common-idm-rest-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idrepo/syncope-common-idrepo-rest-api/5.0.0-SNAPSHOT/syncope-common-idrepo-rest-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idm/syncope-common-idm-lib/5.0.0-SNAPSHOT/syncope-common-idm-lib-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/am/syncope-common-am-rest-api/5.0.0-SNAPSHOT/syncope-common-am-rest-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/am/syncope-common-am-lib/5.0.0-SNAPSHOT/syncope-common-am-lib-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/keymaster/syncope-common-keymaster-client-api/5.0.0-SNAPSHOT/syncope-common-keymaster-client-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idrepo/syncope-common-idrepo-lib/5.0.0-SNAPSHOT/syncope-common-idrepo-lib-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/jakarta/ws/rs/jakarta.ws.rs-api/4.0.0/jakarta.ws.rs-api-4.0.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-rs-extension-search/4.2.0/cxf-rt-rs-extension-search-4.2.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/4.2.0/cxf-rt-frontend-jaxrs-4.2.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-core/4.2.0/cxf-core-4.2.0.jar, /home/leonardo/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.6/jaxb-runtime-4.0.6.jar, /home/leonardo/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.6/jaxb-core-4.0.6.jar, /home/leonardo/.m2/repository/org/glassfish/jaxb/txw2/4.0.6/txw2-4.0.6.jar, /home/leonardo/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar, /home/leonardo/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.3.2/xmlschema-core-2.3.2.jar, /home/leonardo/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.4/jakarta.xml.bind-api-4.0.4.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-transports-http/4.2.0/cxf-rt-transports-http-4.2.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-security/4.2.0/cxf-rt-security-4.2.0.jar, /home/leonardo/.m2/repository/org/eclipse/angus/angus-activation/2.0.3/angus-activation-2.0.3.jar, /home/leonardo/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.4/jakarta.activation-api-2.1.4.jar, /home/leonardo/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.48/swagger-annotations-jakarta-2.2.48.jar, /home/leonardo/.m2/repository/tools/jackson/core/jackson-databind/3.1.0/jackson-databind-3.1.0.jar, /home/leonardo/.m2/repository/tools/jackson/core/jackson-core/3.1.0/jackson-core-3.1.0.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot/4.0.5/spring-boot-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/spring-context/7.0.6/spring-context-7.0.6.jar, /home/leonardo/.m2/repository/io/micrometer/micrometer-observation/1.16.4/micrometer-observation-1.16.4.jar, /home/leonardo/.m2/repository/io/micrometer/micrometer-commons/1.16.4/micrometer-commons-1.16.4.jar, /home/leonardo/.m2/repository/org/evosuite/evosuite-standalone-runtime/1.0.6/evosuite-standalone-runtime-1.0.6.jar, /home/leonardo/.m2/repository/com/github/ben-manes/caffeine/jcache/3.2.3/jcache-3.2.3.jar, /home/leonardo/.m2/repository/com/github/ben-manes/caffeine/caffeine/3.2.3/caffeine-3.2.3.jar, /home/leonardo/.m2/repository/com/google/errorprone/error_prone_annotations/2.43.0/error_prone_annotations-2.43.0.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.service.component.annotations/1.5.1/org.osgi.service.component.annotations-1.5.1.jar, /home/leonardo/.m2/repository/org/osgi/osgi.annotation/8.1.0/osgi.annotation-8.1.0.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.namespace.extender/1.0.1/org.osgi.namespace.extender-1.0.1.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.util.function/1.0.0/org.osgi.util.function-1.0.0.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.util.promise/1.0.0/org.osgi.util.promise-1.0.0.jar, /home/leonardo/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar, /home/leonardo/.m2/repository/com/typesafe/config/1.4.5/config-1.4.5.jar, /home/leonardo/.m2/repository/org/slf4j/slf4j-simple/2.0.17/slf4j-simple-2.0.17.jar, /home/leonardo/.m2/repository/org/springframework/spring-test/7.0.6/spring-test-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-core/7.0.6/spring-core-7.0.6.jar, /home/leonardo/.m2/repository/org/mockito/mockito-junit-jupiter/5.20.0/mockito-junit-jupiter-5.20.0.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter-api/6.0.3/junit-jupiter-api-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter/6.0.3/junit-jupiter-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter-params/6.0.3/junit-jupiter-params-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter-engine/6.0.3/junit-jupiter-engine-6.0.3.jar, /home/leonardo/.m2/repository/org/testng/testng/7.12.0/testng-7.12.0.jar, /home/leonardo/.m2/repository/org/jcommander/jcommander/1.83/jcommander-1.83.jar, /home/leonardo/.m2/repository/org/webjars/jquery/3.7.1/jquery-3.7.1.jar, /home/leonardo/.m2/repository/org/pitest/pitest/1.24.0/pitest-1.24.0.jar, /home/leonardo/.m2/repository/org/junit/platform/junit-platform-launcher/6.0.3/junit-platform-launcher-6.0.3.jar], mutators=[], features=[], jvmArgs=[-Xms512m, -Xmx2048m, -Xss1m, -ea, -Djava.awt.headless=true], argLine=-Xms512m -Xmx1024m -Xss256k, numberOfThreads=1, timeoutFactor=1.25, timeoutConstant=3000, targetTests=[^org\.apache\.syncope\.core\.provisioning\.java\.job\.randoop\.c1\.RegressionTest$], loggingClasses=[], verbosity=VERBOSE, failWhenNoMutations=false, skipFailingTests=false, outputs=[HTML], groupConfig=TestGroupConfig [excludedGroups=[], includedGroups=[]], fullMutationMatrix=false, mutationUnitSize=0, shouldCreateTimestampedReports=false, detectInlinedCode=true, exportLineCoverage=false, mutationThreshold=0, coverageThreshold=0, testStrengthThreshold=0, mutationEngine='gregor', javaExecutable='null', includeLaunchClasspath=true, properties={}, maxSurvivors=0, excludedRunners=[], includedTestMethods=[], testPlugin='', projectBase=/home/leonardo/uni/isw2/SyncopeNoTest, inputEncoding=UTF-8, outputEncoding=UTF-8, reportCoverage=true, arcmutateMissing=true]
+15:38:43 PIT >> FINE : System class path is /usr/share/maven/boot/plexus-classworlds-2.x.jar
+15:38:43 PIT >> FINE : Maximum available memory is 3716 mb
+15:38:43 PIT >> INFO : Created 0 mutation test units in pre scan
+15:38:43 PIT >> WARNING : No mutations found. This probably means there is an issue with either the supplied classpath or filters.
+See https://pitest.org for more details.
+15:38:43 PIT >> INFO : Skipping coverage and analysis as no mutations found
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.core:syncope-core-persistence-common[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence Common 5.0.0-SNAPSHOT   [19/22][m
+[[1;34mINFO[m]   from core/persistence-common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-persistence-common
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-jpa[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence JPA 5.0.0-SNAPSHOT      [20/22][m
+[[1;34mINFO[m]   from core/persistence-jpa/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-persistence-jpa
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-java[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow Java 5.0.0-SNAPSHOT        [21/22][m
+[[1;34mINFO[m]   from core/workflow-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-workflow-java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.25.2:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Skipping project because:
+[[1;34mINFO[m]   - Project has either no tests or no production code.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-java[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning Java 5.0.0-SNAPSHOT    [22/22][m
+[[1;34mINFO[m]   from core/provisioning-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is disabled on project level for org.apache.syncope.core:syncope-core-provisioning-java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mpitest:1.24.0:mutationCoverage[m [1m(default-cli)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Root dir is : /home/leonardo/uni/isw2/SyncopeNoTest
+[[1;34mINFO[m] Found plugin : Default csv report plugin
+[[1;34mINFO[m] Found plugin : Default xml report plugin
+[[1;34mINFO[m] Found plugin : Default html report plugin
+[[1;34mINFO[m] Found plugin : Static initializer code detector plugin
+[[1;34mINFO[m] Found plugin : Excluded annotations plugin
+[[1;34mINFO[m] Found plugin : Try with resources filter
+[[1;34mINFO[m] Found plugin : Inlined finally block filter plugin
+[[1;34mINFO[m] Found plugin : Implicit null check filter
+[[1;34mINFO[m] Found plugin : Method reference null check filter
+[[1;34mINFO[m] Found plugin : For each loop filter
+[[1;34mINFO[m] Found plugin : Enum junk filter
+[[1;34mINFO[m] Found plugin : Record junk mutation filter
+[[1;34mINFO[m] Found plugin : String switch filter
+[[1;34mINFO[m] Found plugin : Assertions filter
+[[1;34mINFO[m] Found plugin : Enum switch filter
+[[1;34mINFO[m] Found plugin : Logging calls filter
+[[1;34mINFO[m] Found plugin : Infinite for loop filter
+[[1;34mINFO[m] Found plugin : Long running iterator loop filter
+[[1;34mINFO[m] Found plugin : For loop counter filter
+[[1;34mINFO[m] Found plugin : Kotlin junk mutations filter
+[[1;34mINFO[m] Found plugin : Groovy junk mutations filter
+[[1;34mINFO[m] Found plugin : Max mutations per class limit
+[[1;34mINFO[m] Found plugin : Equals shortcut equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Trivial return vals equivalence filter
+[[1;34mINFO[m] Found plugin : Filters mutants with line number <= 1
+[[1;34mINFO[m] Found plugin : Division by one equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Lombok junk mutations filter
+[[1;34mINFO[m] Found plugin : Filter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+[[1;34mINFO[m] Found plugin : Final field null assignment equivalent mutant filter
+[[1;34mINFO[m] Found plugin : Mutant export plugin
+[[1;34mINFO[m] Found plugin : Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+[[1;34mINFO[m] Found plugin : Auto set number of threads based on machine
+[[1;34mINFO[m] Found plugin : Automatically add -ea to launch args to enable assertions
+[[1;34mINFO[m] Found plugin : Default build verifier
+[[1;34mINFO[m] Found plugin : Detect missing JUnit5 plugin
+[[1;34mINFO[m] Found plugin : Detect missing TestNG plugin
+[[1;34mINFO[m] Found plugin : Detect missing kotlin plugin
+[[1;34mINFO[m] Found plugin : Detect missing spring plugin
+[[1;34mINFO[m] Found plugin : Default coverage exporter
+[[1;34mINFO[m] Found plugin : Basic test statistics
+[[1;34mINFO[m] Found shared classpath plugin : Default mutation engine
+[[1;34mINFO[m] Found shared classpath plugin : JUnit plugin
+[[1;34mINFO[m] Found shared classpath plugin : Support for mocking frameworks using javassist
+[[1;34mINFO[m] Found shared classpath plugin : Reset environment for javassist
+[[1;34mINFO[m] Available mutators : EXPERIMENTAL_ARGUMENT_PROPAGATION,FALSE_RETURNS,TRUE_RETURNS,CONDITIONALS_BOUNDARY,CONSTRUCTOR_CALLS,EMPTY_RETURNS,INCREMENTS,INLINE_CONSTS,INVERT_NEGS,MATH,NEGATE_CONDITIONALS,NON_VOID_METHOD_CALLS,NULL_RETURNS,PRIMITIVE_RETURNS,REMOVE_CONDITIONALS_EQUAL_IF,REMOVE_CONDITIONALS_EQUAL_ELSE,REMOVE_CONDITIONALS_ORDER_IF,REMOVE_CONDITIONALS_ORDER_ELSE,VOID_METHOD_CALLS,EXPERIMENTAL_BIG_DECIMAL,EXPERIMENTAL_BIG_INTEGER,EXPERIMENTAL_MEMBER_VARIABLE,EXPERIMENTAL_NAKED_RECEIVER,REMOVE_INCREMENTS,EXPERIMENTAL_SWITCH
+[[1;34mINFO[m] Adding org.pitest:pitest to SUT classpath
+[[1;34mINFO[m] Auto adding org.junit.platform:junit-platform-launcher:jar:6.0.3 < central (https://repo.maven.apache.org/maven2, default, releases) to classpath.
+[[1;34mINFO[m] Mutating from /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/classes
+[[1;34mINFO[m] Replacing properties in argLine -Xms512m -Xmx1024m -Xss256k
+15:38:44 PIT >> INFO : Project base directory is /home/leonardo/uni/isw2/SyncopeNoTest
+15:38:44 PIT >> INFO : ---------------------------------------------------------------------------
+15:38:44 PIT >> INFO : Enabled (+) and disabled (-) features.
+15:38:44 PIT >> INFO : -----------------------------------------
+15:38:44 PIT >> INFO : +auto_assertionsAutomatically add -ea to launch args to enable assertions
+15:38:44 PIT >> INFO : +basic_test_statsBasic test statistics
+15:38:44 PIT >> INFO : +defaultcoverageDefault coverage exporter
+15:38:44 PIT >> INFO : +fann           Filters mutations in classes and methods with matching annotations of class or runtime retention
+15:38:44 PIT >> INFO :   [annotation]    Annotation to avoid (full package name not required)
+15:38:44 PIT >> INFO : +fassert        Filters mutations in compiler generated code for assertions
+15:38:44 PIT >> INFO : +fenum          Filters junk mutations in enums
+15:38:44 PIT >> INFO : +feswitch       Filters mutations in switch statements on enums
+15:38:44 PIT >> INFO : +ffblock        Filters mutations in code duplicated by finally block inlining
+15:38:44 PIT >> INFO : +ffeach         Filters mutations in compiler generated code that implements for each loops
+15:38:44 PIT >> INFO : +ffloop         Filters any mutations to increments in for loops as they may cause timeouts
+15:38:44 PIT >> INFO : +fgroovy        Filters out junk mutations in groovy code
+15:38:44 PIT >> INFO : +finfinc        Filters mutations to increments that may cause infinite loops
+15:38:44 PIT >> INFO : +finfit         Filters mutations that may cause infinite loops by removing calls to iterator.next
+15:38:44 PIT >> INFO : +finull         Filters mutations in compiler generated code that checks for null by calling getClass
+15:38:44 PIT >> INFO : +fkotlin        Filters out junk mutations in bytecode created by compiler for kotlin language features
+15:38:44 PIT >> INFO : +flogcall       Filters mutations in code that makes calls to logging frameworks
+15:38:44 PIT >> INFO : +fmrnull        Filters mutations in compiler generated code that inserts Objects.requireNonNull for method references
+15:38:44 PIT >> INFO : +frecord        Filters mutations in compiler generated record code
+15:38:44 PIT >> INFO : +fretequiv      Filters return vals mutants with bytecode equivalent to the unmutated class
+15:38:44 PIT >> INFO : +fsequivdiv     Filters equivalent mutations of the form x * -1 -> x / -1
+15:38:44 PIT >> INFO : +fsequivequals  Filters equivalent mutations that affect only performance in short cutting equals methods
+15:38:44 PIT >> INFO : +fstati         Filters mutations in static initializers and code called only from them
+15:38:44 PIT >> INFO : +fstrswitch     Filters mutations in compiler generated code for string switch statements
+15:38:44 PIT >> INFO : +ftrywr         Filters mutations in code generated for try with resources statements
+15:38:44 PIT >> INFO : +lombok         Filters out junk mutations generated by lombok
+15:38:44 PIT >> INFO : +macos_focus    Auto add java.awt.headless=true to keep keyboard focus on Mac OS
+15:38:44 PIT >> INFO : +nullfinals     Filters equivalent mutations to null final field assignments
+15:38:44 PIT >> INFO : -auto_threads   Auto set number of threads based on machine
+15:38:44 PIT >> INFO : -classlimit     Limits the maximum number of mutations per class
+15:38:44 PIT >> INFO :   [limit]         Integer value for maximum mutations to create per class
+15:38:44 PIT >> INFO : -export         Exports mutants bytecode and other details to disk
+15:38:44 PIT >> INFO : -funmodifiablecollectionFilter mutations to defensive wrappers such as unmodifiableCollection on return or field write
+15:38:44 PIT >> INFO : -nofirstline    Filters mutants with line number <= 1
+15:38:44 PIT >> INFO : ---------------------------------------------------------------------------
+15:38:44 PIT >> FINE : Running report with ReportOptions[mode=NORMAL, targetClasses=[org.apache.syncope.core.provisioning.java.job.DefaultJobManager], excludedMethods=[], excludedClasses=[], excludedTestClasses=[], codePaths=[/home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/classes], reportDir='/home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/pit-reports', historyInputLocation=null, historyOutputLocation=null, sourceDirs=[/home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/src/main/java, /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/src/test/java], classPathElements=[/home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/test-classes, /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target/classes, /home/leonardo/.m2/repository/jakarta/servlet/jakarta.servlet-api/6.1.0/jakarta.servlet-api-6.1.0.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter-mail/4.0.5/spring-boot-starter-mail-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter/4.0.5/spring-boot-starter-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/4.0.5/spring-boot-autoconfigure-4.0.5.jar, /home/leonardo/.m2/repository/jakarta/annotation/jakarta.annotation-api/3.0.0/jakarta.annotation-api-3.0.0.jar, /home/leonardo/.m2/repository/org/yaml/snakeyaml/2.5/snakeyaml-2.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-mail/4.0.5/spring-boot-mail-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot/4.0.5/spring-boot-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/spring-context-support/7.0.6/spring-context-support-7.0.6.jar, /home/leonardo/.m2/repository/jakarta/mail/jakarta.mail-api/2.1.5/jakarta.mail-api-2.1.5.jar, /home/leonardo/.m2/repository/org/eclipse/angus/angus-mail/2.0.5/angus-mail-2.0.5.jar, /home/leonardo/.m2/repository/org/eclipse/angus/angus-activation/2.0.3/angus-activation-2.0.3.jar, /home/leonardo/.m2/repository/org/junit/vintage/junit-vintage-engine/6.0.3/junit-vintage-engine-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/platform/junit-platform-engine/6.0.3/junit-platform-engine-6.0.3.jar, /home/leonardo/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar, /home/leonardo/.m2/repository/org/junit/platform/junit-platform-commons/6.0.3/junit-platform-commons-6.0.3.jar, /home/leonardo/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar, /home/leonardo/.m2/repository/org/jspecify/jspecify/1.0.0/jspecify-1.0.0.jar, /home/leonardo/.m2/repository/org/mockito/mockito-core/5.20.0/mockito-core-5.20.0.jar, /home/leonardo/.m2/repository/net/bytebuddy/byte-buddy/1.17.8/byte-buddy-1.17.8.jar, /home/leonardo/.m2/repository/net/bytebuddy/byte-buddy-agent/1.17.8/byte-buddy-agent-1.17.8.jar, /home/leonardo/.m2/repository/org/objenesis/objenesis/3.4/objenesis-3.4.jar, /home/leonardo/.m2/repository/org/bitbucket/b_c/jose4j/0.9.6/jose4j-0.9.6.jar, /home/leonardo/.m2/repository/org/slf4j/slf4j-api/2.0.17/slf4j-api-2.0.17.jar, /home/leonardo/.m2/repository/org/pitest/pitest-maven/1.24.0/pitest-maven-1.24.0.jar, /home/leonardo/.m2/repository/org/pitest/pitest-entry/1.24.0/pitest-entry-1.24.0.jar, /home/leonardo/.m2/repository/org/pitest/pitest/1.24.0/pitest-1.24.0.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-commons/9.9/asm-commons-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm/9.9/asm-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-util/9.9/asm-util-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-tree/9.9/asm-tree-9.9.jar, /home/leonardo/.m2/repository/org/ow2/asm/asm-analysis/9.9/asm-analysis-9.9.jar, /home/leonardo/.m2/repository/org/pitest/pitest-html-report/1.24.0/pitest-html-report-1.24.0.jar, /home/leonardo/.m2/repository/org/antlr/stringtemplate/3.2.1/stringtemplate-3.2.1.jar, /home/leonardo/.m2/repository/antlr/antlr/2.7.7/antlr-2.7.7.jar, /home/leonardo/.m2/repository/org/pitest/pitest-aggregator/1.24.0/pitest-aggregator-1.24.0.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/dataformat/jackson-dataformat-xml/2.21.2/jackson-dataformat-xml-2.21.2.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.21.2/jackson-core-2.21.2.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.21.2/jackson-databind-2.21.2.jar, /home/leonardo/.m2/repository/org/codehaus/woodstox/stax2-api/4.2.2/stax2-api-4.2.2.jar, /home/leonardo/.m2/repository/com/fasterxml/woodstox/woodstox-core/7.1.1/woodstox-core-7.1.1.jar, /home/leonardo/.m2/repository/org/apache/maven/reporting/maven-reporting-api/3.1.0/maven-reporting-api-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-sink-api/1.11.1/doxia-sink-api-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-logging-api/1.11.1/doxia-logging-api-1.11.1.jar, /home/leonardo/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar, /home/leonardo/.m2/repository/commons-beanutils/commons-beanutils/1.11.0/commons-beanutils-1.11.0.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-utils/3.3.1/plexus-utils-3.3.1.jar, /home/leonardo/.m2/repository/org/apache/maven/reporting/maven-reporting-impl/3.1.0/maven-reporting-impl-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-core/3.1.0/maven-core-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-model/3.1.0/maven-model-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-settings/3.1.0/maven-settings-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-settings-builder/3.1.0/maven-settings-builder-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-repository-metadata/3.1.0/maven-repository-metadata-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-artifact/3.1.0/maven-artifact-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-model-builder/3.1.0/maven-model-builder-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-aether-provider/3.1.0/maven-aether-provider-3.1.0.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-spi/0.9.0.M2/aether-spi-0.9.0.M2.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-impl/0.9.0.M2/aether-impl-0.9.0.M2.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-api/0.9.0.M2/aether-api-0.9.0.M2.jar, /home/leonardo/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.plexus/0.0.0.M2a/org.eclipse.sisu.plexus-0.0.0.M2a.jar, /home/leonardo/.m2/repository/javax/enterprise/cdi-api/1.0/cdi-api-1.0.jar, /home/leonardo/.m2/repository/javax/annotation/jsr250-api/1.0/jsr250-api-1.0.jar, /home/leonardo/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar, /home/leonardo/.m2/repository/com/google/guava/guava/10.0.1/guava-10.0.1.jar, /home/leonardo/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar, /home/leonardo/.m2/repository/org/sonatype/sisu/sisu-guice/3.1.0/sisu-guice-3.1.0-no_aop.jar, /home/leonardo/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar, /home/leonardo/.m2/repository/org/eclipse/sisu/org.eclipse.sisu.inject/0.0.0.M2a/org.eclipse.sisu.inject-0.0.0.M2a.jar, /home/leonardo/.m2/repository/asm/asm/3.3.1/asm-3.3.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-interpolation/1.16/plexus-interpolation-1.16.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-classworlds/2.4.2/plexus-classworlds-2.4.2.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-component-annotations/1.5.5/plexus-component-annotations-1.5.5.jar, /home/leonardo/.m2/repository/org/sonatype/plexus/plexus-sec-dispatcher/1.3/plexus-sec-dispatcher-1.3.jar, /home/leonardo/.m2/repository/org/sonatype/plexus/plexus-cipher/1.4/plexus-cipher-1.4.jar, /home/leonardo/.m2/repository/org/apache/maven/maven-plugin-api/3.1.0/maven-plugin-api-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/maven/shared/maven-shared-utils/3.3.3/maven-shared-utils-3.3.3.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-decoration-model/1.11.1/doxia-decoration-model-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-core/1.11.1/doxia-core-1.11.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-container-default/2.1.0/plexus-container-default-2.1.0.jar, /home/leonardo/.m2/repository/org/apache/xbean/xbean-reflect/3.7/xbean-reflect-3.7.jar, /home/leonardo/.m2/repository/com/google/collections/google-collections/1.0/google-collections-1.0.jar, /home/leonardo/.m2/repository/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13.jar, /home/leonardo/.m2/repository/org/apache/httpcomponents/httpcore/4.4.16/httpcore-4.4.16.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-site-renderer/1.11.1/doxia-site-renderer-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-skin-model/1.11.1/doxia-skin-model-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml/1.11.1/doxia-module-xhtml-1.11.1.jar, /home/leonardo/.m2/repository/org/apache/maven/doxia/doxia-module-xhtml5/1.11.1/doxia-module-xhtml5-1.11.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-i18n/1.0-beta-10/plexus-i18n-1.0-beta-10.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-velocity/1.2/plexus-velocity-1.2.jar, /home/leonardo/.m2/repository/org/apache/velocity/velocity/1.7/velocity-1.7.jar, /home/leonardo/.m2/repository/commons-lang/commons-lang/2.4/commons-lang-2.4.jar, /home/leonardo/.m2/repository/org/apache/velocity/velocity-tools/2.0/velocity-tools-2.0.jar, /home/leonardo/.m2/repository/commons-digester/commons-digester/1.8/commons-digester-1.8.jar, /home/leonardo/.m2/repository/commons-chain/commons-chain/1.1/commons-chain-1.1.jar, /home/leonardo/.m2/repository/dom4j/dom4j/1.1/dom4j-1.1.jar, /home/leonardo/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-booter/3.2.5/surefire-booter-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-api/3.2.5/surefire-api-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-logger-api/3.2.5/surefire-logger-api-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-extensions-spi/3.2.5/surefire-extensions-spi-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/maven-surefire-common/3.2.5/maven-surefire-common-3.2.5.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-extensions-api/3.2.5/surefire-extensions-api-3.2.5.jar, /home/leonardo/.m2/repository/org/eclipse/aether/aether-util/1.0.0.v20140518/aether-util-1.0.0.v20140518.jar, /home/leonardo/.m2/repository/org/apache/maven/shared/maven-common-artifact-filters/3.1.1/maven-common-artifact-filters-3.1.1.jar, /home/leonardo/.m2/repository/org/codehaus/plexus/plexus-java/1.2.0/plexus-java-1.2.0.jar, /home/leonardo/.m2/repository/com/thoughtworks/qdox/qdox/2.0.3/qdox-2.0.3.jar, /home/leonardo/.m2/repository/org/apache/maven/surefire/surefire-shared-utils/3.2.5/surefire-shared-utils-3.2.5.jar, /home/leonardo/.m2/repository/org/slf4j/jul-to-slf4j/2.0.17/jul-to-slf4j-2.0.17.jar, /home/leonardo/.m2/repository/uk/org/lidalia/sysout-over-slf4j/1.0.2/sysout-over-slf4j-1.0.2.jar, /home/leonardo/.m2/repository/tools/jackson/dataformat/jackson-dataformat-csv/3.1.0/jackson-dataformat-csv-3.1.0.jar, /home/leonardo/.m2/repository/tools/jackson/core/jackson-databind/3.1.0/jackson-databind-3.1.0.jar, /home/leonardo/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.21/jackson-annotations-2.21.jar, /home/leonardo/.m2/repository/tools/jackson/core/jackson-core/3.1.0/jackson-core-3.1.0.jar, /home/leonardo/.m2/repository/org/apache/pdfbox/pdfbox/3.0.7/pdfbox-3.0.7.jar, /home/leonardo/.m2/repository/org/apache/pdfbox/pdfbox-io/3.0.7/pdfbox-io-3.0.7.jar, /home/leonardo/.m2/repository/org/apache/pdfbox/fontbox/3.0.7/fontbox-3.0.7.jar, /home/leonardo/.m2/repository/commons-logging/commons-logging/1.3.5/commons-logging-1.3.5.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-workflow-api/5.0.0-SNAPSHOT/syncope-core-workflow-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-provisioning-api/5.0.0-SNAPSHOT/syncope-core-provisioning-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-persistence-api/5.0.0-SNAPSHOT/syncope-core-persistence-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/jakarta/validation/jakarta.validation-api/3.1.1/jakarta.validation-api-3.1.1.jar, /home/leonardo/.m2/repository/org/springframework/data/spring-data-commons/4.0.4/spring-data-commons-4.0.4.jar, /home/leonardo/.m2/repository/net/tirasa/connid/connector-framework/1.6.1.0/connector-framework-1.6.1.0.jar, /home/leonardo/.m2/repository/net/tirasa/connid/connector-framework-internal/1.6.1.0/connector-framework-internal-1.6.1.0.jar, /home/leonardo/.m2/repository/net/tirasa/connid/slf4j-logging/1.6.1.0/slf4j-logging-1.6.1.0.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy/5.0.5/groovy-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-templates/5.0.5/groovy-templates-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-xml/5.0.5/groovy-xml-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-jsr223/5.0.5/groovy-jsr223-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-datetime/5.0.5/groovy-datetime-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-dateutil/5.0.5/groovy-dateutil-5.0.5.jar, /home/leonardo/.m2/repository/org/apache/groovy/groovy-sql/5.0.5/groovy-sql-5.0.5.jar, /home/leonardo/.m2/repository/net/tirasa/groovy-security-sandbox/1.0.0/groovy-security-sandbox-1.0.0.jar, /home/leonardo/.m2/repository/org/craftercms/groovy-sandbox/4.0.6/groovy-sandbox-4.0.6.jar, /home/leonardo/.m2/repository/org/apache/commons/commons-jexl3/3.6.2/commons-jexl3-3.6.2.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-spring/5.0.0-SNAPSHOT/syncope-core-spring-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/javax/cache/cache-api/1.1.1/cache-api-1.1.1.jar, /home/leonardo/.m2/repository/org/apache/commons/commons-text/1.15.0/commons-text-1.15.0.jar, /home/leonardo/.m2/repository/org/jasypt/jasypt/1.9.3/jasypt-1.9.3.jar, /home/leonardo/.m2/repository/com/nimbusds/nimbus-jose-jwt/10.9/nimbus-jose-jwt-10.9.jar, /home/leonardo/.m2/repository/org/passay/passay/2.0.0/passay-2.0.0.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter-security/4.0.5/spring-boot-starter-security-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-security/4.0.5/spring-boot-security-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-config/7.0.4/spring-security-config-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-core/7.0.4/spring-security-core-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-crypto/7.0.4/spring-security-crypto-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/security/spring-security-web/7.0.4/spring-security-web-7.0.4.jar, /home/leonardo/.m2/repository/org/springframework/spring-web/7.0.6/spring-web-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-aop/7.0.6/spring-aop-7.0.6.jar, /home/leonardo/.m2/repository/org/aspectj/aspectjweaver/1.9.25.1/aspectjweaver-1.9.25.1.jar, /home/leonardo/.m2/repository/com/fasterxml/uuid/java-uuid-generator/5.2.0/java-uuid-generator-5.2.0.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idm/syncope-common-idm-rest-api/5.0.0-SNAPSHOT/syncope-common-idm-rest-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idrepo/syncope-common-idrepo-rest-api/5.0.0-SNAPSHOT/syncope-common-idrepo-rest-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idm/syncope-common-idm-lib/5.0.0-SNAPSHOT/syncope-common-idm-lib-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/am/syncope-common-am-rest-api/5.0.0-SNAPSHOT/syncope-common-am-rest-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/am/syncope-common-am-lib/5.0.0-SNAPSHOT/syncope-common-am-lib-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/keymaster/syncope-common-keymaster-client-api/5.0.0-SNAPSHOT/syncope-common-keymaster-client-api-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/syncope/common/idrepo/syncope-common-idrepo-lib/5.0.0-SNAPSHOT/syncope-common-idrepo-lib-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/jakarta/ws/rs/jakarta.ws.rs-api/4.0.0/jakarta.ws.rs-api-4.0.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-rs-extension-search/4.2.0/cxf-rt-rs-extension-search-4.2.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-frontend-jaxrs/4.2.0/cxf-rt-frontend-jaxrs-4.2.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-core/4.2.0/cxf-core-4.2.0.jar, /home/leonardo/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.3.2/xmlschema-core-2.3.2.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-transports-http/4.2.0/cxf-rt-transports-http-4.2.0.jar, /home/leonardo/.m2/repository/org/apache/cxf/cxf-rt-security/4.2.0/cxf-rt-security-4.2.0.jar, /home/leonardo/.m2/repository/io/swagger/core/v3/swagger-annotations-jakarta/2.2.48/swagger-annotations-jakarta-2.2.48.jar, /home/leonardo/.m2/repository/com/github/ben-manes/caffeine/jcache/3.2.3/jcache-3.2.3.jar, /home/leonardo/.m2/repository/com/github/ben-manes/caffeine/caffeine/3.2.3/caffeine-3.2.3.jar, /home/leonardo/.m2/repository/com/google/errorprone/error_prone_annotations/2.43.0/error_prone_annotations-2.43.0.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.service.component.annotations/1.5.1/org.osgi.service.component.annotations-1.5.1.jar, /home/leonardo/.m2/repository/org/osgi/osgi.annotation/8.1.0/osgi.annotation-8.1.0.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.namespace.extender/1.0.1/org.osgi.namespace.extender-1.0.1.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.util.function/1.0.0/org.osgi.util.function-1.0.0.jar, /home/leonardo/.m2/repository/org/osgi/org.osgi.util.promise/1.0.0/org.osgi.util.promise-1.0.0.jar, /home/leonardo/.m2/repository/jakarta/inject/jakarta.inject-api/2.0.1/jakarta.inject-api-2.0.1.jar, /home/leonardo/.m2/repository/com/typesafe/config/1.4.5/config-1.4.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter-validation/4.0.5/spring-boot-starter-validation-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-validation/4.0.5/spring-boot-validation-4.0.5.jar, /home/leonardo/.m2/repository/org/apache/tomcat/embed/tomcat-embed-el/11.0.21/tomcat-embed-el-11.0.21.jar, /home/leonardo/.m2/repository/org/hibernate/validator/hibernate-validator/9.0.1.Final/hibernate-validator-9.0.1.Final.jar, /home/leonardo/.m2/repository/com/fasterxml/classmate/1.7.3/classmate-1.7.3.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-workflow-java/5.0.0-SNAPSHOT/syncope-core-workflow-java-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/springframework/spring-context/7.0.6/spring-context-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-beans/7.0.6/spring-beans-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-expression/7.0.6/spring-expression-7.0.6.jar, /home/leonardo/.m2/repository/io/micrometer/micrometer-observation/1.16.4/micrometer-observation-1.16.4.jar, /home/leonardo/.m2/repository/io/micrometer/micrometer-commons/1.16.4/micrometer-commons-1.16.4.jar, /home/leonardo/.m2/repository/org/springframework/spring-tx/7.0.6/spring-tx-7.0.6.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-persistence-jpa/5.0.0-SNAPSHOT/syncope-core-persistence-jpa-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter-data-jpa/4.0.5/spring-boot-starter-data-jpa-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/4.0.5/spring-boot-starter-jdbc-4.0.5.jar, /home/leonardo/.m2/repository/com/zaxxer/HikariCP/7.0.2/HikariCP-7.0.2.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-data-jpa/4.0.5/spring-boot-data-jpa-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-data-commons/4.0.5/spring-boot-data-commons-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-persistence/4.0.5/spring-boot-persistence-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-hibernate/4.0.5/spring-boot-hibernate-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-jpa/4.0.5/spring-boot-jpa-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/spring-orm/7.0.6/spring-orm-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/data/spring-data-jpa/4.0.4/spring-data-jpa-4.0.4.jar, /home/leonardo/.m2/repository/org/springframework/spring-aspects/7.0.6/spring-aspects-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-jdbc/4.0.5/spring-boot-jdbc-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-sql/4.0.5/spring-boot-sql-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-transaction/4.0.5/spring-boot-transaction-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/spring-jdbc/7.0.6/spring-jdbc-7.0.6.jar, /home/leonardo/.m2/repository/org/hibernate/orm/hibernate-jcache/7.3.2.Final/hibernate-jcache-7.3.2.Final.jar, /home/leonardo/.m2/repository/org/hibernate/orm/hibernate-core/7.3.2.Final/hibernate-core-7.3.2.Final.jar, /home/leonardo/.m2/repository/jakarta/persistence/jakarta.persistence-api/3.2.0/jakarta.persistence-api-3.2.0.jar, /home/leonardo/.m2/repository/jakarta/transaction/jakarta.transaction-api/2.0.1/jakarta.transaction-api-2.0.1.jar, /home/leonardo/.m2/repository/org/hibernate/models/hibernate-models/1.1.1/hibernate-models-1.1.1.jar, /home/leonardo/.m2/repository/org/glassfish/jaxb/jaxb-runtime/4.0.6/jaxb-runtime-4.0.6.jar, /home/leonardo/.m2/repository/org/glassfish/jaxb/jaxb-core/4.0.6/jaxb-core-4.0.6.jar, /home/leonardo/.m2/repository/org/glassfish/jaxb/txw2/4.0.6/txw2-4.0.6.jar, /home/leonardo/.m2/repository/com/sun/istack/istack-commons-runtime/4.1.2/istack-commons-runtime-4.1.2.jar, /home/leonardo/.m2/repository/org/antlr/antlr4-runtime/4.13.2/antlr4-runtime-4.13.2.jar, /home/leonardo/.m2/repository/org/jboss/logging/jboss-logging/3.6.3.Final/jboss-logging-3.6.3.Final.jar, /home/leonardo/.m2/repository/org/apache/syncope/core/syncope-core-persistence-common/5.0.0-SNAPSHOT/syncope-core-persistence-common-5.0.0-SNAPSHOT.jar, /home/leonardo/.m2/repository/org/apache/tika/tika-core/3.3.0/tika-core-3.3.0.jar, /home/leonardo/.m2/repository/org/bouncycastle/bcprov-jdk18on/1.84/bcprov-jdk18on-1.84.jar, /home/leonardo/.m2/repository/org/postgresql/postgresql/42.7.10/postgresql-42.7.10.jar, /home/leonardo/.m2/repository/org/checkerframework/checker-qual/3.52.0/checker-qual-3.52.0.jar, /home/leonardo/.m2/repository/io/zonky/test/embedded-postgres/2.2.2/embedded-postgres-2.2.2.jar, /home/leonardo/.m2/repository/io/zonky/test/postgres/embedded-postgres-binaries-windows-amd64/18.3.0/embedded-postgres-binaries-windows-amd64-18.3.0.jar, /home/leonardo/.m2/repository/io/zonky/test/postgres/embedded-postgres-binaries-darwin-amd64/18.3.0/embedded-postgres-binaries-darwin-amd64-18.3.0.jar, /home/leonardo/.m2/repository/io/zonky/test/postgres/embedded-postgres-binaries-linux-amd64/18.3.0/embedded-postgres-binaries-linux-amd64-18.3.0.jar, /home/leonardo/.m2/repository/io/zonky/test/postgres/embedded-postgres-binaries-linux-amd64-alpine/18.3.0/embedded-postgres-binaries-linux-amd64-alpine-18.3.0.jar, /home/leonardo/.m2/repository/org/apache/commons/commons-lang3/3.20.0/commons-lang3-3.20.0.jar, /home/leonardo/.m2/repository/org/apache/commons/commons-compress/1.28.0/commons-compress-1.28.0.jar, /home/leonardo/.m2/repository/org/tukaani/xz/1.11/xz-1.11.jar, /home/leonardo/.m2/repository/commons-io/commons-io/2.21.0/commons-io-2.21.0.jar, /home/leonardo/.m2/repository/commons-codec/commons-codec/1.19.0/commons-codec-1.19.0.jar, /home/leonardo/.m2/repository/org/slf4j/jcl-over-slf4j/2.0.17/jcl-over-slf4j-2.0.17.jar, /home/leonardo/.m2/repository/org/slf4j/slf4j-simple/2.0.17/slf4j-simple-2.0.17.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-starter-test/4.0.5/spring-boot-starter-test-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-test/4.0.5/spring-boot-test-4.0.5.jar, /home/leonardo/.m2/repository/org/springframework/boot/spring-boot-test-autoconfigure/4.0.5/spring-boot-test-autoconfigure-4.0.5.jar, /home/leonardo/.m2/repository/com/jayway/jsonpath/json-path/2.10.0/json-path-2.10.0.jar, /home/leonardo/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.4/jakarta.xml.bind-api-4.0.4.jar, /home/leonardo/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.4/jakarta.activation-api-2.1.4.jar, /home/leonardo/.m2/repository/net/minidev/json-smart/2.6.0/json-smart-2.6.0.jar, /home/leonardo/.m2/repository/net/minidev/accessors-smart/2.6.0/accessors-smart-2.6.0.jar, /home/leonardo/.m2/repository/org/assertj/assertj-core/3.27.7/assertj-core-3.27.7.jar, /home/leonardo/.m2/repository/org/awaitility/awaitility/4.3.0/awaitility-4.3.0.jar, /home/leonardo/.m2/repository/org/hamcrest/hamcrest/3.0/hamcrest-3.0.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter/6.0.3/junit-jupiter-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter-api/6.0.3/junit-jupiter-api-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter-params/6.0.3/junit-jupiter-params-6.0.3.jar, /home/leonardo/.m2/repository/org/junit/jupiter/junit-jupiter-engine/6.0.3/junit-jupiter-engine-6.0.3.jar, /home/leonardo/.m2/repository/org/mockito/mockito-junit-jupiter/5.20.0/mockito-junit-jupiter-5.20.0.jar, /home/leonardo/.m2/repository/org/skyscreamer/jsonassert/1.5.3/jsonassert-1.5.3.jar, /home/leonardo/.m2/repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar, /home/leonardo/.m2/repository/org/springframework/spring-core/7.0.6/spring-core-7.0.6.jar, /home/leonardo/.m2/repository/org/springframework/spring-test/7.0.6/spring-test-7.0.6.jar, /home/leonardo/.m2/repository/org/xmlunit/xmlunit-core/2.10.4/xmlunit-core-2.10.4.jar, /home/leonardo/.m2/repository/junit/junit/4.13.2/junit-4.13.2.jar, /home/leonardo/.m2/repository/org/hamcrest/hamcrest-core/3.0/hamcrest-core-3.0.jar, /home/leonardo/.m2/repository/org/pitest/pitest-junit5-plugin/1.2.3/pitest-junit5-plugin-1.2.3.jar, /home/leonardo/.m2/repository/org/pitest/pitest/1.24.0/pitest-1.24.0.jar, /home/leonardo/.m2/repository/org/junit/platform/junit-platform-launcher/6.0.3/junit-platform-launcher-6.0.3.jar], mutators=[], features=[], jvmArgs=[-Xms512m, -Xmx2048m, -Xss1m, -ea, -Djava.awt.headless=true], argLine=-Xms512m -Xmx1024m -Xss256k, numberOfThreads=1, timeoutFactor=1.25, timeoutConstant=3000, targetTests=[^org\.apache\.syncope\.core\.provisioning\.java\.job\.randoop\.c1\.RegressionTest$], loggingClasses=[], verbosity=VERBOSE, failWhenNoMutations=false, skipFailingTests=false, outputs=[HTML], groupConfig=TestGroupConfig [excludedGroups=[], includedGroups=[]], fullMutationMatrix=false, mutationUnitSize=0, shouldCreateTimestampedReports=false, detectInlinedCode=true, exportLineCoverage=false, mutationThreshold=0, coverageThreshold=0, testStrengthThreshold=0, mutationEngine='gregor', javaExecutable='null', includeLaunchClasspath=true, properties={}, maxSurvivors=0, excludedRunners=[], includedTestMethods=[], testPlugin='', projectBase=/home/leonardo/uni/isw2/SyncopeNoTest, inputEncoding=UTF-8, outputEncoding=UTF-8, reportCoverage=true, arcmutateMissing=true]
+15:38:44 PIT >> FINE : System class path is /usr/share/maven/boot/plexus-classworlds-2.x.jar
+15:38:44 PIT >> FINE : Maximum available memory is 3716 mb
+15:38:44 PIT >> INFO : Created 1 mutation test units in pre scan
+15:38:44 PIT >> FINE : MINION : Installing PIT agent
+15:38:44 PIT >> INFO : Sending 1 test classes to minion
+15:38:44 PIT >> INFO : Sent tests to minion
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Expecting 1 tests classes from parent
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Tests classes received
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> INFO : Checking environment
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test1(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test2(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test3(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test4(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test5(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test6(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:44 PIT >> INFO : MINION : 15:38:44 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test7(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:44 PIT >> INFO : MINION : mag 28, 2026 3:38:44 PM org.junit.platform.launcher.core.DiscoveryIssueNotifier logIssues
+15:38:44 PIT >> INFO : MINION : INFO: TestEngine with ID 'junit-vintage' encountered a non-critical issue during test discovery:
+15:38:44 PIT >> INFO : MINION : 
+15:38:44 PIT >> INFO : MINION : (1) [INFO] The JUnit Vintage engine is deprecated and should only be used temporarily while migrating tests to JUnit Jupiter or another testing framework with native JUnit Platform support.
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test1(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test2(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test3(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test4(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test5(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test6(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> FINE : Gathering coverage for test Description [testClass=org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0, name=[engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test7(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]]
+15:38:45 PIT >> INFO : MINION : mag 28, 2026 3:38:45 PM org.junit.platform.launcher.core.DiscoveryIssueNotifier logIssues
+15:38:45 PIT >> INFO : MINION : INFO: TestEngine with ID 'junit-vintage' encountered a non-critical issue during test discovery:
+15:38:45 PIT >> INFO : MINION : 
+15:38:45 PIT >> INFO : MINION : (1) [INFO] The JUnit Vintage engine is deprecated and should only be used temporarily while migrating tests to JUnit Jupiter or another testing framework with native JUnit Platform support.
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> INFO : Found 14 tests
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> INFO : 14 tests discovered
+15:38:45 PIT >> INFO : MINION : 15:38:45 PIT >> INFO : All 14 tests were executed as part of discovery.
+/-\|/-\|/-\|/-15:38:45 PIT >> FINE : Coverage generator Minion exited ok
+15:38:45 PIT >> INFO : Calculated coverage in 0 seconds.
+15:38:45 PIT >> INFO : 0 tests took longer than 2000 ms
+15:38:45 PIT >> INFO : Slowest test ([engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test1(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]) took 5 ms
+15:38:45 PIT >> INFO : Largest test ([engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test7(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]) covered 0 blocks
+15:38:45 PIT >> FINE : Used memory after coverage calculation 172 mb
+15:38:45 PIT >> FINE : Free Memory after coverage calculation 637 mb
+15:38:45 PIT >> INFO : Created 1 mutation test units
+15:38:45 PIT >> FINE : Used memory before analysis start 184 mb
+15:38:45 PIT >> FINE : Free Memory before analysis start 625 mb
+15:38:45 PIT >> FINE : Running 1 units
+/15:38:45 PIT >> INFO : Completed in 0 seconds
+================================================================================
+- Mutators
+================================================================================
+> org.pitest.mutationtest.engine.gregor.mutators.returns.PrimitiveReturnsMutator
+>> Generated 1 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.VoidMethodCallMutator
+>> Generated 29 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 29 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanTrueReturnValsMutator
+>> Generated 3 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.NullReturnValsMutator
+>> Generated 4 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 4 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.BooleanFalseReturnValsMutator
+>> Generated 3 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 3 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.returns.EmptyObjectReturnValsMutator
+>> Generated 1 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 1 
+--------------------------------------------------------------------------------
+> org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator
+>> Generated 20 Killed 0 (0%)
+> KILLED 0 SURVIVED 0 TIMED_OUT 0 NON_VIABLE 0 
+> MEMORY_ERROR 0 NOT_STARTED 0 STARTED 0 RUN_ERROR 0 
+> NO_COVERAGE 20 
+--------------------------------------------------------------------------------
+================================================================================
+- Timings
+================================================================================
+> pre-scan for mutations : < 1 second
+> scan classpath : < 1 second
+> coverage and dependency analysis : < 1 second
+> build mutation tests : < 1 second
+> run mutation analysis : < 1 second
+--------------------------------------------------------------------------------
+> Total  : < 1 second
+--------------------------------------------------------------------------------
+> 0 tests took longer than 2000 ms
+> Slowest test ([engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest]/[test:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test1(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]) took 5 ms
+> Largest test ([engine:junit-vintage]/[runner:org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0]/[test:test7(org.apache.syncope.core.provisioning.java.job.randoop.c1.RegressionTest0)]) covered 0 blocks
+================================================================================
+- Statistics
+================================================================================
+>> Line Coverage (for mutated classes only): 0/179 (0%)
+>> 1 tests examined
+>> Generated 61 mutations Killed 0 (0%)
+>> Mutations with no coverage 61. Test strength 100%
+>> Ran 0 tests (0 tests per mutation)
+Enhanced functionality available at https://www.arcmutate.com/
+
+Build messages:- 
+* Project uses Spring, but the Arcmutate Spring plugin is not present. (https://docs.arcmutate.com/docs/spring.html)
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for Apache Syncope 5.0.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope ..................................... [1;32mSUCCESS[m [  0.553 s]
+[[1;34mINFO[m] Apache Syncope Common .............................. [1;32mSUCCESS[m [  0.013 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo ....................... [1;32mSUCCESS[m [  0.011 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib ................... [1;32mSUCCESS[m [  0.096 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster .................... [1;32mSUCCESS[m [  0.010 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API ......... [1;32mSUCCESS[m [  0.031 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API .............. [1;32mSUCCESS[m [  0.021 s]
+[[1;34mINFO[m] Apache Syncope Common IdM .......................... [1;32mSUCCESS[m [  0.011 s]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib ...................... [1;32mSUCCESS[m [  0.041 s]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API ................. [1;32mSUCCESS[m [  0.034 s]
+[[1;34mINFO[m] Apache Syncope Common AM ........................... [1;32mSUCCESS[m [  0.010 s]
+[[1;34mINFO[m] Apache Syncope Common AM Lib ....................... [1;32mSUCCESS[m [  0.016 s]
+[[1;34mINFO[m] Apache Syncope Common AM REST API .................. [1;32mSUCCESS[m [  0.020 s]
+[[1;34mINFO[m] Apache Syncope Core ................................ [1;32mSUCCESS[m [  0.009 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence API ................ [1;32mSUCCESS[m [  0.061 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API ............... [1;32mSUCCESS[m [  0.031 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow API ................... [1;32mSUCCESS[m [  0.020 s]
+[[1;34mINFO[m] Apache Syncope Core Spring ......................... [1;32mSUCCESS[m [  0.440 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common ............. [1;32mSUCCESS[m [  0.045 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA ................ [1;32mSUCCESS[m [  0.085 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java .................. [1;32mSUCCESS[m [  0.032 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java .............. [1;32mSUCCESS[m [  1.012 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  3.342 s
+[[1;34mINFO[m] Finished at: 2026-05-28T15:38:45+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

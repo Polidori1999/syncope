@@ -1,0 +1,12 @@
+DefaultJobManager - C0 baseline for Table 3
+
+RND baseline:
+Coverage: 0%
+Mutation Score: 0%
+
+LLM baseline:
+Coverage: 35.50%
+Mutation Score: 43%
+
+ES baseline:
+N/A

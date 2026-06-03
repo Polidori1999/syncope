@@ -1,0 +1,26 @@
+You are an expert Java developer.
+
+I want to improve the maintainability of the following Java class.
+
+Create a refactored version of the class without changing its external behavior.
+The refactored class must replace the original class in the existing system.
+
+Strict constraints:
+- Keep the same package.
+- Keep the same class name: DefaultJobManager.
+- Keep the same public API and method signatures.
+- Do not change the observable behavior.
+- Do not introduce unrelated changes.
+- Do not modify other classes.
+- The class must compile inside the existing Apache Syncope project.
+- Return the complete Java class only.
+
+Refactoring goal:
+- Improve maintainability.
+- Reduce the SonarCloud code smells listed below.
+- Preserve compatibility with the rest of the system.
+
+SonarCloud smells to address:
+
+
+Original class:

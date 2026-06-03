@@ -110,7 +110,21 @@ under the License.
       <artifactId>syncope-common-keymaster-client-api</artifactId>
       <version>${project.version}</version>
     </dependency>
-    
+
+    <dependency>
+      <groupId>org.junit.vintage</groupId>
+      <artifactId>junit-vintage-engine</artifactId>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.pitest</groupId>
+      <artifactId>pitest-maven</artifactId>
+      <version>1.24.0</version>
+      <type>maven-plugin</type>
+    </dependency>
+
+
     <!-- TEST -->
     <dependency>
       <groupId>com.github.ben-manes.caffeine</groupId>
@@ -137,6 +151,11 @@ under the License.
       <artifactId>junit-jupiter</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -144,6 +163,25 @@ under the License.
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-checkstyle-plugin</artifactId>
+      </plugin>
+
+      <!--  PITEST -->
+      <plugin>
+        <groupId>org.pitest</groupId>
+        <artifactId>pitest-maven</artifactId>
+        <version>1.24.0</version>
+        <configuration>
+          <!--<targetTests>
+            <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManagerTest</param>
+            <param>org.apache.syncope.core.provisioning.java.job.DefaultJobManagerLoadIT</param>
+          </targetTests>-->
+          <jvmArgs>
+            <param>-Xms512m</param>
+            <param>-Xmx2048m</param>
+            <param>-Xss1m</param>
+          </jvmArgs>
+          <verbose>true</verbose>
+        </configuration>
       </plugin>
     </plugins>
     <resources>

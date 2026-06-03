@@ -1,0 +1,1477 @@
+You are an expert Java developer.
+
+I want to improve the maintainability of the following Java class from Apache Syncope.
+
+Create a refactored version of the class without changing its external behavior.
+The refactored class must replace the original class in the existing system.
+
+Strict constraints:
+- Keep the same package declaration.
+- Keep the same class name: DefaultJobManager.
+- Keep the same public API.
+- Keep all public and protected method signatures unchanged.
+- Do not change the observable behavior.
+- Do not modify or require changes to other classes.
+- Do not introduce unrelated changes.
+- Do not remove required annotations, dependency injections, logging, or framework-specific behavior.
+- The class must compile inside the existing Apache Syncope project.
+- The class must pass the Black-Box tests, Control-Flow tests, and Mutation-Testing-improved tests provided below.
+- Return the complete Java class only, with no markdown and no explanation.
+
+Refactoring goal:
+- Improve maintainability.
+- Reduce the SonarCloud code smells listed below.
+- Prefer small, behavior-preserving refactorings.
+- Extract helper methods only when this improves readability.
+- Reduce duplication where possible.
+- Keep the logic easy to compare with the original version.
+
+SonarCloud smells to address:
+SonarCloud issues for DefaultJobManager:
+
+1. Line 300, column 16:
+   Refactor this method to reduce its Cognitive Complexity from 25 to the 15 allowed.
+   Rule: java:S3776
+
+2. Line 61, column 4:
+   Update this logger to use "DefaultJobManager.class".
+   Rule: java:S3416
+
+3. Line 83, column 11:
+   Constructor has 10 parameters, which is greater than 7 authorized.
+   Rule: java:S107
+
+4. Line 109, column 22:
+   Synchronize on a new "Object" instead.
+   Rule: java:S1860
+
+5. Line 109:
+   "jobName" is a method parameter, and should not be used for synchronization.
+   Rule: java:S2445
+
+6. Line 162, column 18:
+   Extract this nested ternary operation into an independent statement.
+   Rule: java:S3358
+
+7. Line 166, column 26:
+   Extract this nested ternary operation into an independent statement.
+   Rule: java:S3358
+
+Black-Box tests that must still pass:
+package org.apache.syncope.core.provisioning.java.job;
+
+import static org.junit.Assert.fail;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.*;
+
+
+import java.util.List;
+
+import org.apache.syncope.common.keymaster.client.api.ConfParamOps;
+import org.apache.syncope.common.lib.SyncopeConstants;
+import org.apache.syncope.common.lib.types.TaskType;
+import org.apache.syncope.core.persistence.api.DomainHolder;
+import org.apache.syncope.core.persistence.api.dao.ImplementationDAO;
+import org.apache.syncope.core.persistence.api.dao.JobStatusDAO;
+import org.apache.syncope.core.persistence.api.dao.ReportDAO;
+import org.apache.syncope.core.persistence.api.dao.TaskDAO;
+import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
+import org.apache.syncope.core.persistence.api.entity.Implementation;
+import org.apache.syncope.core.persistence.api.entity.task.SchedTask;
+import org.apache.syncope.core.persistence.api.entity.task.TaskUtils;
+import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
+import org.springframework.scheduling.support.CronTrigger;
+import org.apache.syncope.core.persistence.api.entity.Report;
+import org.apache.syncope.core.provisioning.java.job.report.ReportJob;
+import org.apache.syncope.core.provisioning.java.job.notification.NotificationJob;
+
+
+import org.apache.syncope.core.spring.security.SecurityProperties;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.Ignore;
+import org.mockito.Mock;
+import org.mockito.junit.MockitoJUnitRunner;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.apache.syncope.core.persistence.api.ApplicationContextProvider;
+import org.springframework.beans.factory.support.DefaultListableBeanFactory;
+
+@RunWith(MockitoJUnitRunner.class)
+public class DefaultJobManagerLoadIT {
+
+    @FunctionalInterface
+    private interface ThrowingAction {
+        void run() throws Exception;
+    }
+
+    private static void assertDoesNotThrow(final ThrowingAction action) {
+        try {
+            action.run();
+        } catch (Exception e) {
+            fail("Unexpected exception: " + e.getClass().getName() + " - " + e.getMessage());
+        }
+    }
+
+    @Mock
+    private DomainHolder<?> domainHolder;
+
+    @Mock
+    private SyncopeTaskScheduler scheduler;
+
+    @Mock
+    private JobStatusDAO jobStatusDAO;
+
+    @Mock
+    private TaskDAO taskDAO;
+
+    @Mock
+    private ReportDAO reportDAO;
+
+    @Mock
+    private ImplementationDAO implementationDAO;
+
+    @Mock
+    private TaskUtilsFactory taskUtilsFactory;
+
+    @Mock
+    private ConfParamOps confParamOps;
+
+    @Mock
+    private SecurityProperties securityProperties;
+
+    @Mock
+    private ConfigurableApplicationContext ctx;
+
+    @Mock
+    private DefaultListableBeanFactory applicationBeanFactory;
+
+    private DefaultJobManager jobManager;
+
+
+    @Before
+    public void setup() {
+        ApplicationContextProvider.setBeanFactory(applicationBeanFactory);
+        jobManager = new DefaultJobManager(
+                domainHolder,
+                scheduler,
+                jobStatusDAO,
+                taskDAO,
+                reportDAO,
+                implementationDAO,
+                taskUtilsFactory,
+                confParamOps,
+                securityProperties,
+                ctx);
+    }
+
+    @Test
+    public void loadWithNominalDomainShouldCompleteInitialization() {
+        String domain = "test-domain";
+
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+
+        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+        assertDoesNotThrow(() -> jobManager.load(domain));
+    }
+
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica che domain null debba essere rifiutato")
+    @Test
+    public void loadWithNullDomainShouldThrowExceptionAccordingToInitialOracle() {
+        String domain = null;
+
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+
+        try {
+            jobManager.load(domain);
+            fail("Expected an exception for null domain");
+        } catch (RuntimeException e) {
+            // Expected according to the initial oracle.
+        }
+    }
+    @Test
+    public void loadWithNullDomainCurrentlyCompletesInitialization() {
+        String domain = null;
+
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+
+        assertDoesNotThrow(() -> jobManager.load(domain));
+    }
+
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica che domain vuoto debba essere rifiutato")
+    @Test
+    public void loadWithEmptyDomainShouldThrowExceptionAccordingToInitialOracle() {
+        String domain = "";
+
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+
+        try {
+            jobManager.load(domain);
+            fail("Expected an exception for empty domain");
+        } catch (RuntimeException e) {
+            // Expected according to the initial oracle.
+        }
+    }
+
+    @Test
+    public void loadWithEmptyDomainCurrentlyCompletesInitialization() {
+        String domain = "";
+
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+        when(securityProperties.getAdminUser()).thenReturn("admin");
+
+        assertDoesNotThrow(() -> jobManager.load(domain));
+    }
+
+
+package org.apache.syncope.core.provisioning.java.job;
+
+import static com.jayway.jsonpath.internal.path.PathCompiler.fail;
+import static org.junit.Assert.*;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
+
+
+import org.apache.syncope.common.keymaster.client.api.ConfParamOps;
+import org.apache.syncope.common.lib.types.TaskType;
+import org.apache.syncope.core.persistence.api.DomainHolder;
+import org.apache.syncope.core.persistence.api.dao.ImplementationDAO;
+import org.apache.syncope.core.persistence.api.dao.JobStatusDAO;
+import org.apache.syncope.core.persistence.api.dao.ReportDAO;
+import org.apache.syncope.core.persistence.api.dao.TaskDAO;
+import org.apache.syncope.core.persistence.api.entity.Implementation;
+import org.apache.syncope.core.persistence.api.entity.task.SchedTask;
+import org.apache.syncope.core.persistence.api.entity.task.Task;
+import org.apache.syncope.core.persistence.api.entity.task.TaskUtils;
+import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
+import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
+import org.apache.syncope.core.provisioning.api.job.JobManager;
+import org.apache.syncope.core.spring.security.SecurityProperties;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.junit.MockitoJUnitRunner;
+import static org.junit.Assert.*;
+
+import org.mockito.ArgumentCaptor;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
+import org.springframework.context.ConfigurableApplicationContext;
+
+
+import java.time.Instant;
+import java.time.OffsetDateTime;
+import java.util.Map;
+
+@RunWith(MockitoJUnitRunner.class)
+public class DefaultJobManagerTest {
+
+    @FunctionalInterface
+    private interface ThrowingAction {
+        void run() throws Exception;
+    }
+
+    private static void assertDoesNotThrow(final ThrowingAction action) {
+        try {
+            action.run();
+        } catch (Exception e) {
+            fail("Unexpected exception: " + e.getClass().getName() + " - " + e.getMessage());
+        }
+    }
+
+    @Mock
+    private DomainHolder<?> domainHolder;
+
+    @Mock
+    private SyncopeTaskScheduler scheduler;
+
+    @Mock
+    private JobStatusDAO jobStatusDAO;
+
+    @Mock
+    private TaskDAO taskDAO;
+
+    @Mock
+    private ReportDAO reportDAO;
+
+    @Mock
+    private ImplementationDAO implementationDAO;
+
+    @Mock
+    private TaskUtilsFactory taskUtilsFactory;
+
+    @Mock
+    private ConfParamOps confParamOps;
+
+    @Mock
+    private SecurityProperties securityProperties;
+
+    @Mock
+    private ConfigurableApplicationContext ctx;
+
+    private DefaultJobManager jobManager;
+    @Mock
+    private ConfigurableListableBeanFactory beanFactory;
+
+    @Before
+    public void setup(){
+        jobManager = new DefaultJobManager(domainHolder, scheduler, jobStatusDAO, taskDAO, reportDAO, implementationDAO,
+                taskUtilsFactory, confParamOps, securityProperties, ctx);
+
+    }
+
+
+    @Test
+    public void executeShouldScheduleActiveTaskInFuture(){
+        //T2
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+
+        //job finto
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        //s4 e4 d2 j2
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verify(taskJob).setContext(any());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Test
+    public void executeShouldScheduleActiveTaskNowWithDryRunAndJobData() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now();
+        String executor = "admin";
+        boolean dryRun = true;
+        Map<String, Object> jobData = Map.of("sampleKey", "sampleValue");
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        ArgumentCaptor<JobExecutionContext> contextCaptor =
+                ArgumentCaptor.forClass(JobExecutionContext.class);
+
+        verify(taskJob).setContext(contextCaptor.capture());
+
+        JobExecutionContext context = contextCaptor.getValue();
+
+        assertTrue(context.isDryRun());
+        assertEquals(TaskType.SCHEDULED, context.getData().get(JobManager.TASK_TYPE));
+        assertEquals("task-key", context.getData().get(JobManager.TASK_KEY));
+        assertEquals("delegate-key", context.getData().get(JobManager.DELEGATE_IMPLEMENTATION));
+        assertEquals("sampleValue", context.getData().get("sampleKey"));
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Test
+    public void executeShouldNotScheduleInactiveTask() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(false);
+        when(task.getKey()).thenReturn("inacttive-task-key");
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+
+        OffsetDateTime startAt = null;
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+
+    }
+
+    @Test
+    public void executeShouldRejectNullTask() {
+        SchedTask task = null;
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+
+    }
+    /*Il metodo deve rifiutare il task perché non è possibile determinare il job delegate.
+    Non deve schedulare alcun job.*/
+    @Test
+    public void executeShouldRejectTaskWithoutJobDelegate(){
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+
+
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+    @Test
+    public void executeWithPastStartAtCurrentlyDelegatesToScheduler(){
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().minusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+
+        verify(taskJob).setContext(any());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che startAt nel passato debba essere rifiutato")
+    @Test
+    public void executeShouldRejectPastStartAtAccordingToInitialOracle() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().minusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor null debba essere rifiutato")
+    @Test
+    public void executeShouldRejectNullExecutorAccordingToInitialOracle() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = null;
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+    @Test
+    public void executeWithNullExecutorCurrentlyDelegatesToScheduler() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = null;
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        ArgumentCaptor<JobExecutionContext> contextCaptor =
+                ArgumentCaptor.forClass(JobExecutionContext.class);
+
+        verify(taskJob).setContext(contextCaptor.capture());
+
+        JobExecutionContext context = contextCaptor.getValue();
+
+        assertEquals(null, context.getExecutor());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor vuoto debba essere rifiutato")
+    @Test
+    public void executeShouldRejectEmptyExecutorAccordingToInitialOracle() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertThrows(RuntimeException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+    @Test
+    public void executeWithEmptyExecutorCurrentlyDelegatesToScheduler() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "";
+        boolean dryRun = false;
+        Map<String, Object> jobData = Map.of();
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        ArgumentCaptor<JobExecutionContext> contextCaptor =
+                ArgumentCaptor.forClass(JobExecutionContext.class);
+
+        verify(taskJob).setContext(contextCaptor.capture());
+
+        JobExecutionContext context = contextCaptor.getValue();
+
+        assertEquals("", context.getExecutor());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Ignore("Oracolo iniziale non soddisfatto: jobData null causa NullPointerException invece di essere rifiutato o gestito esplicitamente")
+    @Test
+    public void executeShouldHandleNullJobData() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = null;
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verify(taskJob).setContext(any());
+        verify(scheduler).schedule(eq(taskJob), eq(startAt.toInstant()));
+    }
+
+    @Test
+    public void executeWithNullJobDataCurrentlyThrowsNullPointerException() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
+        String executor = "admin";
+        boolean dryRun = false;
+        Map<String, Object> jobData = null;
+
+        assertThrows(NullPointerException.class, () -> jobManager.execute(
+                task,
+                startAt,
+                executor,
+                dryRun,
+                jobData));
+
+        verifyNoInteractions(scheduler);
+        verifyNoInteractions(beanFactory);
+    }
+
+Control-Flow tests that must still pass:
+
+
+
+
+    //test white box dopo jacoco
+    @Test
+    public void executeShouldRegisterActiveTaskWhenStartAtIsNull() {
+        SchedTask task = mock(SchedTask.class);
+        when(task.isActive()).thenReturn(true);
+        when(task.getKey()).thenReturn("task-key");
+
+        Implementation jobDelegate = mock(Implementation.class);
+        when(jobDelegate.getKey()).thenReturn("delegate-key");
+        when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+        TaskUtils taskUtils = mock(TaskUtils.class);
+        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+        TaskJob taskJob = mock(TaskJob.class);
+        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+        when(jobStatusDAO.lock(anyString())).thenReturn(true);
+        when(ctx.getBeanFactory()).thenReturn(beanFactory);
+
+        assertDoesNotThrow(() -> jobManager.execute(
+                task,
+                null,
+                "admin",
+                false,
+                Map.of()));
+
+        verify(taskJob).setContext(any(JobExecutionContext.class));
+        verify(scheduler).register(eq(taskJob));
+        verify(scheduler, never()).schedule(eq(taskJob), any(Instant.class));
+    }
+
+     @Test
+        public void loadShouldScheduleTaskReturnedByTaskDAOWithCronExpression() {
+            String domain = "test-domain";
+
+            SchedTask task = mock(SchedTask.class);
+            when(task.isActive()).thenReturn(true);
+            when(task.getKey()).thenReturn("task-key");
+            when(task.getName()).thenReturn("task-name");
+            when(task.getCronExpression()).thenReturn("0 0 12 * * ?");
+
+            Implementation jobDelegate = mock(Implementation.class);
+            when(jobDelegate.getKey()).thenReturn("delegate-key");
+            when(task.getJobDelegate()).thenReturn(jobDelegate);
+
+            TaskUtils taskUtils = mock(TaskUtils.class);
+            when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
+            when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
+
+            TaskJob taskJob = mock(TaskJob.class);
+            when(ctx.getBeanFactory()).thenReturn(applicationBeanFactory);
+            when(applicationBeanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
+
+            when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+            when(taskDAO.<SchedTask>findAll(TaskType.SCHEDULED)).thenReturn(List.of(task));
+            when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+            when(reportDAO.findAll()).thenReturn(List.of());
+
+            when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+            when(securityProperties.getAdminUser()).thenReturn("admin");
+
+
+            assertDoesNotThrow(() -> jobManager.load(domain));
+
+            verify(taskJob).setContext(any(org.apache.syncope.core.provisioning.api.job.JobExecutionContext.class));
+            verify(scheduler).schedule(eq(taskJob), any(CronTrigger.class));
+        }
+
+        @Test
+        public void loadShouldScheduleReportReturnedByReportDAOWithCronExpression() {
+            String domain = "test-domain";
+
+            Report report = mock(Report.class);
+            when(report.isActive()).thenReturn(true);
+            when(report.getKey()).thenReturn("report-key");
+            when(report.getName()).thenReturn("report-name");
+            when(report.getCronExpression()).thenReturn("0 0 12 * * ?");
+
+            Implementation jobDelegate = mock(Implementation.class);
+            when(jobDelegate.getKey()).thenReturn("delegate-key");
+            when(report.getJobDelegate()).thenReturn(jobDelegate);
+
+            ReportJob reportJob = mock(ReportJob.class);
+            when(ctx.getBeanFactory()).thenReturn(applicationBeanFactory);
+            when(applicationBeanFactory.createBean(ReportJob.class)).thenReturn(reportJob);
+
+            when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+            when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+
+            doReturn(List.of(report)).when(reportDAO).findAll();
+
+            when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+            when(securityProperties.getAdminUser()).thenReturn("admin");
+
+            assertDoesNotThrow(() -> jobManager.load(domain));
+
+            verify(scheduler).schedule(eq(reportJob), any(CronTrigger.class));
+        }
+
+        @Test
+        public void loadShouldEnterMasterDomainBranchWithBlankNotificationCronExpression() {
+            String domain = SyncopeConstants.MASTER_DOMAIN;
+
+            when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+            when(reportDAO.findAll()).thenReturn(List.of());
+
+            when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+            when(securityProperties.getAdminUser()).thenReturn("admin");
+
+            when(confParamOps.get(
+                    eq(SyncopeConstants.MASTER_DOMAIN),
+                    eq("notificationjob.cronExpression"),
+                    isNull(),
+                    eq(String.class)))
+                    .thenReturn("");
+
+            SystemLoadReporterJob systemLoadReporterJob = mock(SystemLoadReporterJob.class);
+            when(ctx.getBeanFactory()).thenReturn(applicationBeanFactory);
+            when(applicationBeanFactory.createBean(SystemLoadReporterJob.class)).thenReturn(systemLoadReporterJob);
+
+            when(jobStatusDAO.lock(anyString())).thenReturn(true);
+
+            assertDoesNotThrow(() -> jobManager.load(domain));
+
+            verify(applicationBeanFactory, never()).createBean(NotificationJob.class);
+            verify(applicationBeanFactory).createBean(SystemLoadReporterJob.class);
+            verify(scheduler, atLeastOnce()).schedule(eq(systemLoadReporterJob), any(CronTrigger.class));
+        }
+
+
+        @Test
+        public void loadShouldScheduleNotificationJobWhenMasterDomainCronExpressionIsConfigured() {
+            String domain = SyncopeConstants.MASTER_DOMAIN;
+            String cronExpression = "0 0 12 * * ?";
+
+            when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+            when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+            doReturn(List.of()).when(reportDAO).findAll();
+
+            when(confParamOps.get(
+                    eq(SyncopeConstants.MASTER_DOMAIN),
+                    eq("notificationjob.cronExpression"),
+                    isNull(),
+                    eq(String.class)))
+                    .thenReturn(cronExpression);
+
+            NotificationJob notificationJob = mock(NotificationJob.class);
+            SystemLoadReporterJob systemLoadReporterJob = mock(SystemLoadReporterJob.class);
+
+            when(ctx.getBeanFactory()).thenReturn(applicationBeanFactory);
+            when(applicationBeanFactory.createBean(NotificationJob.class)).thenReturn(notificationJob);
+            when(applicationBeanFactory.createBean(SystemLoadReporterJob.class)).thenReturn(systemLoadReporterJob);
+
+            when(securityProperties.getAdminUser()).thenReturn("admin");
+            when(jobStatusDAO.lock(anyString())).thenReturn(true);
+            when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+
+            assertDoesNotThrow(() -> jobManager.load(domain));
+
+            verify(applicationBeanFactory).createBean(NotificationJob.class);
+            verify(applicationBeanFactory).createBean(SystemLoadReporterJob.class);
+
+            verify(scheduler).schedule(eq(notificationJob), any(CronTrigger.class));
+            verify(scheduler).schedule(eq(systemLoadReporterJob), any(CronTrigger.class));
+        }
+
+
+Mutation-Testing-improved tests that must still pass:
+@Test
+    public void getOrderShouldReturnExpectedOrder() {
+        assertEquals(500, jobManager.getOrder());
+    }
+
+    @Test
+    public void isRunningShouldUnlockWhenLockIsAcquired() {
+        String jobName = "test-job";
+
+        when(jobStatusDAO.lock(jobName)).thenReturn(true);
+
+        boolean running = jobManager.isRunning(jobName);
+
+        assertFalse(running);
+        verify(jobStatusDAO).lock(jobName);
+        verify(jobStatusDAO).unlock(jobName);
+    }
+
+
+
+
+
+Original class:
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+package org.apache.syncope.core.provisioning.java.job;
+
+import java.time.OffsetDateTime;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.syncope.common.keymaster.client.api.ConfParamOps;
+import org.apache.syncope.common.lib.SyncopeConstants;
+import org.apache.syncope.common.lib.types.IdRepoImplementationType;
+import org.apache.syncope.common.lib.types.TaskType;
+import org.apache.syncope.core.persistence.api.DomainHolder;
+import org.apache.syncope.core.persistence.api.SyncopeCoreLoader;
+import org.apache.syncope.core.persistence.api.dao.ImplementationDAO;
+import org.apache.syncope.core.persistence.api.dao.JobStatusDAO;
+import org.apache.syncope.core.persistence.api.dao.ReportDAO;
+import org.apache.syncope.core.persistence.api.dao.TaskDAO;
+import org.apache.syncope.core.persistence.api.entity.Implementation;
+import org.apache.syncope.core.persistence.api.entity.Report;
+import org.apache.syncope.core.persistence.api.entity.task.PullTask;
+import org.apache.syncope.core.persistence.api.entity.task.PushTask;
+import org.apache.syncope.core.persistence.api.entity.task.SchedTask;
+import org.apache.syncope.core.persistence.api.entity.task.Task;
+import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
+import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
+import org.apache.syncope.core.provisioning.api.job.JobManager;
+import org.apache.syncope.core.provisioning.api.job.JobNamer;
+import org.apache.syncope.core.provisioning.api.job.SchedTaskJobDelegate;
+import org.apache.syncope.core.provisioning.java.job.notification.NotificationJob;
+import org.apache.syncope.core.provisioning.java.job.report.ReportJob;
+import org.apache.syncope.core.provisioning.java.pushpull.PullJobDelegate;
+import org.apache.syncope.core.provisioning.java.pushpull.PushJobDelegate;
+import org.apache.syncope.core.spring.security.AuthContextUtils;
+import org.apache.syncope.core.spring.security.SecurityProperties;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.scheduling.support.CronTrigger;
+
+public class DefaultJobManager implements JobManager, SyncopeCoreLoader {
+
+    protected static final Logger LOG = LoggerFactory.getLogger(JobManager.class);
+
+    protected final DomainHolder<?> domainHolder;
+
+    protected final SyncopeTaskScheduler scheduler;
+
+    protected final JobStatusDAO jobStatusDAO;
+
+    protected final TaskDAO taskDAO;
+
+    protected final ReportDAO reportDAO;
+
+    protected final ImplementationDAO implementationDAO;
+
+    protected final TaskUtilsFactory taskUtilsFactory;
+
+    protected final ConfParamOps confParamOps;
+
+    protected final SecurityProperties securityProperties;
+
+    protected final ConfigurableApplicationContext ctx;
+
+    public DefaultJobManager(
+            final DomainHolder<?> domainHolder,
+            final SyncopeTaskScheduler scheduler,
+            final JobStatusDAO jobStatusDAO,
+            final TaskDAO taskDAO,
+            final ReportDAO reportDAO,
+            final ImplementationDAO implementationDAO,
+            final TaskUtilsFactory taskUtilsFactory,
+            final ConfParamOps confParamOps,
+            final SecurityProperties securityProperties,
+            final ConfigurableApplicationContext ctx) {
+
+        this.domainHolder = domainHolder;
+        this.scheduler = scheduler;
+        this.jobStatusDAO = jobStatusDAO;
+        this.taskDAO = taskDAO;
+        this.reportDAO = reportDAO;
+        this.implementationDAO = implementationDAO;
+        this.taskUtilsFactory = taskUtilsFactory;
+        this.confParamOps = confParamOps;
+        this.securityProperties = securityProperties;
+        this.ctx = ctx;
+    }
+
+    @Override
+    public boolean isRunning(final String jobName) {
+        synchronized (jobName) {
+            boolean locked = jobStatusDAO.lock(jobName);
+            if (locked) {
+                jobStatusDAO.unlock(jobName);
+            }
+            return !locked;
+        }
+    }
+
+    protected void registerJob(
+            final JobExecutionContext context,
+            final Class<? extends Job> jobClass,
+            final String cronExpression,
+            final OffsetDateTime startAt) {
+
+        if (isRunning(context.getJobName())) {
+            LOG.debug("Job {} already running, cancel", context.getJobName());
+            return;
+        }
+
+        // 1. prepare job
+        Job job = ctx.getBeanFactory().createBean(jobClass);
+        job.setContext(context);
+
+        // 2. schedule
+        if (cronExpression == null && startAt == null) {
+            scheduler.register(job);
+        } else {
+            if (cronExpression == null) {
+                scheduler.schedule(job, startAt.toInstant());
+            } else {
+                scheduler.schedule(job, new CronTrigger(cronExpression));
+            }
+        }
+    }
+
+    protected void register(
+            final String domain,
+            final SchedTask task,
+            final String cronExpression,
+            final OffsetDateTime startAt,
+            final String executor,
+            final boolean dryRun,
+            final Map<String, Object> jobData) {
+
+        TaskType type = taskUtilsFactory.getInstance(task).getType();
+
+        if (!task.isActive()) {
+            LOG.debug("{} Task {} {} not active, skipping job registration", type, task.getKey(), task.getName());
+            return;
+        }
+
+        Implementation jobDelegate = task.getJobDelegate() == null
+                ? task instanceof PullTask
+                        ? implementationDAO.findByType(IdRepoImplementationType.TASKJOB_DELEGATE).stream().
+                                filter(impl -> PullJobDelegate.class.getName().equals(impl.getBody())).
+                                findFirst().orElse(null)
+                        : task instanceof PushTask
+                                ? implementationDAO.findByType(IdRepoImplementationType.TASKJOB_DELEGATE).stream().
+                                        filter(impl -> PushJobDelegate.class.getName().equals(impl.getBody())).
+                                        findFirst().orElse(null)
+                                : null
+                : task.getJobDelegate();
+        if (jobDelegate == null) {
+            throw new IllegalArgumentException("Task " + task
+                    + " does not provide any " + SchedTaskJobDelegate.class.getSimpleName());
+        }
+
+        JobExecutionContext context = new JobExecutionContext(
+                domain,
+                JobNamer.getJobName(task),
+                executor,
+                dryRun);
+        context.getData().put(JobManager.TASK_TYPE, type);
+        context.getData().put(JobManager.TASK_KEY, task.getKey());
+        context.getData().put(JobManager.DELEGATE_IMPLEMENTATION, jobDelegate.getKey());
+        context.getData().putAll(jobData);
+
+        registerJob(
+                context,
+                TaskJob.class,
+                cronExpression,
+                startAt);
+    }
+
+    @Override
+    public void execute(
+            final SchedTask task,
+            final OffsetDateTime startAt,
+            final String executor,
+            final boolean dryRun,
+            final Map<String, Object> jobData) {
+
+        register(
+                AuthContextUtils.getDomain(),
+                task,
+                null,
+                startAt,
+                executor,
+                dryRun,
+                jobData);
+    }
+
+    @Override
+    public void register(
+            final SchedTask task,
+            final String executor) {
+
+        register(
+                AuthContextUtils.getDomain(),
+                task,
+                task.getCronExpression(),
+                null,
+                executor,
+                false,
+                Map.of());
+    }
+
+    protected void register(
+            final String domain,
+            final Report report,
+            final String cronExpression,
+            final OffsetDateTime startAt,
+            final String executor,
+            final boolean dryRun) {
+
+        if (!report.isActive()) {
+            LOG.debug("Report {} {} not active, skipping job registration", report.getKey(), report.getName());
+            return;
+        }
+
+        JobExecutionContext context = new JobExecutionContext(
+                domain,
+                JobNamer.getJobName(report),
+                executor,
+                dryRun);
+        context.getData().put(JobManager.REPORT_KEY, report.getKey());
+        context.getData().put(JobManager.DELEGATE_IMPLEMENTATION, report.getJobDelegate().getKey());
+
+        registerJob(
+                context,
+                ReportJob.class,
+                cronExpression,
+                startAt);
+    }
+
+    @Override
+    public void execute(
+            final Report report,
+            final OffsetDateTime startAt,
+            final String executor,
+            final boolean dryRun) {
+
+        register(
+                AuthContextUtils.getDomain(),
+                report,
+                null,
+                startAt,
+                executor,
+                dryRun);
+    }
+
+    @Override
+    public void register(
+            final Report report,
+            final String executor) {
+
+        register(AuthContextUtils.getDomain(), report, report.getCronExpression(), null, executor, false);
+    }
+
+    protected void unregisterJob(final String jobName) {
+        scheduler.stop(AuthContextUtils.getDomain(), jobName);
+        scheduler.delete(AuthContextUtils.getDomain(), jobName);
+    }
+
+    @Override
+    public void unregister(final Task<?> task) {
+        unregisterJob(JobNamer.getJobName(task));
+    }
+
+    @Override
+    public void unregister(final Report report) {
+        unregisterJob(JobNamer.getJobName(report));
+    }
+
+    @Override
+    public int getOrder() {
+        return 500;
+    }
+
+    @Override
+    public void load(final String domain) {
+        AuthContextUtils.runAsAdmin(domain, () -> {
+            // 1. jobs for SchedTasks
+            Set<SchedTask> tasks = new HashSet<>(taskDAO.findAll(TaskType.SCHEDULED));
+            tasks.addAll(taskDAO.findAll(TaskType.PULL));
+            tasks.addAll(taskDAO.findAll(TaskType.PUSH));
+            tasks.addAll(taskDAO.findAll(TaskType.MACRO));
+            tasks.addAll(taskDAO.findAll(TaskType.LIVE_SYNC));
+
+            boolean loadException = false;
+            for (Iterator<SchedTask> it = tasks.iterator(); it.hasNext() && !loadException;) {
+                SchedTask task = it.next();
+
+                LOG.debug("Loading job for {} Task {} {}",
+                        taskUtilsFactory.getInstance(task).getType(), task.getKey(), task.getName());
+
+                try {
+                    register(
+                            domain,
+                            task,
+                            task.getCronExpression(),
+                            null,
+                            securityProperties.getAdminUser(),
+                            false,
+                            Map.of());
+                } catch (Exception e) {
+                    LOG.error("While loading job instance for task {}", task.getKey(), e);
+                    loadException = true;
+                }
+            }
+
+            // 2. jobs for Reports
+            loadException = false;
+            for (Iterator<? extends Report> it = reportDAO.findAll().iterator(); it.hasNext() && !loadException;) {
+                Report report = it.next();
+
+                LOG.debug("Loading job for Report {} {}", report.getKey(), report.getName());
+
+                try {
+                    register(
+                            domain,
+                            report,
+                            report.getCronExpression(),
+                            null,
+                            securityProperties.getAdminUser(),
+                            false);
+                } catch (Exception e) {
+                    LOG.error("While loading job instance for report {}", report.getName(), e);
+                    loadException = true;
+                }
+            }
+        });
+
+        if (SyncopeConstants.MASTER_DOMAIN.equals(domain)) {
+            String notificationJobCronExp = AuthContextUtils.callAsAdmin(SyncopeConstants.MASTER_DOMAIN, () -> {
+                String result = StringUtils.EMPTY;
+
+                String conf = confParamOps.get(
+                        SyncopeConstants.MASTER_DOMAIN, "notificationjob.cronExpression", null, String.class);
+                if (conf == null) {
+                    result = NotificationJob.DEFAULT_CRON_EXP;
+                } else if (!StringUtils.EMPTY.equals(conf)) {
+                    result = conf;
+                }
+                return result;
+            });
+
+            // 3. NotificationJob
+            if (StringUtils.isBlank(notificationJobCronExp)) {
+                LOG.debug("Empty value provided for {}'s cron, not scheduling", NotificationJob.class.getSimpleName());
+            } else {
+                LOG.debug("{}'s cron expression: {} - scheduling",
+                        NotificationJob.class.getSimpleName(), notificationJobCronExp);
+
+                JobExecutionContext context = new JobExecutionContext(
+                        domain,
+                        NOTIFICATION_JOB,
+                        securityProperties.getAdminUser(),
+                        false);
+                try {
+                    registerJob(
+                            context,
+                            NotificationJob.class,
+                            notificationJobCronExp,
+                            null);
+                } catch (Exception e) {
+                    LOG.error("While loading {} instance", NotificationJob.class.getSimpleName(), e);
+                }
+            }
+
+            // 4. SystemLoadReporterJob (fixed schedule, every minute)
+            LOG.debug("Registering {}", SystemLoadReporterJob.class);
+
+            JobExecutionContext context = new JobExecutionContext(
+                    domain,
+                    StringUtils.uncapitalize(SystemLoadReporterJob.class.getSimpleName()),
+                    securityProperties.getAdminUser(),
+                    false);
+            try {
+                registerJob(
+                        context,
+                        SystemLoadReporterJob.class,
+                        "0 * * * * ?",
+                        null);
+            } catch (Exception e) {
+                LOG.error("While loading {} instance", SystemLoadReporterJob.class.getSimpleName(), e);
+            }
+        }
+    }
+
+    @Override
+    public void unload(final String domain) {
+        AuthContextUtils.runAsAdmin(domain, () -> {
+            // 1. jobs for SchedTasks
+            Set<SchedTask> tasks = new HashSet<>(taskDAO.findAll(TaskType.SCHEDULED));
+            tasks.addAll(taskDAO.findAll(TaskType.PULL));
+            tasks.addAll(taskDAO.findAll(TaskType.PUSH));
+            tasks.addAll(taskDAO.findAll(TaskType.MACRO));
+            tasks.addAll(taskDAO.findAll(TaskType.LIVE_SYNC));
+
+            tasks.forEach(task -> {
+                LOG.debug("Unloading job for {} Task {} {}",
+                        taskUtilsFactory.getInstance(task).getType(), task.getKey(), task.getName());
+
+                try {
+                    unregister(task);
+                } catch (Exception e) {
+                    LOG.error("While unloading job for task {}", task.getKey(), e);
+                }
+            });
+
+            // 2. jobs for Reports
+            reportDAO.findAll().forEach(report -> {
+                LOG.debug("Unloading job for Report {} {}", report.getKey(), report.getName());
+
+                try {
+                    unregister(report);
+                } catch (Exception e) {
+                    LOG.error("While unloading job for report {}", report.getName(), e);
+                }
+            });
+        });
+    }
+}
+

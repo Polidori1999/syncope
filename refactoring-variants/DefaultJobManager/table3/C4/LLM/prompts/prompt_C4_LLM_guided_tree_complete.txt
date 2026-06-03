@@ -1,0 +1,66 @@
+Imagine three different experts in software testing who are tasked with developing comprehensive JUnit 4 test cases for the following Java class named DefaultJobManager.
+
+This class is the C4 refactored variant of DefaultJobManager. The Java class name is still DefaultJobManager because it is intended to replace the original class in the Apache Syncope project.
+
+They must follow these steps:
+1. Extract and list all public and protected methods of the class, including their signatures.
+2. For each method, identify its expected functionality by analyzing the source code.
+3. Given the source code of the class and the listed methods, identify normal cases, edge cases, and exception-handling scenarios that should be tested.
+4. For each method, generate JUnit 4 test cases that check the method's functionality.
+5. Merge all the individual test cases into a complete JUnit 4 test file named DefaultJobManagerC4LLMGuidedTreeTest.java.
+6. Add short Java comments for the generated tests.
+
+The generated test file must satisfy these strict requirements:
+- The package must be org.apache.syncope.core.provisioning.java.job.
+- The test class name must be DefaultJobManagerC4LLMGuidedTreeTest.
+- Use JUnit 4.
+- Use Mockito.
+- Use org.mockito.junit.MockitoJUnitRunner.
+- Do not use org.mockito.runners.MockitoJUnitRunner.
+- Do not use org.mockito.Matchers.
+- Do not use JUnit 5 annotations or assertions.
+- Do not use markdown fences.
+- Do not include ###Test START### or ###Test END###.
+- Do not include explanations, lists, or prose outside Java comments.
+- The file must start with the package declaration.
+- Return only the complete Java test file.
+
+Important project-specific compilation guidance:
+- DefaultJobManager has constructor dependencies and must be instantiated with mocked collaborators.
+- When mocking the Spring application context, use ConfigurableListableBeanFactory for ctx.getBeanFactory().
+- If a dependency type has many abstract methods, prefer Mockito mocks instead of anonymous class implementations.
+- Do not use TaskUtils as a lambda or anonymous functional interface. Mock TaskUtils explicitly and stub getType().
+- If beanFactory.createBean(TaskJob.class) is used, return a TaskJob mock, not a generic Job mock.
+- If beanFactory.createBean(ReportJob.class) is used, return a ReportJob mock, not a generic Job mock.
+- The Job type used by DefaultJobManager is org.apache.syncope.core.provisioning.java.job.Job, not org.apache.syncope.core.provisioning.api.job.Job.
+- If a method is overloaded, use typed Mockito matchers to avoid ambiguous invocations.
+- If execute(...) reaches the real register(...) method, correctly stub TaskUtilsFactory.getInstance(task), task.isActive(), task.getKey(), task.getJobDelegate(), and the required job delegate behavior.
+- If registerJob(...) should proceed, stub jobStatusDAO.lock(anyString()) to return true, because isRunning(...) returns false only when lock(...) succeeds.
+- If startAt is not null, verify scheduler.schedule(job, startAt.toInstant()), not scheduler.register(job).
+- Avoid unnecessary stubbings that would trigger Mockito UnnecessaryStubbingException.
+
+Important DAO and generic type guidance:
+- Do not return Set or HashSet from DAO methods whose return type is List.
+- If taskDAO.findAll(...) is stubbed, return a List<SchedTask>, for example Collections.singletonList(task) or Arrays.asList(task).
+- Do not use HashSet<SchedTask> for taskDAO.findAll(...).
+- If reportDAO.findAll() has wildcard generics such as List<? extends Report>, avoid thenReturn(...) generic inference problems by using doReturn(Collections.singletonList(report)).when(reportDAO).findAll().
+- If any Mockito stubbing fails due to wildcard generics, prefer doReturn(...).when(mock).method(...) rather than when(...).thenReturn(...).
+- Use java.util.Collections.emptyList() for DAO methods returning empty lists.
+- Use java.util.Collections.singletonList(...) for DAO methods returning one element.
+- Do not use java.util.Set unless the actual method signature returns Set.
+
+Runtime-failure guidance learned from previous attempts:
+- If a test enters execute(...) and therefore register(...), it must stub TaskUtilsFactory.getInstance(task); otherwise TaskUtils.getType() can throw NullPointerException.
+- Avoid unit tests for load(...) and unload(...) unless ApplicationContextProvider and AuthContextUtils are fully initialized. These methods require Spring context behavior.
+- If load(...) or unload(...) cannot be tested reliably with mocks only, do not include direct unit tests for them.
+- Prefer focused tests for isRunning, registerJob, execute, unregisterJob, unregister(Task), unregister(Report), and getOrder.
+
+Behavioral guidance:
+- Prefer observable behavior and Mockito interaction checks.
+- Avoid tests that only verify constants, reflection properties, Object methods, or constructor existence.
+- Do not simplify tests by only checking that the object is non-null.
+- Keep the suite compilable and executable inside Apache Syncope.
+
+The Java class is:
+
+[PASTE C4 DefaultJobManager.java HERE]

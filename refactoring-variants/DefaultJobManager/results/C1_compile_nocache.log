@@ -1,0 +1,853 @@
+WARNING: A terminally deprecated method in sun.misc.Unsafe has been called
+WARNING: sun.misc.Unsafe::objectFieldOffset has been called by com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper (file:/usr/share/maven/lib/guava.jar)
+WARNING: Please consider reporting this to the maintainers of class com.google.common.util.concurrent.AbstractFuture$UnsafeAtomicHelper
+WARNING: sun.misc.Unsafe::objectFieldOffset will be removed in a future release
+[[1;34mINFO[m] Cache disabled by command line flag, project will be built fully and not cached
+[[1;34mINFO[m] Scanning for projects...
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] Some problems were encountered while building the effective model for org.apache.syncope.core:syncope-core-spring:jar:5.0.0-SNAPSHOT
+[[1;33mWARNING[m] 'dependencies.dependency.version' for org.testng:testng:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 180, column 16
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] It is highly recommended to fix these problems because they threaten the stability of your build.
+[[1;33mWARNING[m] 
+[[1;33mWARNING[m] For this reason, future Maven versions might no longer support building such malformed projects.
+[[1;33mWARNING[m] 
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Build Order:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope                                                     [pom]
+[[1;34mINFO[m] Apache Syncope Common                                              [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo                                       [pom]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib                                   [jar]
+[[1;34mINFO[m] Apache Syncope Common Keymaster                                    [pom]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API                         [jar]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API                              [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM                                          [pom]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib                                      [jar]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API                                 [jar]
+[[1;34mINFO[m] Apache Syncope Common AM                                           [pom]
+[[1;34mINFO[m] Apache Syncope Common AM Lib                                       [jar]
+[[1;34mINFO[m] Apache Syncope Common AM REST API                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core                                                [pom]
+[[1;34mINFO[m] Apache Syncope Core Persistence API                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API                               [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow API                                   [jar]
+[[1;34mINFO[m] Apache Syncope Core Spring                                         [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common                             [jar]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA                                [jar]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java                                  [jar]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java                              [jar]
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------------------< [0;36morg.apache.syncope:syncope[0;1m >---------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope 5.0.0-SNAPSHOT                            [1/22][m
+[[1;34mINFO[m]   from pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope:syncope
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Rule 0: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Rule 0: org.apache.maven.enforcer.rules.version.RequireJavaVersion passed
+[[1;34mINFO[m] Rule 1: org.apache.maven.enforcer.rules.version.RequireMavenVersion passed
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from . to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from . to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----------------< [0;36morg.apache.syncope:syncope-common[0;1m >------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common 5.0.0-SNAPSHOT                     [2/22][m
+[[1;34mINFO[m]   from common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope:syncope-common
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m----------< [0;36morg.apache.syncope.common:syncope-common-idrepo[0;1m >-----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo 5.0.0-SNAPSHOT              [3/22][m
+[[1;34mINFO[m]   from common/idrepo/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-idrepo
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idrepo[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-lib[0;1m >-----[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo Lib 5.0.0-SNAPSHOT          [4/22][m
+[[1;34mINFO[m]   from common/idrepo/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/lib/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/lib/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idrepo-lib[0;1m ---[m
+[[1;34mINFO[m] Compiling 179 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common:syncope-common-keymaster[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster 5.0.0-SNAPSHOT           [5/22][m
+[[1;34mINFO[m]   from common/keymaster/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-keymaster
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/keymaster/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-keymaster[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.keymaster:syncope-common-keymaster-client-api[0;1m >--[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common Keymaster Client API 5.0.0-SNAPSHOT [6/22][m
+[[1;34mINFO[m]   from common/keymaster/client-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.keymaster:syncope-common-keymaster-client-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/keymaster/client-api/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Copying 3 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-keymaster-client-api[0;1m ---[m
+[[1;34mINFO[m] Compiling 13 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--< [0;36morg.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api[0;1m >---[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdRepo REST API 5.0.0-SNAPSHOT     [7/22][m
+[[1;34mINFO[m]   from common/idrepo/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idrepo:syncope-common-idrepo-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/rest-api/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idrepo/rest-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idrepo-rest-api[0;1m ---[m
+[[1;34mINFO[m] Compiling 50 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-idm[0;1m >------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM 5.0.0-SNAPSHOT                 [8/22][m
+[[1;34mINFO[m]   from common/idm/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-idm
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idm[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.common.idm:syncope-common-idm-lib[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM Lib 5.0.0-SNAPSHOT             [9/22][m
+[[1;34mINFO[m]   from common/idm/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idm:syncope-common-idm-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/lib/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/lib/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idm-lib[0;1m ---[m
+[[1;34mINFO[m] Compiling 26 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-----< [0;36morg.apache.syncope.common.idm:syncope-common-idm-rest-api[0;1m >------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common IdM REST API 5.0.0-SNAPSHOT       [10/22][m
+[[1;34mINFO[m]   from common/idm/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.idm:syncope-common-idm-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/rest-api/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/idm/rest-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-idm-rest-api[0;1m ---[m
+[[1;34mINFO[m] Compiling 8 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.common:syncope-common-am[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM 5.0.0-SNAPSHOT                 [11/22][m
+[[1;34mINFO[m]   from common/am/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common:syncope-common-am
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/am/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-am[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.common.am:syncope-common-am-lib[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM Lib 5.0.0-SNAPSHOT             [12/22][m
+[[1;34mINFO[m]   from common/am/lib/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.am:syncope-common-am-lib
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/am/lib/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/am/lib/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-am-lib[0;1m ---[m
+[[1;34mINFO[m] Compiling 115 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.common.am:syncope-common-am-rest-api[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Common AM REST API 5.0.0-SNAPSHOT        [13/22][m
+[[1;34mINFO[m]   from common/am/rest-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.common.am:syncope-common-am-rest-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/common/am/rest-api/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/common/am/rest-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-common-am-rest-api[0;1m ---[m
+[[1;34mINFO[m] Compiling 19 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------------< [0;36morg.apache.syncope:syncope-core[0;1m >-------------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core 5.0.0-SNAPSHOT                      [14/22][m
+[[1;34mINFO[m]   from core/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ pom ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope:syncope-core
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from .. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence API 5.0.0-SNAPSHOT      [15/22][m
+[[1;34mINFO[m]   from core/persistence-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-persistence-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-api/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-persistence-api[0;1m ---[m
+[[1;34mINFO[m] Compiling 203 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-api[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning API 5.0.0-SNAPSHOT     [16/22][m
+[[1;34mINFO[m]   from core/provisioning-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-provisioning-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-api/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-provisioning-api[0;1m ---[m
+[[1;34mINFO[m] Compiling 131 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-api[0;1m >----------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow API 5.0.0-SNAPSHOT         [17/22][m
+[[1;34mINFO[m]   from core/workflow-api/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-workflow-api
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-api/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-api/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-workflow-api[0;1m ---[m
+[[1;34mINFO[m] Compiling 6 source files with javac [debug deprecation release 25] to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------------< [0;36morg.apache.syncope.core:syncope-core-spring[0;1m >-------------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Spring 5.0.0-SNAPSHOT               [18/22][m
+[[1;34mINFO[m]   from core/spring/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-spring
+[[1;33mWARNING[m] 1 problem was encountered while building the effective model for org.evosuite:evosuite-standalone-runtime:jar:1.0.6 during dependency collection step for project (use -X to see details)
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/spring/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Copying 0 resource from src/main/resources to target/classes
+[[1;34mINFO[m] Copying 2 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-spring[0;1m ---[m
+[[1;34mINFO[m] Compiling 41 source files with javac [debug deprecation release 25] to target/classes
+[[1;33mWARNING[m] Supported source version 'RELEASE_6' from annotation processor 'org.eclipse.sisu.scanners.index.SisuIndexAPT6' less than -source '25'
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m------< [0;36morg.apache.syncope.core:syncope-core-persistence-common[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence Common 5.0.0-SNAPSHOT   [19/22][m
+[[1;34mINFO[m]   from core/persistence-common/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-persistence-common
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-common/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] skip non existing resourceDirectory /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-common/src/main/resources
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-persistence-common[0;1m ---[m
+[[1;34mINFO[m] Compiling 73 source files with javac [debug deprecation release 25] to target/classes
+[[1;33mWARNING[m] Supported source version 'RELEASE_6' from annotation processor 'org.eclipse.sisu.scanners.index.SisuIndexAPT6' less than -source '25'
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--------< [0;36morg.apache.syncope.core:syncope-core-persistence-jpa[0;1m >--------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Persistence JPA 5.0.0-SNAPSHOT      [20/22][m
+[[1;34mINFO[m]   from core/persistence-jpa/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-persistence-jpa
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/persistence-jpa/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Copying 15 resources from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-persistence-jpa[0;1m ---[m
+[[1;34mINFO[m] Compiling 280 source files with javac [debug deprecation release 25] to target/classes
+[[1;33mWARNING[m] Supported source version 'RELEASE_6' from annotation processor 'org.eclipse.sisu.scanners.index.SisuIndexAPT6' less than -source '25'
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m---------< [0;36morg.apache.syncope.core:syncope-core-workflow-java[0;1m >---------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Workflow Java 5.0.0-SNAPSHOT        [21/22][m
+[[1;34mINFO[m]   from core/workflow-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-workflow-java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/workflow-java/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-workflow-java[0;1m ---[m
+[[1;34mINFO[m] Compiling 8 source files with javac [debug deprecation release 25] to target/classes
+[[1;33mWARNING[m] Supported source version 'RELEASE_6' from annotation processor 'org.eclipse.sisu.scanners.index.SisuIndexAPT6' less than -source '25'
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m-------< [0;36morg.apache.syncope.core:syncope-core-provisioning-java[0;1m >-------[m
+[[1;34mINFO[m] [1mBuilding Apache Syncope Core Provisioning Java 5.0.0-SNAPSHOT    [22/22][m
+[[1;34mINFO[m]   from core/provisioning-java/pom.xml
+[[1;34mINFO[m] [1m--------------------------------[ jar ]---------------------------------[m
+[[1;34mINFO[m] Cache is DISABLED on project level for org.apache.syncope.core:syncope-core-provisioning-java
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mclean:3.5.0:clean[m [1m(default-clean)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Deleting /home/leonardo/uni/isw2/SyncopeNoTest/core/provisioning-java/target
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-maven-version)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(enforce-java-version)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32menforcer:3.6.2:enforce[m [1m(default-cli)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mjacoco:0.8.14:prepare-agent[m [1m(prepare-jacoco-agent)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Skipping JaCoCo execution because property jacoco.skip is set.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mgplus:4.3.1:execute[m [1m(default)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Using plugin classloader, includes GMavenPlus and project classpath.
+[[1;34mINFO[m] Using Groovy 5.0.5 to perform execute.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mremote-resources:3.3.0:process[m [1m(process-resource-bundles)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Skipping remote resources execution.
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:resources[m [1m(default-resources)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Copying 1 resource from src/main/resources to target/classes
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-artifact-legal-files)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/classes/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mresources:3.5.0:copy-resources[m [1m(copy-javadoc-legal-files)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Copying 2 resources from ../.. to target/reports/apidocs/META-INF
+[[1;34mINFO[m] 
+[[1;34mINFO[m] [1m--- [0;32mcompiler:3.15.0:compile[m [1m(default-compile)[m @ [36msyncope-core-provisioning-java[0;1m ---[m
+[[1;34mINFO[m] Compiling 124 source files with javac [debug deprecation release 25] to target/classes
+[[1;33mWARNING[m] Supported source version 'RELEASE_6' from annotation processor 'org.eclipse.sisu.scanners.index.SisuIndexAPT6' less than -source '25'
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1mReactor Summary for Apache Syncope 5.0.0-SNAPSHOT:[m
+[[1;34mINFO[m] 
+[[1;34mINFO[m] Apache Syncope ..................................... [1;32mSUCCESS[m [  1.377 s]
+[[1;34mINFO[m] Apache Syncope Common .............................. [1;32mSUCCESS[m [  0.034 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo ....................... [1;32mSUCCESS[m [  0.031 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo Lib ................... [1;32mSUCCESS[m [  2.047 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster .................... [1;32mSUCCESS[m [  0.032 s]
+[[1;34mINFO[m] Apache Syncope Common Keymaster Client API ......... [1;32mSUCCESS[m [  0.172 s]
+[[1;34mINFO[m] Apache Syncope Common IdRepo REST API .............. [1;32mSUCCESS[m [  0.402 s]
+[[1;34mINFO[m] Apache Syncope Common IdM .......................... [1;32mSUCCESS[m [  0.028 s]
+[[1;34mINFO[m] Apache Syncope Common IdM Lib ...................... [1;32mSUCCESS[m [  0.173 s]
+[[1;34mINFO[m] Apache Syncope Common IdM REST API ................. [1;32mSUCCESS[m [  0.149 s]
+[[1;34mINFO[m] Apache Syncope Common AM ........................... [1;32mSUCCESS[m [  0.038 s]
+[[1;34mINFO[m] Apache Syncope Common AM Lib ....................... [1;32mSUCCESS[m [  0.515 s]
+[[1;34mINFO[m] Apache Syncope Common AM REST API .................. [1;32mSUCCESS[m [  0.139 s]
+[[1;34mINFO[m] Apache Syncope Core ................................ [1;32mSUCCESS[m [  0.036 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence API ................ [1;32mSUCCESS[m [  0.581 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning API ............... [1;32mSUCCESS[m [  0.361 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow API ................... [1;32mSUCCESS[m [  0.083 s]
+[[1;34mINFO[m] Apache Syncope Core Spring ......................... [1;32mSUCCESS[m [  0.687 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence Common ............. [1;32mSUCCESS[m [  0.573 s]
+[[1;34mINFO[m] Apache Syncope Core Persistence JPA ................ [1;32mSUCCESS[m [  1.924 s]
+[[1;34mINFO[m] Apache Syncope Core Workflow Java .................. [1;32mSUCCESS[m [  0.297 s]
+[[1;34mINFO[m] Apache Syncope Core Provisioning Java .............. [1;32mSUCCESS[m [  1.626 s]
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] [1;32mBUILD SUCCESS[m
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m
+[[1;34mINFO[m] Total time:  12.071 s
+[[1;34mINFO[m] Finished at: 2026-05-28T12:55:07+02:00
+[[1;34mINFO[m] [1m------------------------------------------------------------------------[m

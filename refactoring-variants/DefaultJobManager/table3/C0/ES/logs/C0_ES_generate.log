@@ -1,0 +1,8 @@
+* EvoSuite 1.2.0
+* Going to generate test cases for class: org.apache.syncope.core.provisioning.java.job.DefaultJobManager
+[MASTER] 12:15:23.495 [main] ERROR EvoSuite - Fatal crash on main EvoSuite process. Class org.apache.syncope.core.provisioning.java.job.DefaultJobManager using seed 1780481663437. Configuration id : null
+java.lang.NullPointerException: null
+	at org.evosuite.executionmode.TestGeneration.generateTests(TestGeneration.java:503)
+	at org.evosuite.executionmode.TestGeneration.executeTestGeneration(TestGeneration.java:83)
+	at org.evosuite.EvoSuite.parseCommandLine(EvoSuite.java:335)
+	at org.evosuite.EvoSuite.main(EvoSuite.java:103)
