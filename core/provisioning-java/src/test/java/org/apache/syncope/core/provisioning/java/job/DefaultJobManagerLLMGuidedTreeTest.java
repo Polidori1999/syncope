@@ -100,8 +100,6 @@ public class DefaultJobManagerLLMGuidedTreeTest {
     @Mock
     private SecurityProperties securityProperties;
 
-    @Mock
-    private ConfigurableApplicationContext ctx;
 
     @Mock
     private DefaultListableBeanFactory beanFactory;
@@ -110,7 +108,7 @@ public class DefaultJobManagerLLMGuidedTreeTest {
 
     @Before
     public void setUp() {
-        // Prepare a ConfigurableListableBeanFactory-compatible mock for ctx.getBeanFactory()
+
         ApplicationContextProvider.setBeanFactory(beanFactory);
 
         manager = new DefaultJobManager(
