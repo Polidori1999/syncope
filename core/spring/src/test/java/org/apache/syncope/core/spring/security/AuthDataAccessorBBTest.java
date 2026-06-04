@@ -20,7 +20,7 @@
 package org.apache.syncope.core.spring.security;
 
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+
 import static org.junit.jupiter.api.Assertions.fail;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
@@ -29,6 +29,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -56,7 +57,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.security.authentication.DisabledException;
+
+
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
@@ -128,191 +130,67 @@ public class AuthDataAccessorBBTest {
     }
 
     @Test
-    public void authenticateShouldReturnSuccessfulResultForPresentTokenWithPrincipalAndCredentials() {
-        String domain = "Master";
-        String username = "test-user";
-        String password = "secret";
-        String status = "active";
+    public void authenticateShouldReturnSuccessfulResultForAcceptedDomainValues() {
+        for (String domain : new String[] { "Master", "", null }) {
+            String username = "test-user";
+            String password = "secret";
+            String status = "active";
 
-        User user = mock(User.class);
-        when(user.getKey()).thenReturn("user-key");
-        when(user.isSuspended()).thenReturn(false);
-        when(user.getStatus()).thenReturn(status);
-        when(user.getFailedLogins()).thenReturn(0);
+            User user = mock(User.class);
+            when(user.getKey()).thenReturn("user-key");
+            when(user.isSuspended()).thenReturn(false);
+            when(user.getStatus()).thenReturn(status);
+            when(user.getFailedLogins()).thenReturn(0);
 
-        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
-        when(details.getDelegatedBy()).thenReturn(null);
+            SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+            when(details.getDelegatedBy()).thenReturn(null);
 
-        UsernamePasswordAuthenticationToken authentication =
-                new UsernamePasswordAuthenticationToken(username, password);
-        authentication.setDetails(details);
+            UsernamePasswordAuthenticationToken authentication =
+                    new UsernamePasswordAuthenticationToken(username, password);
+            authentication.setDetails(details);
 
-        when(confParamOps.get(
-                eq(domain),
-                eq("authentication.attributes"),
-                any(String[].class),
-                eq(String[].class))).
-                thenReturn(new String[]{"username"});
+            when(confParamOps.get(
+                    eq(domain),
+                    eq("authentication.attributes"),
+                    any(String[].class),
+                    eq(String[].class))).
+                    thenReturn(new String[] { "username" });
 
-        when(confParamOps.get(
-                eq(domain),
-                eq("authentication.statuses"),
-                any(String[].class),
-                eq(String[].class))).
-                thenReturn(new String[]{status});
+            when(confParamOps.get(
+                    eq(domain),
+                    eq("authentication.statuses"),
+                    any(String[].class),
+                    eq(String[].class))).
+                    thenReturn(new String[] { status });
 
-        when(confParamOps.get(
-                eq(domain),
-                eq("log.lastlogindate"),
-                eq(true),
-                eq(Boolean.class))).
-                thenReturn(false);
+            when(confParamOps.get(
+                    domain,
+                    "log.lastlogindate",
+                    true,
+                    Boolean.class)).
+                    thenReturn(false);
 
-        doReturn(Optional.of(user)).
-                when(userDAO).
-                findByUsername(username);
+            doReturn(Optional.of(user)).
+                    when(userDAO).
+                    findByUsername(username);
 
-        doReturn(true).
-                when(authDataAccessor).
-                usernamePasswordAuthentication(user, password);
+            doReturn(true).
+                    when(authDataAccessor).
+                    usernamePasswordAuthentication(user, password);
 
-        AuthDataAccessor.UsernamePasswordAuthResult result =
-                authDataAccessor.authenticate(domain, authentication);
+            AuthDataAccessor.UsernamePasswordAuthResult result =
+                    authDataAccessor.authenticate(domain, authentication);
 
-        assertNotNull(result);
-        assertSame(user, result.user());
-        assertTrue(result.authenticated());
-        assertNull(result.delegationKey());
+            assertNotNull(result);
+            assertSame(user, result.user());
+            assertTrue(result.authenticated());
+            assertNull(result.delegationKey());
 
-        verify(userDAO).findByUsername(username);
-        verify(userDAO, never()).save(user);
-    }
+            verify(userDAO).findByUsername(username);
+            verify(userDAO, never()).save(user);
 
-
-    @Test
-    public void authenticateWithEmptyDomainShouldReturnSuccessfulResultWhenConfigurationIsAvailable() {
-        String domain = "";
-        String username = "test-user";
-        String password = "secret";
-        String status = "active";
-
-        User user = mock(User.class);
-        when(user.getKey()).thenReturn("user-key");
-        when(user.isSuspended()).thenReturn(false);
-        when(user.getStatus()).thenReturn(status);
-        when(user.getFailedLogins()).thenReturn(0);
-
-        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
-        when(details.getDelegatedBy()).thenReturn(null);
-
-        UsernamePasswordAuthenticationToken authentication =
-                new UsernamePasswordAuthenticationToken(username, password);
-        authentication.setDetails(details);
-
-        when(confParamOps.get(
-                eq(domain),
-                eq("authentication.attributes"),
-                any(String[].class),
-                eq(String[].class))).
-                thenReturn(new String[]{"username"});
-
-        when(confParamOps.get(
-                eq(domain),
-                eq("authentication.statuses"),
-                any(String[].class),
-                eq(String[].class))).
-                thenReturn(new String[]{status});
-
-        when(confParamOps.get(
-                eq(domain),
-                eq("log.lastlogindate"),
-                eq(true),
-                eq(Boolean.class))).
-                thenReturn(false);
-
-        doReturn(Optional.of(user)).
-                when(userDAO).
-                findByUsername(username);
-
-        doReturn(true).
-                when(authDataAccessor).
-                usernamePasswordAuthentication(user, password);
-
-        AuthDataAccessor.UsernamePasswordAuthResult result =
-                authDataAccessor.authenticate(domain, authentication);
-
-        assertNotNull(result);
-        assertSame(user, result.user());
-        assertTrue(result.authenticated());
-        assertNull(result.delegationKey());
-
-        verify(userDAO).findByUsername(username);
-        verify(userDAO, never()).save(user);
-    }
-
-
-    @Test
-    public void authenticateWithNullDomainShouldReturnSuccessfulResultWhenConfigurationIsAvailable() {
-        String domain = null;
-        String username = "test-user";
-        String password = "secret";
-        String status = "active";
-
-        User user = mock(User.class);
-        when(user.getKey()).thenReturn("user-key");
-        when(user.isSuspended()).thenReturn(false);
-        when(user.getStatus()).thenReturn(status);
-        when(user.getFailedLogins()).thenReturn(0);
-
-
-        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
-        when(details.getDelegatedBy()).thenReturn(null);
-
-
-        UsernamePasswordAuthenticationToken authentication =
-                new UsernamePasswordAuthenticationToken(username, password);
-        authentication.setDetails(details);
-
-        when(confParamOps.get(
-                eq(domain),
-                eq("authentication.attributes"),
-                any(String[].class),
-                eq(String[].class))).
-                thenReturn(new String[]{"username"});
-
-        when(confParamOps.get(
-                eq(domain),
-                eq("authentication.statuses"),
-                any(String[].class),
-                eq(String[].class))).
-                thenReturn(new String[]{status});
-
-        when(confParamOps.get(
-                eq(domain),
-                eq("log.lastlogindate"),
-                eq(true),
-                eq(Boolean.class))).
-                thenReturn(false);
-
-        doReturn(Optional.of(user)).
-                when(userDAO).
-                findByUsername(username);
-
-        doReturn(true).
-                when(authDataAccessor).
-                usernamePasswordAuthentication(user, password);
-
-        AuthDataAccessor.UsernamePasswordAuthResult result =
-                authDataAccessor.authenticate(domain, authentication);
-
-        assertNotNull(result);
-        assertSame(user, result.user());
-        assertTrue(result.authenticated());
-        assertNull(result.delegationKey());
-
-        verify(userDAO).findByUsername(username);
-        verify(userDAO, never()).save(user);
-
+            reset(confParamOps, userDAO, authDataAccessor);
+        }
     }
 
     @Test

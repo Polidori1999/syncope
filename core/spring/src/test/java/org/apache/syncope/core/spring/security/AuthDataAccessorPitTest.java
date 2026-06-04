@@ -20,8 +20,7 @@
 package org.apache.syncope.core.spring.security;
 
 import static org.junit.Assert.*;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.doReturn;
@@ -32,10 +31,10 @@ import static org.mockito.Mockito.when;
 
 import java.util.Collections;
 import java.util.Optional;
-import java.util.Set;
+
 
 import org.apache.syncope.common.keymaster.client.api.ConfParamOps;
-import org.apache.syncope.common.lib.types.IdRepoEntitlement;
+
 import org.apache.syncope.core.persistence.api.EncryptorManager;
 import org.apache.syncope.core.persistence.api.dao.AccessTokenDAO;
 import org.apache.syncope.core.persistence.api.dao.AnySearchDAO;
@@ -46,7 +45,7 @@ import org.apache.syncope.core.persistence.api.dao.RealmSearchDAO;
 import org.apache.syncope.core.persistence.api.dao.RoleDAO;
 import org.apache.syncope.core.persistence.api.dao.UserDAO;
 
-import org.apache.syncope.core.persistence.api.entity.Delegation;
+
 import org.apache.syncope.core.persistence.api.entity.user.User;
 import org.apache.syncope.core.provisioning.api.AuditManager;
 import org.apache.syncope.core.provisioning.api.ConnectorManager;
@@ -56,9 +55,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.security.authentication.DisabledException;
+
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class AuthDataAccessorPitTest {
@@ -162,10 +161,10 @@ public class AuthDataAccessorPitTest {
                 thenReturn(new String[]{status});
 
         when(confParamOps.get(
-                eq(domain),
-                eq("log.lastlogindate"),
-                eq(true),
-                eq(Boolean.class))).
+                domain,
+                "log.lastlogindate",
+                true,
+                Boolean.class)).
                 thenReturn(false);
 
         doReturn(Optional.of(user)).
