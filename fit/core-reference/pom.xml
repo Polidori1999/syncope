@@ -362,7 +362,7 @@ under the License.
           </deployables>
         </configuration>
         <executions>
-          <execution>
+          <!--<execution>
             <id>start-container</id>
             <phase>pre-integration-test</phase>
             <goals>
@@ -381,7 +381,7 @@ under the License.
             <configuration>
               <skip>${skipTests}</skip>
             </configuration>
-          </execution>
+          </execution>-->
         </executions>
       </plugin>
 

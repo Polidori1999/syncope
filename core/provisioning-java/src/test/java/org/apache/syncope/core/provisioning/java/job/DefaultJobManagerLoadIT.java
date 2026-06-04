@@ -1,3 +1,22 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
 package org.apache.syncope.core.provisioning.java.job;
 
 import static org.junit.Assert.fail;
@@ -35,7 +54,6 @@ import org.junit.runner.RunWith;
 import org.junit.Ignore;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.context.ConfigurableApplicationContext;
 import org.apache.syncope.core.persistence.api.ApplicationContextProvider;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 
@@ -53,6 +71,18 @@ public class DefaultJobManagerLoadIT {
         } catch (Exception e) {
             fail("Unexpected exception: " + e.getClass().getName() + " - " + e.getMessage());
         }
+    }
+
+    private void configureEmptyLoadFixture() {
+        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
+        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
+        when(reportDAO.findAll()).thenReturn(List.of());
+
+        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
+        when(securityProperties.getAdminUser()).thenReturn("admin");
     }
 
     @Mock
@@ -106,20 +136,14 @@ public class DefaultJobManagerLoadIT {
     }
 
     @Test
-    public void loadWithNominalDomainShouldCompleteInitialization() {
-        String domain = "test-domain";
+    public void loadShouldCompleteInitializationForAcceptedDomainValues() {
+        for (String domain : new String[] { "test-domain", null, "" }) {
+            configureEmptyLoadFixture();
 
-        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
-        when(reportDAO.findAll()).thenReturn(List.of());
+            assertDoesNotThrow(() -> jobManager.load(domain));
 
-
-        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
-        when(securityProperties.getAdminUser()).thenReturn("admin");
-        assertDoesNotThrow(() -> jobManager.load(domain));
+            reset(taskDAO, reportDAO, applicationBeanFactory, securityProperties);
+        }
     }
 
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica che domain null debba essere rifiutato")
@@ -144,22 +168,7 @@ public class DefaultJobManagerLoadIT {
             // Expected according to the initial oracle.
         }
     }
-    @Test
-    public void loadWithNullDomainCurrentlyCompletesInitialization() {
-        String domain = null;
 
-        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
-        when(reportDAO.findAll()).thenReturn(List.of());
-
-        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
-        when(securityProperties.getAdminUser()).thenReturn("admin");
-
-        assertDoesNotThrow(() -> jobManager.load(domain));
-    }
 
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica che domain vuoto debba essere rifiutato")
     @Test
@@ -184,22 +193,7 @@ public class DefaultJobManagerLoadIT {
         }
     }
 
-    @Test
-    public void loadWithEmptyDomainCurrentlyCompletesInitialization() {
-        String domain = "";
 
-        when(taskDAO.findAll(TaskType.SCHEDULED)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.PULL)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.PUSH)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.MACRO)).thenReturn(List.of());
-        when(taskDAO.findAll(TaskType.LIVE_SYNC)).thenReturn(List.of());
-        when(reportDAO.findAll()).thenReturn(List.of());
-
-        when(applicationBeanFactory.getBean(SecurityProperties.class)).thenReturn(securityProperties);
-        when(securityProperties.getAdminUser()).thenReturn("admin");
-
-        assertDoesNotThrow(() -> jobManager.load(domain));
-    }
 
 
     /**

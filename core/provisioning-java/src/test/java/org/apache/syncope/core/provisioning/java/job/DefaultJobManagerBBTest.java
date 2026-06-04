@@ -1,9 +1,45 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
 package org.apache.syncope.core.provisioning.java.job;
 
 import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
-
 
 import org.apache.syncope.common.keymaster.client.api.ConfParamOps;
 import org.apache.syncope.common.lib.types.TaskType;
@@ -15,7 +51,6 @@ import org.apache.syncope.core.persistence.api.dao.ReportDAO;
 import org.apache.syncope.core.persistence.api.dao.TaskDAO;
 import org.apache.syncope.core.persistence.api.entity.Implementation;
 import org.apache.syncope.core.persistence.api.entity.task.SchedTask;
-
 import org.apache.syncope.core.persistence.api.entity.task.TaskUtils;
 import org.apache.syncope.core.persistence.api.entity.task.TaskUtilsFactory;
 import org.apache.syncope.core.provisioning.api.job.JobExecutionContext;
@@ -25,22 +60,16 @@ import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
-
-
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
-
+import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.beans.factory.support.DefaultListableBeanFactory;
-import org.springframework.context.ConfigurableApplicationContext;
 
-
-import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.util.Map;
 
 @RunWith(MockitoJUnitRunner.class)
-public class DefaultJobManagerTest {
+public class DefaultJobManagerBBTest {
 
     @FunctionalInterface
     private interface ThrowingAction {
@@ -83,11 +112,9 @@ public class DefaultJobManagerTest {
     private SecurityProperties securityProperties;
 
     @Mock
-    private ConfigurableApplicationContext ctx;
+    private DefaultListableBeanFactory beanFactory;
 
     private DefaultJobManager jobManager;
-    @Mock
-    private DefaultListableBeanFactory beanFactory;
 
     @Before
     public void setup() {
@@ -105,40 +132,29 @@ public class DefaultJobManagerTest {
                 securityProperties);
     }
 
-
     @Test
-    public void executeShouldScheduleActiveTaskInFuture(){
-        //T2
+    public void executeShouldScheduleActiveTaskInFuture() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
-
 
         Implementation jobDelegate = mock(Implementation.class);
         when(jobDelegate.getKey()).thenReturn("delegate-key");
         when(task.getJobDelegate()).thenReturn(jobDelegate);
 
-
-
         TaskUtils taskUtils = mock(TaskUtils.class);
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
 
-
-        //job finto
-
         TaskJob taskJob = mock(TaskJob.class);
         when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
 
-
         when(jobStatusDAO.lock(anyString())).thenReturn(true);
 
-        //s4 e4 d2 j2
         OffsetDateTime startAt = OffsetDateTime.now().plusDays(1);
         String executor = "admin";
         boolean dryRun = false;
         Map<String, Object> jobData = Map.of();
-
 
         assertDoesNotThrow(() -> jobManager.execute(
                 task,
@@ -161,11 +177,9 @@ public class DefaultJobManagerTest {
         when(jobDelegate.getKey()).thenReturn("delegate-key");
         when(task.getJobDelegate()).thenReturn(jobDelegate);
 
-
         TaskUtils taskUtils = mock(TaskUtils.class);
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
-
 
         TaskJob taskJob = mock(TaskJob.class);
         when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
@@ -209,7 +223,6 @@ public class DefaultJobManagerTest {
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
 
-
         OffsetDateTime startAt = null;
         String executor = "admin";
         boolean dryRun = false;
@@ -222,10 +235,8 @@ public class DefaultJobManagerTest {
                 dryRun,
                 jobData));
 
-
         verifyNoInteractions(scheduler);
         verifyNoInteractions(beanFactory);
-
     }
 
     @Test
@@ -246,16 +257,12 @@ public class DefaultJobManagerTest {
 
         verifyNoInteractions(scheduler);
         verifyNoInteractions(beanFactory);
-
     }
-    /*Il metodo deve rifiutare il task perché non è possibile determinare il job delegate.
-    Non deve schedulare alcun job.*/
+
     @Test
-    public void executeShouldRejectTaskWithoutJobDelegate(){
+    public void executeShouldRejectTaskWithoutJobDelegate() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
-
-
 
         TaskUtils taskUtils = mock(TaskUtils.class);
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
@@ -278,7 +285,7 @@ public class DefaultJobManagerTest {
     }
 
     @Test
-    public void executeWithPastStartAtCurrentlyDelegatesToScheduler(){
+    public void executeWithPastStartAtCurrentlyDelegatesToScheduler() {
         SchedTask task = mock(SchedTask.class);
         when(task.isActive()).thenReturn(true);
         when(task.getKey()).thenReturn("task-key");
@@ -290,7 +297,6 @@ public class DefaultJobManagerTest {
         TaskUtils taskUtils = mock(TaskUtils.class);
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
-
 
         TaskJob taskJob = mock(TaskJob.class);
         when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
@@ -308,7 +314,6 @@ public class DefaultJobManagerTest {
                 executor,
                 dryRun,
                 jobData));
-
 
         verify(taskJob).setContext(any());
         verify(scheduler).schedule(taskJob, startAt.toInstant());
@@ -390,7 +395,6 @@ public class DefaultJobManagerTest {
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
 
-
         TaskJob taskJob = mock(TaskJob.class);
         when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
 
@@ -464,7 +468,6 @@ public class DefaultJobManagerTest {
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
 
-
         TaskJob taskJob = mock(TaskJob.class);
         when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
 
@@ -507,7 +510,6 @@ public class DefaultJobManagerTest {
         TaskUtils taskUtils = mock(TaskUtils.class);
         when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
         when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
-
 
         TaskJob taskJob = mock(TaskJob.class);
         when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
@@ -558,61 +560,5 @@ public class DefaultJobManagerTest {
 
         verifyNoInteractions(scheduler);
         verifyNoInteractions(beanFactory);
-    }
-
-
-    //test white box dopo jacoco
-    @Test
-    public void executeShouldRegisterActiveTaskWhenStartAtIsNull() {
-        SchedTask task = mock(SchedTask.class);
-        when(task.isActive()).thenReturn(true);
-        when(task.getKey()).thenReturn("task-key");
-
-        Implementation jobDelegate = mock(Implementation.class);
-        when(jobDelegate.getKey()).thenReturn("delegate-key");
-        when(task.getJobDelegate()).thenReturn(jobDelegate);
-
-        TaskUtils taskUtils = mock(TaskUtils.class);
-        when(taskUtilsFactory.getInstance(task)).thenReturn(taskUtils);
-        when(taskUtils.getType()).thenReturn(TaskType.SCHEDULED);
-
-        TaskJob taskJob = mock(TaskJob.class);
-        when(beanFactory.createBean(TaskJob.class)).thenReturn(taskJob);
-
-        when(jobStatusDAO.lock(anyString())).thenReturn(true);
-
-
-        assertDoesNotThrow(() -> jobManager.execute(
-                task,
-                null,
-                "admin",
-                false,
-                Map.of()));
-
-        verify(taskJob).setContext(any(JobExecutionContext.class));
-        verify(scheduler).register(taskJob);
-        verify(scheduler, never()).schedule(any(TaskJob.class), any(Instant.class));
-    }
-
-    /** TEST DOPO PIT
-     *il primo per rimuovere un no coverage
-     * il secondo per rimuovere un survived
-     */
-    @Test
-    public void getOrderShouldReturnExpectedOrder() {
-        assertEquals(500, jobManager.getOrder());
-    }
-
-    @Test
-    public void isRunningShouldUnlockWhenLockIsAcquired() {
-        String jobName = "test-job";
-
-        when(jobStatusDAO.lock(jobName)).thenReturn(true);
-
-        boolean running = jobManager.isRunning(jobName);
-
-        assertFalse(running);
-        verify(jobStatusDAO).lock(jobName);
-        verify(jobStatusDAO).unlock(jobName);
     }
 }

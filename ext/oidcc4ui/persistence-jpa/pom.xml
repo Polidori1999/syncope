@@ -61,13 +61,13 @@ under the License.
           <includes>org/apache/syncope/core/persistence/jpa/entity/**/*.class</includes>
         </configuration>
         <executions>
-          <execution>
+          <!--<execution>
             <id>enhancer</id>
             <phase>process-classes</phase>
             <goals>
               <goal>enhance</goal>
             </goals>
-          </execution>
+          </execution>-->
         </executions>
       </plugin>
       
