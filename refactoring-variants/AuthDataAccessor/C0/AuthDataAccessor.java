@@ -210,7 +210,7 @@ public class AuthDataAccessor {
 
         return jwtSSOProviders.stream().filter(provider -> issuer.equals(provider.getIssuer())).findFirst().
                 orElseThrow(() -> new AuthenticationCredentialsNotFoundException(
-                "Could not find any registered JWTSSOProvider for issuer " + issuer));
+                        "Could not find any registered JWTSSOProvider for issuer " + issuer));
     }
 
     protected String getDelegationKey(final SyncopeAuthenticationDetails details, final String delegatedKey) {
@@ -230,7 +230,7 @@ public class AuthDataAccessor {
 
         return delegationDAO.findValidFor(delegatingKey, delegatedKey, OffsetDateTime.now()).
                 orElseThrow(() -> new SessionAuthenticationException(
-                "Delegation by " + delegatingKey + " was requested but none found"));
+                        "Delegation by " + delegatingKey + " was requested but none found"));
     }
 
     /**
@@ -316,17 +316,17 @@ public class AuthDataAccessor {
         LOG.debug("{} authenticated on internal storage: {}", user.getUsername(), authenticated);
 
         for (Iterator<? extends ExternalResource> itor = getPassthroughResources(user).iterator();
-                itor.hasNext() && !authenticated;) {
+             itor.hasNext() && !authenticated;) {
 
             ExternalResource resource = itor.next();
             String connObjectKey = null;
             try {
                 Provision provision = resource.getProvisionByAnyType(AnyTypeKind.USER.name()).
                         orElseThrow(() -> new AccountNotFoundException(
-                        "Unable to locate provision for user type " + AnyTypeKind.USER.name()));
+                                "Unable to locate provision for user type " + AnyTypeKind.USER.name()));
                 connObjectKey = mappingManager.getConnObjectKeyValue(user, resource, provision).
                         orElseThrow(() -> new AccountNotFoundException(
-                        "Unable to locate conn object key value for " + AnyTypeKind.USER.name()));
+                                "Unable to locate conn object key value for " + AnyTypeKind.USER.name()));
                 Uid uid = connectorManager.getConnector(resource).authenticate(connObjectKey, password, null);
                 if (uid != null) {
                     authenticated = true;
@@ -348,23 +348,23 @@ public class AuthDataAccessor {
         userDAO.findAllResources(user).stream().
                 filter(r -> r.getAccountPolicy() != null).forEach(resource -> {
 
-            if (result.isEmpty()) {
-                result.addAll(resourceDAO.findByPolicy(resource.getAccountPolicy()));
-            } else {
-                result.retainAll(resourceDAO.findByPolicy(resource.getAccountPolicy()));
-            }
-        });
+                    if (result.isEmpty()) {
+                        result.addAll(resourceDAO.findByPolicy(resource.getAccountPolicy()));
+                    } else {
+                        result.retainAll(resourceDAO.findByPolicy(resource.getAccountPolicy()));
+                    }
+                });
 
         // 2. look for realms, pick the ones whose account policy has authentication resources
         realmSearchDAO.findAncestors(user.getRealm()).stream().
                 filter(r -> r.getAccountPolicy() != null).forEach(realm -> {
 
-            if (result.isEmpty()) {
-                result.addAll(resourceDAO.findByPolicy(realm.getAccountPolicy()));
-            } else {
-                result.retainAll(resourceDAO.findByPolicy(realm.getAccountPolicy()));
-            }
-        });
+                    if (result.isEmpty()) {
+                        result.addAll(resourceDAO.findByPolicy(realm.getAccountPolicy()));
+                    } else {
+                        result.retainAll(resourceDAO.findByPolicy(realm.getAccountPolicy()));
+                    }
+                });
 
         return result;
     }
@@ -408,22 +408,22 @@ public class AuthDataAccessor {
 
         userDAO.findManagedUsers(user.getKey()).forEach(managedUser -> USER_MANAGER_ENTITLEMENTS.
                 forEach(e -> populate(entForRealms, e, Set.of(new RealmUtils.ManagerRealm(
-                managedUser.getRealm().getFullPath(),
-                AnyTypeKind.USER,
-                managedUser.getKey()).output()))));
+                        managedUser.getRealm().getFullPath(),
+                        AnyTypeKind.USER,
+                        managedUser.getKey()).output()))));
 
         userDAO.findManagedGroups(user.getKey()).forEach(group -> GROUP_MANAGER_ENTITLEMENTS.
                 forEach(e -> populate(entForRealms, e, Set.of(new RealmUtils.ManagerRealm(
-                group.getRealm().getFullPath(),
-                AnyTypeKind.GROUP,
-                group.getKey()).output()))));
+                        group.getRealm().getFullPath(),
+                        AnyTypeKind.GROUP,
+                        group.getKey()).output()))));
 
         userDAO.findManagedAnyObjects(user.getKey()).forEach(anyObject -> ANYOBJECT_MANAGER_ENTITLEMENTS.
                 apply(anyObject.getType().getKey()).forEach(e -> populate(entForRealms, e, Set.of(
-                new RealmUtils.ManagerRealm(
-                        anyObject.getRealm().getFullPath(),
-                        AnyTypeKind.ANY_OBJECT,
-                        anyObject.getKey()).output()))));
+                        new RealmUtils.ManagerRealm(
+                                anyObject.getRealm().getFullPath(),
+                                AnyTypeKind.ANY_OBJECT,
+                                anyObject.getKey()).output()))));
 
         return buildAuthorities(entForRealms);
     }
@@ -448,7 +448,7 @@ public class AuthDataAccessor {
         } else if (delegationKey != null) {
             Delegation delegation = delegationDAO.findById(delegationKey).
                     orElseThrow(() -> new UsernameNotFoundException(
-                    "Could not find delegation " + delegationKey));
+                            "Could not find delegation " + delegationKey));
 
             authorities = delegation.getRoles().isEmpty()
                     ? getUserAuthorities(delegation.getDelegating())
@@ -456,7 +456,7 @@ public class AuthDataAccessor {
         } else {
             User user = userDAO.findByUsername(username).
                     orElseThrow(() -> new UsernameNotFoundException(
-                    "Could not find any user with username " + username));
+                            "Could not find any user with username " + username));
 
             authorities = getUserAuthorities(user);
         }
@@ -472,7 +472,7 @@ public class AuthDataAccessor {
         if (securityProperties.getAdminUser().equals(authentication.getClaims().getSubject())) {
             accessTokenDAO.findById(authentication.getClaims().getJWTID()).
                     orElseThrow(() -> new AuthenticationCredentialsNotFoundException(
-                    "Could not find an Access Token for JWT " + authentication.getClaims().getJWTID()));
+                            "Could not find an Access Token for JWT " + authentication.getClaims().getJWTID()));
 
             username = securityProperties.getAdminUser();
             authorities = getAdminAuthorities();
@@ -480,8 +480,8 @@ public class AuthDataAccessor {
             JWTSSOProvider jwtSSOProvider = getJWTSSOProvider(authentication.getClaims().getIssuer());
             JWTSSOProvider.ResolvedClaims resolved = jwtSSOProvider.resolve(authentication.getClaims()).
                     orElseThrow(() -> new AuthenticationCredentialsNotFoundException(
-                    "Could not find User " + authentication.getClaims().getSubject()
-                    + " for JWT " + authentication.getClaims().getJWTID()));
+                            "Could not find User " + authentication.getClaims().getSubject()
+                                    + " for JWT " + authentication.getClaims().getJWTID()));
 
             User user = resolved.user();
             String delegationKey = getDelegationKey(authentication.getDetails(), user.getKey());
@@ -489,8 +489,8 @@ public class AuthDataAccessor {
             authorities = resolved.authorities() == null
                     ? Set.of()
                     : delegationKey == null
-                            ? resolved.authorities()
-                            : getAuthorities(username, delegationKey);
+                    ? resolved.authorities()
+                    : getAuthorities(username, delegationKey);
             LOG.debug("JWT {} issued by {} resolved to User {} with authorities {}",
                     authentication.getClaims().getJWTID(),
                     authentication.getClaims().getIssuer(),

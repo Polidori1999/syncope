@@ -45,14 +45,14 @@ jobs:
           -Dcheckstyle.skip=true
           -Dmaven.checkstyle.skip=true
           -Dsurefire.failIfNoSpecifiedTests=false
-          -Dtest=DefaultJobManagerTest,DefaultJobManagerLLMGuidedTreeTest,DefaultJobManagerRandoopTest,DefaultJobManagerRandoopTest0
+          -Dtest=DefaultJobManagerBBTest,DefaultJobManagerWBTest,DefaultJobManagerPITTest,DefaultJobManagerLLMGuidedTreeTest,DefaultJobManagerRandoopTest,DefaultJobManagerRandoopTest0
           test
 
       - name: Test DefaultJobManager integration tests
         run: >
           mvn -B -e -pl core/provisioning-java -am
           test-compile failsafe:integration-test failsafe:verify
-          -Dit.test=DefaultJobManagerLoadIT
+          -Dit.test=DefaultJobManagerLoadBBIT,DefaultJobManagerLoadWBIT
           -DskipTests=false
           -DskipITs=false
           -Dmaven.build.cache.skipCache=true
