@@ -129,6 +129,9 @@ public class AuthDataAccessorBBTest {
                 Collections.emptyList()));
     }
 
+    // A-T1/A-T2/A-T3 - A-O1
+    // Input: domain valorizzato, domain="" e domain=null; token completo con principal e credenziali.
+    // Atteso: autenticazione positiva, utente valorizzato e delegationKey nulla.
     @Test
     public void authenticateShouldReturnSuccessfulResultForAcceptedDomainValues() {
         for (String domain : new String[] { "Master", "", null }) {
@@ -193,6 +196,9 @@ public class AuthDataAccessorBBTest {
         }
     }
 
+    // A-T4 - Characterization
+    // Input: authentication=null.
+    // Osservato in C0: NullPointerException e nessun lookup utente.
     @Test
     public void authenticateWithNullAuthenticationCurrentlyThrowsNullPointerException() {
         String domain = "Master";
@@ -214,6 +220,9 @@ public class AuthDataAccessorBBTest {
         verify(userDAO, never()).findByUsername(any(String.class));
     }
 
+    // A-T5 - Characterization
+    // Input: token con principal valorizzato e credentials=null.
+    // Osservato in C0: NullPointerException dopo il lookup utente.
     @Test
     public void authenticateWithNullCredentialsCurrentlyThrowsNullPointerException() {
         String domain = "Master";
@@ -256,6 +265,9 @@ public class AuthDataAccessorBBTest {
         verify(userDAO, never()).save(user);
     }
 
+    // A-T6 - A-O3
+    // Input: token con principal=null e credenziali valorizzate.
+    // Atteso/Osservato in C0: risultato restituito senza utente autenticato.
     @Test
     public void authenticateWithNullPrincipalCurrentlyReturnsResultWithoutUserWhenNoMatchingUserIsFound() {
         String domain = "Master";
@@ -287,6 +299,9 @@ public class AuthDataAccessorBBTest {
     }
 
     //test di getAuth
+    // G-T1 - G-O1
+    // Input: username valorizzato, delegationKey=null.
+    // Atteso: set di authorities non nullo per richiesta diretta.
     @Test
     public void getAuthoritiesShouldReturnMustChangePasswordAuthorityForUserWithoutDelegation() {
         String username = "test-user";
@@ -314,6 +329,9 @@ public class AuthDataAccessorBBTest {
         verify(delegationDAO, never()).findById(any(String.class));
     }
 
+    // G-T2 - G-O2
+    // Input: username valorizzato, delegationKey valorizzata.
+    // Atteso: set di authorities non nullo per richiesta delegata.
     @Test
     public void getAuthoritiesShouldReturnAuthoritiesForFullUsernameAndFullDelegationKey() {
         String username = "test-user";
@@ -347,6 +365,9 @@ public class AuthDataAccessorBBTest {
         verify(userDAO, never()).findByUsername(username);
     }
 
+    // G-T3 - G-O3
+    // Input: username valorizzato, delegationKey="".
+    // Atteso: rifiuto controllato della richiesta delegata.
     @Test
     public void getAuthoritiesWithEmptyDelegationKeyShouldRejectDelegationRequest() {
         String username = "test-user";
@@ -370,6 +391,9 @@ public class AuthDataAccessorBBTest {
         verify(userDAO, never()).findByUsername(username);
     }
 
+    // G-T4 - G-O4
+    // Input: username="", delegationKey=null.
+    // Atteso: rifiuto controllato della richiesta diretta.
     @Test
     public void getAuthoritiesWithEmptyUsernameAndNoDelegationShouldRejectUserLookup() {
         String username = "";
@@ -393,6 +417,9 @@ public class AuthDataAccessorBBTest {
         verify(delegationDAO, never()).findById(any(String.class));
     }
 
+    // G-T5 - G-O4
+    // Input: username=null, delegationKey=null.
+    // Atteso: rifiuto controllato della richiesta diretta.
     @Test
     public void getAuthoritiesWithNullUsernameAndNoDelegationShouldRejectUserLookup() {
         String username = null;

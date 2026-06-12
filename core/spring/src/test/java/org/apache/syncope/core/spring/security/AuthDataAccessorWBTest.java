@@ -127,177 +127,192 @@ public class AuthDataAccessorWBTest {
     }
 
 
+    // WB1 - JaCoCo
+    // Obiettivo: coprire il ramo di autenticazione con password rifiutata.
+    // Atteso: risultato negativo, incremento dei failed logins e salvataggio dell'utente.
+    @Test
+    public void authenticateShouldReturnFailedResultAndIncrementFailedLoginsWhenPasswordIsRejected() {
+        String domain = "Master";
+        String username = "test-user";
+        String password = "wrong-secret";
+        String status = "active";
 
+        User user = mock(User.class);
+        when(user.isSuspended()).thenReturn(false);
+        when(user.getStatus()).thenReturn(status);
+        when(user.getFailedLogins()).thenReturn(2);
 
-@Test
-public void authenticateShouldReturnFailedResultAndIncrementFailedLoginsWhenPasswordIsRejected() {
-    String domain = "Master";
-    String username = "test-user";
-    String password = "wrong-secret";
-    String status = "active";
+        SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
 
-    User user = mock(User.class);
-    when(user.isSuspended()).thenReturn(false);
-    when(user.getStatus()).thenReturn(status);
-    when(user.getFailedLogins()).thenReturn(2);
+        UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken(username, password);
+        authentication.setDetails(details);
 
-    SyncopeAuthenticationDetails details = mock(SyncopeAuthenticationDetails.class);
+        when(confParamOps.get(
+                eq(domain),
+                eq("authentication.attributes"),
+                any(String[].class),
+                eq(String[].class))).
+                thenReturn(new String[]{"username"});
 
-    UsernamePasswordAuthenticationToken authentication =
-            new UsernamePasswordAuthenticationToken(username, password);
-    authentication.setDetails(details);
+        when(confParamOps.get(
+                eq(domain),
+                eq("authentication.statuses"),
+                any(String[].class),
+                eq(String[].class))).
+                thenReturn(new String[]{status});
 
-    when(confParamOps.get(
-            eq(domain),
-            eq("authentication.attributes"),
-            any(String[].class),
-            eq(String[].class))).
-            thenReturn(new String[] { "username" });
+        doReturn(Optional.of(user)).
+                when(userDAO).
+                findByUsername(username);
 
-    when(confParamOps.get(
-            eq(domain),
-            eq("authentication.statuses"),
-            any(String[].class),
-            eq(String[].class))).
-            thenReturn(new String[] { status });
+        doReturn(false).
+                when(authDataAccessor).
+                usernamePasswordAuthentication(user, password);
 
-    doReturn(Optional.of(user)).
-            when(userDAO).
-            findByUsername(username);
+        when(userDAO.save(user)).thenReturn(user);
 
-    doReturn(false).
-            when(authDataAccessor).
-            usernamePasswordAuthentication(user, password);
+        AuthDataAccessor.UsernamePasswordAuthResult result =
+                authDataAccessor.authenticate(domain, authentication);
 
-    when(userDAO.save(user)).thenReturn(user);
+        assertNotNull(result);
+        assertSame(user, result.user());
+        assertFalse(result.authenticated());
+        assertNull(result.delegationKey());
 
-    AuthDataAccessor.UsernamePasswordAuthResult result =
+        verify(user).setFailedLogins(3);
+        verify(userDAO).save(user);
+    }
+
+    // WB2 - JaCoCo
+    // Obiettivo: coprire il ramo di autenticazione con utente sospeso.
+    // Atteso: rifiuto tramite DisabledException, senza verifica della password e senza salvataggio.
+    @Test
+    public void authenticateShouldRejectSuspendedUser() {
+        String domain = "Master";
+        String username = "test-user";
+        String password = "secret";
+
+        User user = mock(User.class);
+        when(user.isSuspended()).thenReturn(true);
+        when(user.getUsername()).thenReturn(username);
+
+        UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken(username, password);
+
+        when(confParamOps.get(
+                eq(domain),
+                eq("authentication.attributes"),
+                any(String[].class),
+                eq(String[].class))).
+                thenReturn(new String[]{"username"});
+
+        doReturn(Optional.of(user)).
+                when(userDAO).
+                findByUsername(username);
+
+        try {
             authDataAccessor.authenticate(domain, authentication);
+            fail("Expected DisabledException");
+        } catch (DisabledException e) {
+            // expected
+        }
 
-    assertNotNull(result);
-    assertSame(user, result.user());
-    assertFalse(result.authenticated());
-    assertNull(result.delegationKey());
-
-    verify(user).setFailedLogins(3);
-    verify(userDAO).save(user);
-}
-@Test
-public void authenticateShouldRejectSuspendedUser() {
-    String domain = "Master";
-    String username = "test-user";
-    String password = "secret";
-
-    User user = mock(User.class);
-    when(user.isSuspended()).thenReturn(true);
-    when(user.getUsername()).thenReturn(username);
-
-    UsernamePasswordAuthenticationToken authentication =
-            new UsernamePasswordAuthenticationToken(username, password);
-
-    when(confParamOps.get(
-            eq(domain),
-            eq("authentication.attributes"),
-            any(String[].class),
-            eq(String[].class))).
-            thenReturn(new String[] { "username" });
-
-    doReturn(Optional.of(user)).
-            when(userDAO).
-            findByUsername(username);
-
-    try {
-        authDataAccessor.authenticate(domain, authentication);
-        fail("Expected DisabledException");
-    } catch (DisabledException e) {
-        // expected
+        verify(userDAO).findByUsername(username);
+        verify(authDataAccessor, never()).usernamePasswordAuthentication(eq(user), any(String.class));
+        verify(userDAO, never()).save(user);
     }
 
-    verify(userDAO).findByUsername(username);
-    verify(authDataAccessor, never()).usernamePasswordAuthentication(eq(user), any(String.class));
-    verify(userDAO, never()).save(user);
-}
 
+    // WB3 - JaCoCo
+    // Obiettivo: coprire il ramo di autenticazione con status utente non ammesso.
+    // Atteso: rifiuto tramite DisabledException, senza verifica della password e senza salvataggio.
+    @Test
+    public void authenticateShouldRejectUserWithNotAllowedStatus() {
+        String domain = "Master";
+        String username = "test-user";
+        String password = "secret";
 
-@Test
-public void authenticateShouldRejectUserWithNotAllowedStatus() {
-    String domain = "Master";
-    String username = "test-user";
-    String password = "secret";
+        User user = mock(User.class);
+        when(user.isSuspended()).thenReturn(false);
+        when(user.getStatus()).thenReturn("suspended-status");
+        when(user.getUsername()).thenReturn(username);
 
-    User user = mock(User.class);
-    when(user.isSuspended()).thenReturn(false);
-    when(user.getStatus()).thenReturn("suspended-status");
-    when(user.getUsername()).thenReturn(username);
+        UsernamePasswordAuthenticationToken authentication =
+                new UsernamePasswordAuthenticationToken(username, password);
 
-    UsernamePasswordAuthenticationToken authentication =
-            new UsernamePasswordAuthenticationToken(username, password);
+        when(confParamOps.get(
+                eq(domain),
+                eq("authentication.attributes"),
+                any(String[].class),
+                eq(String[].class))).
+                thenReturn(new String[]{"username"});
 
-    when(confParamOps.get(
-            eq(domain),
-            eq("authentication.attributes"),
-            any(String[].class),
-            eq(String[].class))).
-            thenReturn(new String[] { "username" });
+        when(confParamOps.get(
+                eq(domain),
+                eq("authentication.statuses"),
+                any(String[].class),
+                eq(String[].class))).
+                thenReturn(new String[]{"active"});
 
-    when(confParamOps.get(
-            eq(domain),
-            eq("authentication.statuses"),
-            any(String[].class),
-            eq(String[].class))).
-            thenReturn(new String[] { "active" });
+        doReturn(Optional.of(user)).
+                when(userDAO).
+                findByUsername(username);
 
-    doReturn(Optional.of(user)).
-            when(userDAO).
-            findByUsername(username);
+        try {
+            authDataAccessor.authenticate(domain, authentication);
+            fail("Expected DisabledException");
+        } catch (DisabledException e) {
+            // expected
+        }
 
-    try {
-        authDataAccessor.authenticate(domain, authentication);
-        fail("Expected DisabledException");
-    } catch (DisabledException e) {
-        // expected
+        verify(userDAO).findByUsername(username);
+        verify(authDataAccessor, never()).usernamePasswordAuthentication(eq(user), any(String.class));
+        verify(userDAO, never()).save(user);
     }
-
-    verify(userDAO).findByUsername(username);
-    verify(authDataAccessor, never()).usernamePasswordAuthentication(eq(user), any(String.class));
-    verify(userDAO, never()).save(user);
-}
 
 
 // test di getAuthorities
-@Test
-public void getAuthoritiesShouldReturnAnonymousAuthoritiesForAnonymousUser() {
-    String username = "anonymous";
-    String delegationKey = null;
 
-    when(securityProperties.getAnonymousUser()).thenReturn(username);
+    // WB4 - JaCoCo
+    // Obiettivo: coprire il ramo getAuthorities(...) relativo all'utente anonymous.
+    // Atteso: authority ANONYMOUS e nessun lookup ordinario tramite userDAO o delegationDAO.
+    @Test
+    public void getAuthoritiesShouldReturnAnonymousAuthoritiesForAnonymousUser() {
+        String username = "anonymous";
+        String delegationKey = null;
 
-    Set<SyncopeGrantedAuthority> authorities =
-            authDataAccessor.getAuthorities(username, delegationKey);
+        when(securityProperties.getAnonymousUser()).thenReturn(username);
 
-    assertNotNull(authorities);
-    assertEquals(1, authorities.size());
-    assertTrue(authorities.stream().
-            anyMatch(authority -> IdRepoEntitlement.ANONYMOUS.equals(authority.getAuthority())));
+        Set<SyncopeGrantedAuthority> authorities =
+                authDataAccessor.getAuthorities(username, delegationKey);
 
-    verify(userDAO, never()).findByUsername(username);
-    verify(delegationDAO, never()).findById(any(String.class));
-}
+        assertNotNull(authorities);
+        assertEquals(1, authorities.size());
+        assertTrue(authorities.stream().
+                anyMatch(authority -> IdRepoEntitlement.ANONYMOUS.equals(authority.getAuthority())));
 
-@Test
-public void getAuthoritiesShouldHandleAdminUserAsSpecialIdentity() {
-    String username = "admin";
-    String delegationKey = null;
+        verify(userDAO, never()).findByUsername(username);
+        verify(delegationDAO, never()).findById(any(String.class));
+    }
 
-    when(securityProperties.getAnonymousUser()).thenReturn("anonymous");
-    when(securityProperties.getAdminUser()).thenReturn(username);
+    // WB5 - JaCoCo
+    // Obiettivo: coprire il ramo getAuthorities(...) relativo all'utente admin.
+    // Atteso: gestione come identità speciale, senza lookup ordinario tramite userDAO o delegationDAO.
+    @Test
+    public void getAuthoritiesShouldHandleAdminUserAsSpecialIdentity() {
+        String username = "admin";
+        String delegationKey = null;
 
-    Set<SyncopeGrantedAuthority> authorities =
-            authDataAccessor.getAuthorities(username, delegationKey);
+        when(securityProperties.getAnonymousUser()).thenReturn("anonymous");
+        when(securityProperties.getAdminUser()).thenReturn(username);
 
-    assertNotNull(authorities);
+        Set<SyncopeGrantedAuthority> authorities =
+                authDataAccessor.getAuthorities(username, delegationKey);
 
-    verify(userDAO, never()).findByUsername(username);
-    verify(delegationDAO, never()).findById(any(String.class));
+        assertNotNull(authorities);
+
+        verify(userDAO, never()).findByUsername(username);
+        verify(delegationDAO, never()).findById(any(String.class));
     }
 }

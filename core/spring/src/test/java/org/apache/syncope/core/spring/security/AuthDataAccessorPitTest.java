@@ -126,6 +126,10 @@ public class AuthDataAccessorPitTest {
                 Collections.emptyList()));
     }
 
+    // MT1 - PIT
+    // Obiettivo: uccidere il mutante sopravvissuto sul controllo dello stato account.
+    // Input: utente con isSuspended=null e status ammesso.
+    // Atteso: autenticazione positiva, senza incremento dei failed logins.
     @Test
     public void authenticateShouldAcceptUserWithNullSuspendedFlagWhenStatusIsAllowed() {
         String domain = "Master";
