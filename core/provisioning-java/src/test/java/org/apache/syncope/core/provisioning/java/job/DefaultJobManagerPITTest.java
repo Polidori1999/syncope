@@ -89,12 +89,18 @@ public class DefaultJobManagerPITTest {
                 securityProperties);
     }
 
-    // Test aggiunti dopo PIT: uno copre getOrder(), l'altro rafforza isRunning().
+
+    // MT1 - PIT
+    // Obiettivo: coprire e uccidere il mutante su getOrder() introdotto dal PrimitiveReturnsMutator.
+    // Atteso: restituzione dell'ordine configurato per DefaultJobManager.
     @Test
     public void getOrderShouldReturnExpectedOrder() {
         assertEquals(500, jobManager.getOrder());
     }
 
+    // MT2 - PIT
+    // Obiettivo: rafforzare l'oracolo su isRunning(...) quando il lock viene acquisito.
+    // Atteso: ritorno false e rilascio del lock tramite unlock(...).
     @Test
     public void isRunningShouldUnlockWhenLockIsAcquired() {
         String jobName = "test-job";

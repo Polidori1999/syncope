@@ -60,7 +60,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 
 
 @RunWith(MockitoJUnitRunner.class)
-public class AuthDataAccessorWhiteBoxTest {
+public class AuthDataAccessorWBTest {
 
     @Mock
     private SecurityProperties securityProperties;

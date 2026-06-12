@@ -132,6 +132,9 @@ public class DefaultJobManagerBBTest {
                 securityProperties);
     }
 
+    // TF1 - O1
+    // Input: task attivo, startAt futuro, executor valorizzato, dryRun=false, jobData vuota.
+    // Atteso: schedulazione del job senza eccezioni.
     @Test
     public void executeShouldScheduleActiveTaskInFuture() {
         SchedTask task = mock(SchedTask.class);
@@ -167,6 +170,9 @@ public class DefaultJobManagerBBTest {
         verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
+    // TF2 - O2
+    // Input: task attivo, startAt presente, executor valorizzato, dryRun=true, jobData non vuota.
+    // Atteso: schedulazione del job e propagazione dei dati nel contesto.
     @Test
     public void executeShouldScheduleActiveTaskNowWithDryRunAndJobData() {
         SchedTask task = mock(SchedTask.class);
@@ -213,6 +219,9 @@ public class DefaultJobManagerBBTest {
         verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
+    // TF3 - O3
+    // Input: task inattivo, startAt=null, executor valorizzato, dryRun=false, jobData vuota.
+    // Atteso: nessuna creazione del job e nessuna schedulazione.
     @Test
     public void executeShouldNotScheduleInactiveTask() {
         SchedTask task = mock(SchedTask.class);
@@ -239,6 +248,9 @@ public class DefaultJobManagerBBTest {
         verifyNoInteractions(beanFactory);
     }
 
+    // TF4 - O4
+    // Input: task=null, startAt futuro, executor valorizzato, dryRun=false, jobData vuota.
+    // Atteso: rifiuto dell'esecuzione e nessuna schedulazione.
     @Test
     public void executeShouldRejectNullTask() {
         SchedTask task = null;
@@ -259,6 +271,10 @@ public class DefaultJobManagerBBTest {
         verifyNoInteractions(beanFactory);
     }
 
+    // TF5 - O4
+    // Input: task attivo senza job delegate, startAt futuro, executor valorizzato,
+    // dryRun=false, jobData vuota.
+    // Atteso: rifiuto dell'esecuzione e nessuna schedulazione.
     @Test
     public void executeShouldRejectTaskWithoutJobDelegate() {
         SchedTask task = mock(SchedTask.class);
@@ -284,6 +300,9 @@ public class DefaultJobManagerBBTest {
         verifyNoInteractions(beanFactory);
     }
 
+    // TF6 - Characterization
+    // Input: task attivo, startAt passato, executor valorizzato, dryRun=false, jobData vuota.
+    // Osservato in C0: schedulazione delegata allo scheduler.
     @Test
     public void executeWithPastStartAtCurrentlyDelegatesToScheduler() {
         SchedTask task = mock(SchedTask.class);
@@ -319,6 +338,10 @@ public class DefaultJobManagerBBTest {
         verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
+    // TF6 - O5
+    // Input: task attivo, startAt passato, executor valorizzato, dryRun=false, jobData vuota.
+    // Oracolo iniziale: rifiuto dell'input o nessuna schedulazione valida.
+
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che startAt nel passato debba essere rifiutato")
     @Test
     public void executeShouldRejectPastStartAtAccordingToInitialOracle() {
@@ -350,6 +373,9 @@ public class DefaultJobManagerBBTest {
         verifyNoInteractions(beanFactory);
     }
 
+    // TF7 - O6
+    // Input: task attivo, startAt futuro, executor=null, dryRun=false, jobData vuota.
+    // Oracolo iniziale: rifiuto dell'input.
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor null debba essere rifiutato")
     @Test
     public void executeShouldRejectNullExecutorAccordingToInitialOracle() {
@@ -380,6 +406,10 @@ public class DefaultJobManagerBBTest {
         verifyNoInteractions(scheduler);
         verifyNoInteractions(beanFactory);
     }
+
+    // TF7 - Characterization
+    // Input: task attivo, startAt futuro, executor=null, dryRun=false, jobData vuota.
+    // Osservato in C0: schedulazione consentita con executor nullo nel contesto.
 
     @Test
     public void executeWithNullExecutorCurrentlyDelegatesToScheduler() {
@@ -423,6 +453,10 @@ public class DefaultJobManagerBBTest {
         verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
+    // TF8 - O6
+    // Input: task attivo, startAt futuro, executor="", dryRun=false, jobData vuota.
+    // Oracolo iniziale: rifiuto dell'input.
+
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica esplicitamente che executor vuoto debba essere rifiutato")
     @Test
     public void executeShouldRejectEmptyExecutorAccordingToInitialOracle() {
@@ -453,6 +487,10 @@ public class DefaultJobManagerBBTest {
         verifyNoInteractions(scheduler);
         verifyNoInteractions(beanFactory);
     }
+
+    // TF8 - Characterization
+    // Input: task attivo, startAt futuro, executor="", dryRun=false, jobData vuota.
+    // Osservato in C0: schedulazione consentita con executor vuoto nel contesto.
 
     @Test
     public void executeWithEmptyExecutorCurrentlyDelegatesToScheduler() {
@@ -496,6 +534,10 @@ public class DefaultJobManagerBBTest {
         verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
 
+    // TF9 - O7
+    // Input: task attivo, startAt futuro, executor valorizzato, dryRun=false, jobData=null.
+    // Oracolo iniziale: rifiuto controllato o gestione protetta dell'input.
+
     @Ignore("Oracolo iniziale non soddisfatto: jobData null causa NullPointerException invece di essere rifiutato o gestito esplicitamente")
     @Test
     public void executeShouldHandleNullJobData() {
@@ -531,6 +573,10 @@ public class DefaultJobManagerBBTest {
         verify(taskJob).setContext(any());
         verify(scheduler).schedule(taskJob, startAt.toInstant());
     }
+
+    // TF9 - Characterization
+    // Input: task attivo, startAt futuro, executor valorizzato, dryRun=false, jobData=null.
+    // Osservato in C0: NullPointerException e nessuna schedulazione.
 
     @Test
     public void executeWithNullJobDataCurrentlyThrowsNullPointerException() {

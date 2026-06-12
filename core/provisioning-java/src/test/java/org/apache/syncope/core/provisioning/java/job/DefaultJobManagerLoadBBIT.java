@@ -119,6 +119,9 @@ public class DefaultJobManagerLoadBBIT {
         when(securityProperties.getAdminUser()).thenReturn("admin");
     }
 
+    // D1/D2/D3 - L-O1 / Characterization
+    // Input: domain valorizzato, domain=null e domain=""; DAO configurati con liste vuote.
+    // Atteso/Osservato in C0: completamento dell'inizializzazione senza eccezioni inattese.
     @Test
     public void loadShouldCompleteInitializationForAcceptedDomainValues() {
         for (String domain : new String[] { "test-domain", null, "" }) {
@@ -129,6 +132,9 @@ public class DefaultJobManagerLoadBBIT {
             reset(taskDAO, reportDAO, applicationBeanFactory, securityProperties);
         }
     }
+    // D2 - L-O2
+    // Input: domain=null; DAO configurati con liste vuote.
+    // Oracolo iniziale: rifiuto dell'input tramite eccezione.
 
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica che domain null debba essere rifiutato")
     @Test
@@ -153,6 +159,9 @@ public class DefaultJobManagerLoadBBIT {
         }
     }
 
+    // D3 - L-O2
+    // Input: domain=""; DAO configurati con liste vuote.
+    // Oracolo iniziale: rifiuto dell'input tramite eccezione.
     @Ignore("Oracolo iniziale non confermato: la documentazione non specifica che domain vuoto debba essere rifiutato")
     @Test
     public void loadWithEmptyDomainShouldThrowExceptionAccordingToInitialOracle() {

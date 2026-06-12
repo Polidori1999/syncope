@@ -111,7 +111,9 @@ public class DefaultJobManagerWBTest {
                 securityProperties);
     }
 
-    // Test white-box aggiunto dopo JaCoCo.
+    // WB1 - JaCoCo
+    // Obiettivo: coprire il ramo execute(...) con task attivo e startAt=null.
+    // Atteso: creazione del contesto e registrazione del job, senza schedulazione a Instant.
     @Test
     public void executeShouldRegisterActiveTaskWhenStartAtIsNull() {
         SchedTask task = mock(SchedTask.class);

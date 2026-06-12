@@ -123,6 +123,9 @@ public class DefaultJobManagerLoadWBIT {
                 securityProperties);
     }
 
+    // WB2 - JaCoCo
+    // Obiettivo: coprire il ciclo di load(...) relativo ai task schedulati restituiti dal DAO.
+    // Atteso: creazione del TaskJob, impostazione del contesto e schedulazione tramite CronTrigger.
     @Test
     public void loadShouldScheduleTaskReturnedByTaskDAOWithCronExpression() {
         String domain = "test-domain";
@@ -162,6 +165,9 @@ public class DefaultJobManagerLoadWBIT {
         verify(scheduler).schedule(eq(taskJob), any(CronTrigger.class));
     }
 
+    // WB3 - JaCoCo
+    // Obiettivo: coprire il ciclo di load(...) relativo ai report restituiti dal DAO.
+    // Atteso: creazione del ReportJob e schedulazione tramite CronTrigger.
     @Test
     public void loadShouldScheduleReportReturnedByReportDAOWithCronExpression() {
         String domain = "test-domain";
@@ -197,6 +203,9 @@ public class DefaultJobManagerLoadWBIT {
         verify(scheduler).schedule(eq(reportJob), any(CronTrigger.class));
     }
 
+    // WB4 - JaCoCo
+    // Obiettivo: coprire il ramo master domain con cron expression del NotificationJob assente.
+    // Atteso: nessun NotificationJob creato; SystemLoadReporterJob creato e schedulato.
     @Test
     public void loadShouldEnterMasterDomainBranchWithBlankNotificationCronExpression() {
         String domain = SyncopeConstants.MASTER_DOMAIN;
@@ -230,6 +239,9 @@ public class DefaultJobManagerLoadWBIT {
         verify(scheduler, atLeastOnce()).schedule(eq(systemLoadReporterJob), any(CronTrigger.class));
     }
 
+    // WB5 - JaCoCo
+    // Obiettivo: coprire il ramo master domain con cron expression del NotificationJob configurata.
+    // Atteso: NotificationJob e SystemLoadReporterJob creati, configurati e schedulati.
     @Test
     public void loadShouldScheduleNotificationJobWhenMasterDomainCronExpressionIsConfigured() {
         String domain = SyncopeConstants.MASTER_DOMAIN;
